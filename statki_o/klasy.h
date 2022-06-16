@@ -6,6 +6,7 @@ class pole {
 public:
 	pole();
 	pole(int w, int wiersz, int kolumna);
+	~pole() {};
 };
 class gracz
 {
@@ -14,7 +15,9 @@ class plansza {
 	int board[10][10]{};
 public:
 	friend void wypisz(plansza pl);
-	friend void ustaw_statki(plansza p1, int rodzaj);
+	friend void ustaw_statki(plansza &p1, int rodzaj);
+	friend void brzegi(int x, int y, plansza &p, int l);
+	friend void zeruj(plansza &p);
 	plansza();
 };
 class statek {
@@ -28,5 +31,7 @@ public:
 	statek(int r, pole a, pole b, pole c, pole d);
 
 };
-void ustaw_statki(plansza p1, int rodzaj);
+void ustaw_statki(plansza &p1, int rodzaj);
 void wypisz(plansza pl);
+void brzegi(int x, int y, plansza &p, int l);
+void zeruj(plansza &p);

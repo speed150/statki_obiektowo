@@ -5,9 +5,7 @@
 using namespace std;
 int main() {
 	plansza a;
+	ustaw_statki(a, 1);
 	wypisz(a);
-
-
-
 
 }
