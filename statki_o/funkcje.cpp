@@ -2,7 +2,6 @@
 #include <iostream>
 #include <random>
 #include <ctime>
-#include <Windows.h>
 using namespace std;
 void brzegi(int x, int y, plansza& p, int l) {
 	if (p.board[x][y] <= 0) return;
@@ -64,7 +63,7 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 								p1.board[wiersz][kolumna] = dlugosc;
 								brzegi(wiersz, kolumna, p1, 3);
 								dust = 1;
-							}
+							}	
 						}
 						if (p1.board[wiersz][kolumna] == 0) {
 							switch (kierunek)
@@ -84,7 +83,7 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 										}
 										dobre_pole = 1;
 										dust = 1;
-										brzegi(wiersz, kolumna, p1, 0);
+										brzegi(wiersz, kolumna, p1, 4-dlugosc);
 									}
 									else {
 										p1.board[wiersz][kolumna] = 0;
@@ -109,7 +108,7 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 										}
 										dobre_pole = 1;
 										dust = 1;
-										brzegi(wiersz, kolumna, p1, 0);
+										brzegi(wiersz, kolumna, p1, 4-dlugosc);
 									}
 									else {
 										p1.board[wiersz][kolumna] = 0;
@@ -134,7 +133,7 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 										}
 										dobre_pole = 1;
 										dust = 1;
-										brzegi(wiersz, kolumna, p1, 0);
+										brzegi(wiersz, kolumna, p1, 4-dlugosc);
 									}
 									else {
 										p1.board[wiersz][kolumna] = 0;
@@ -159,7 +158,7 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 										}
 										dobre_pole = 1;
 										dust = 1;
-										brzegi(wiersz, kolumna, p1, 0);
+										brzegi(wiersz, kolumna, p1, 4-dlugosc);
 									}
 									else {
 										p1.board[wiersz][kolumna] = 0;
@@ -174,13 +173,176 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 							}
 						}
 					}
-					ilosc += 1;
+					
+					ilosc ++;
 				}
 			}
 		} while (ilosc != 10);
+		
 		zeruj(p1);
 	}
 	else {//przez gracza
+		char pozycja[3]{};
+		int kierunek{};
+		ilosc = 0;
+		bool dkier = 0;
+		int wiersz{}, kolumna{},dobre_pole{1};
+		do {
+			for (int dlugosc = 4; dlugosc > 0; dlugosc--) {
+				for (int pow = 5; pow > dlugosc; pow--) {//powtórzenie statku
+					dust = 0;
+					while (dust == 0) {
+						cin.clear();
+						cout << "ustaw " << dlugosc << ".masztowiec" << endl;
+						wypisz(p1);
+						cin >> pozycja;
+						if (pozycja[0] <= 'J' && pozycja[0] >= 'A') {
+							kolumna = pozycja[0] - 'A';
+						}
+						else {
+							kolumna = pozycja[0] - 'a';
+						}
+						wiersz= atoi(pozycja + 1) - 1;
+						dkier = 0;
+						cin.clear();
+						if ((wiersz <= 9 && wiersz >= 0) && (kolumna <= 9 && kolumna >= 0)) {
+							if (p1.board[wiersz][kolumna]==0) {
+								if (dlugosc == 1) {
+									p1.board[wiersz][kolumna] = dlugosc;
+									brzegi(wiersz, kolumna, p1, 3);
+									dust = 1;
+								}
+								else {
+									cin.clear();
+									cout << "wybierz kierunek 1lewo 2 góra 3 prawo 4 dol";
+									cin >> kierunek;
+									kierunek -= 1;
+									switch (kierunek)
+									{
+									default:
+										cout << "nie ma takiego kierunku";
+										break;
+									case 0:
+										if (kolumna - dlugosc + 1 >= 0) {
+											for (int st = 0; st < dlugosc; st++) {
+												if (p1.board[wiersz][kolumna - st] == 0) {
+													dobre_pole += 1;
+												}
+											}
+											if (dobre_pole == dlugosc + 1) {
+												for (int s = 0; s < dlugosc; s++) {
+													p1.board[wiersz][kolumna - s] = dlugosc;
+												}
+												dobre_pole = 1;
+												dust = 1;
+												brzegi(wiersz, kolumna, p1, 4 - dlugosc);
+											}
+											else {
+												p1.board[wiersz][kolumna] = 0;
+												dobre_pole = 1;
+												cout << "zly kierunek" << endl;
+											}
+										}
+										else
+										{
+											cout << "z³e pole"<<endl;
+											dobre_pole = 1;
+										}
+										break;
+									case 1:
+										if (wiersz - dlugosc + 1 >= 0) {
+											for (int st = 0; st < dlugosc; st++) {
+												if (p1.board[wiersz - st][kolumna] == 0) {
+													dobre_pole += 1;
+												}
+											}
+											if (dobre_pole == dlugosc + 1) {
+												for (int s = 0; s < dlugosc; s++) {
+													p1.board[wiersz - s][kolumna] = dlugosc;
+												}
+												dobre_pole = 1;
+												dust = 1;
+												brzegi(wiersz, kolumna, p1, 4 - dlugosc);
+											}
+											else {
+												p1.board[wiersz][kolumna] = 0;
+												dobre_pole = 1;
+												cout << "zly kierunek" << endl;
+											}
+										}
+										else
+										{
+											cout << "z³e pole" << endl;
+											dobre_pole = 1;
+										}
+										break;
+									case 2:
+										if (kolumna + dlugosc - 1 <= 9) {
+											for (int st = 0; st < dlugosc; st++) {
+												if (p1.board[wiersz][kolumna + st] == 0) {
+													dobre_pole += 1;
+												}
+											}
+											if (dobre_pole == dlugosc + 1) {
+												for (int s = 0; s < dlugosc; s++) {
+													p1.board[wiersz][kolumna + s] = dlugosc;
+												}
+												dobre_pole = 1;
+												dust = 1;
+												brzegi(wiersz, kolumna, p1, 4 - dlugosc);
+											}
+											else {
+												p1.board[wiersz][kolumna] = 0;
+												dobre_pole = 1;
+												cout << "zly kierunek" << endl;
+											}
+										}
+										else
+										{
+											cout << "z³e pole" << endl;
+											dobre_pole = 1;
+										}
+										break;
+									case 3:
+										if (kolumna + dlugosc - 1 >= 9) {
+											for (int st = 0; st < dlugosc; st++) {
+												if (p1.board[wiersz + st][kolumna] == 0) {
+													dobre_pole += 1;
+												}
+											}
+											if (dobre_pole == dlugosc + 1) {
+												for (int s = 0; s < dlugosc; s++) {
+													p1.board[wiersz + s][kolumna] = dlugosc;
+												}
+												dobre_pole = 1;
+												dust = 1;
+												brzegi(wiersz, kolumna, p1, 4 - dlugosc);
+											}
+											else {
+												p1.board[wiersz][kolumna] = 0;
+												dobre_pole = 1;
+												cout << "zly kierunek" << endl;
+											}
+										}
+										else
+										{
+											cout << "z³e pole" << endl;
+											dobre_pole = 1;
+										}
+										break;
+									}
+								}
+							}
+						}
+						else {
+							cout << "zle pole" << endl;
+						}
 
+					}
+					ilosc++;
+
+				}
+			}
+		} while (ilosc != 10);
 	}
 }

@@ -1,5 +1,4 @@
 #pragma once
-#include "funkcje.h"
 class pole {
 	int wartosc;//0-puste,1-1.mosztowiec,2-2.masztowiec...5-zatopiony
 	int x, y;//miejsce w planszy
@@ -18,6 +17,7 @@ public:
 	friend void ustaw_statki(plansza &p1, int rodzaj);
 	friend void brzegi(int x, int y, plansza &p, int l);
 	friend void zeruj(plansza &p);
+	friend void ai(plansza gracz,int poziom);
 	plansza();
 };
 class statek {
@@ -35,3 +35,4 @@ void ustaw_statki(plansza &p1, int rodzaj);
 void wypisz(plansza pl);
 void brzegi(int x, int y, plansza &p, int l);
 void zeruj(plansza &p);
+void ai(plansza gracz,int poziom);
