@@ -5,7 +5,11 @@
 using namespace std;
 int main() {
 	plansza a;
-	ustaw_statki(a, 1);
-	wypisz(a);
+	while (true)
+	{
 
+	ustaw_statki(a, 1);
+	}
+	//rysowanieMenu();
+	wypisz(a);
 }

@@ -1,4 +1,4 @@
-#include "klasy.h"
+Ôªø#include "klasy.h"
 #include <iostream>
 #include <random>
 #include <ctime>
@@ -53,6 +53,10 @@ void przypisyDoPlanysz() {
 	}
 }
 void rysowanie_planszy() {
+
+	planszaStatkiGracz1.setSize(sf::Vector2f(rozmiarPlanszy, rozmiarPlanszy));
+
+	planszaStatkiGracz1.setFillColor(sf::Color::Green);
 	trafienie1.setFillColor(sf::Color::Red);
 	trafienie2.setFillColor(sf::Color::Red);
 	window.draw(trafienie1);
@@ -164,9 +168,6 @@ void rysowanieMenu() {
 	{
 
 
-		planszaStatkiGracz1.setSize(sf::Vector2f(rozmiarPlanszy, rozmiarPlanszy));
-
-		planszaStatkiGracz1.setFillColor(sf::Color::Green);
 		sf::Event event;
 
 
@@ -175,11 +176,79 @@ void rysowanieMenu() {
 			if (event.type == sf::Event::Closed)
 				window.close();
 		}
+		bool menuGlowne{ true };
+		while (menuGlowne)
+		{
+			window.clear();
 
+			sf::Text menu1;
+			menu1.setCharacterSize(50);
+			menu1.setFillColor(sf::Color::White);
+			menu1.setOutlineThickness(5.f);
+			menu1.setOutlineColor(sf::Color::Black);
+			sf::Font font;
+			font.loadFromFile("Lato-Regular.ttf");
+			menu1.setFont(font);
 
-		window.display();
+			menu1.setLetterSpacing(1);
+			menu1.setPosition(sf::Vector2f(20, 0));
+			menu1.setString("statki:");
+			window.draw(menu1);
+			menu1.setString("1 gra z konputerem");
+			menu1.setPosition(sf::Vector2f(40, 60));
+			window.draw(menu1);
+			menu1.setString("2 gra z pszeciwnikiem");
+			menu1.setPosition(sf::Vector2f(40, 120));
+			window.draw(menu1);
+			menu1.setString("3 opusc");
+			menu1.setPosition(sf::Vector2f(40, 180));
+			window.draw(menu1);
+			window.display();
+			int PierwszeMenu{ 0 };
+			int MenuTrudnosci{ 0 };
+			int MenuUstawiania{ 0 };
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {
+				PierwszeMenu = 1;
+				MenuTrudnosci = 0;
+				while (PierwszeMenu == 1)
+				{
+					window.clear();
+					menu1.setPosition(sf::Vector2f(20, 0));
+					menu1.setString("wybierz poziom trudnosci");
+					window.draw(menu1);
+					menu1.setString("1. ≈Çatwy");
+					menu1.setPosition(sf::Vector2f(40, 60));
+					window.draw(menu1);
 
+					menu1.setString("2. sredni");
+					menu1.setPosition(sf::Vector2f(40, 120));
+
+					window.draw(menu1);
+					menu1.setString("3. trudny");
+					menu1.setPosition(sf::Vector2f(40, 180));
+
+					window.draw(menu1);
+					menu1.setString("4. menu");
+					menu1.setPosition(sf::Vector2f(40, 240));
+
+					window.draw(menu1);
+					window.display();
+					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num4)) {
+						PierwszeMenu = 0;
+					}
+
+				}
+			}
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
+			window.clear();
+			window.close();
+			menuGlowne = FALSE;
+		}
+	
+		
 	}
+	
 }
 void brzegi(int x, int y, plansza& p, int l) {
 	if (p.board[x][y] <= 0) return;
@@ -193,7 +262,7 @@ void brzegi(int x, int y, plansza& p, int l) {
 		}
 	}
 	l++;
-	if (l < 4) {//failsave przed nieskoÒczonπ rekurencjπ
+	if (l < 4) {//failsave przed niesko√±czon¬π rekurencj¬π
 		if (x > 0) brzegi(x - 1, y, p, l);
 		if (x < 9) brzegi(x + 1, y, p, l);
 		if (y > 0) brzegi(x, y - 1, p, l);
@@ -216,13 +285,15 @@ void wypisz(plansza pl) {
 		cout << endl;
 	}
 	cout << endl;
+
+
 }
 void ustaw_statki(plansza& p1, int rodzaj) {
 	int ilosc = 0;
 	bool dust = 0;//dobrze ustawiony statek
 	int wiersz, kolumna, kierunek;
 	int dobre_pole = 1;
-
+	rysowanieMenu();
 	if (rodzaj == 1) {// automatycznie
 		mt19937 generator(time(nullptr));
 		uniform_int_distribution<int> x(0, 9);//wiersz
@@ -230,7 +301,7 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 		uniform_int_distribution<int> k(0, 3);//kierunek
 		do {
 			for (int dlugosc = 4; dlugosc > 0; dlugosc--) {
-				for (int pow = 5; pow > dlugosc; pow--) {//powtÛrzenie statku
+				for (int pow = 5; pow > dlugosc; pow--) {//powt√≥rzenie statku
 					dust = 0;
 					while (dust == 0) {
 						wiersz = x(generator);
