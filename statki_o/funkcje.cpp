@@ -4,6 +4,7 @@
 #include <random>
 #include <ctime>
 #include <Windows.h>
+using namespace std;
 
 void brzegi(int x, int y, plansza& p, int l) {
 	if (p.board[x][y] <= 0) return;

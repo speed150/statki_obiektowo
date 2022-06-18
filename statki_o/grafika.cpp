@@ -4,7 +4,6 @@
 #include <random>
 #include <ctime>
 #include <Windows.h>
-using namespace std;
 sf::RenderWindow window(sf::VideoMode(1920, 1080, 32), "statki", sf::Style::Default);
 sf::CircleShape pudlo(14.f);
 sf::RectangleShape planszaStatkiGracz1;
@@ -161,6 +160,93 @@ void rysowanieStatkow(int tab[10][10], int tab1[10][10]) {
 
 			}
 		}
+	}
+
+}
+void rysowanieMenu() {
+	while (window.isOpen())
+	{
+
+
+		sf::Event event;
+
+
+		while (window.pollEvent(event))
+		{
+			if (event.type == sf::Event::Closed)
+				window.close();
+		}
+		bool menuGlowne{ true };
+		while (menuGlowne)
+		{
+			window.clear();
+
+			sf::Text menu1;
+			menu1.setCharacterSize(50);
+			menu1.setFillColor(sf::Color::White);
+			menu1.setOutlineThickness(5.f);
+			menu1.setOutlineColor(sf::Color::Black);
+			sf::Font font;
+			font.loadFromFile("Lato-Regular.ttf");
+			menu1.setFont(font);
+
+			menu1.setLetterSpacing(1);
+			menu1.setPosition(sf::Vector2f(20, 0));
+			menu1.setString("statki:");
+			window.draw(menu1);
+			menu1.setString("1 gra z konputerem");
+			menu1.setPosition(sf::Vector2f(40, 60));
+			window.draw(menu1);
+			menu1.setString("2 gra z pszeciwnikiem");
+			menu1.setPosition(sf::Vector2f(40, 120));
+			window.draw(menu1);
+			menu1.setString("3 opusc");
+			menu1.setPosition(sf::Vector2f(40, 180));
+			window.draw(menu1);
+			window.display();
+			int PierwszeMenu{ 0 };
+			int MenuTrudnosci{ 0 };
+			int MenuUstawiania{ 0 };
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {
+				PierwszeMenu = 1;
+				MenuTrudnosci = 0;
+				while (PierwszeMenu == 1)
+				{
+					window.clear();
+					menu1.setPosition(sf::Vector2f(20, 0));
+					menu1.setString("wybierz poziom trudnosci");
+					window.draw(menu1);
+					menu1.setString("1. ³atwy");
+					menu1.setPosition(sf::Vector2f(40, 60));
+					window.draw(menu1);
+
+					menu1.setString("2. sredni");
+					menu1.setPosition(sf::Vector2f(40, 120));
+
+					window.draw(menu1);
+					menu1.setString("3. trudny");
+					menu1.setPosition(sf::Vector2f(40, 180));
+
+					window.draw(menu1);
+					menu1.setString("4. menu");
+					menu1.setPosition(sf::Vector2f(40, 240));
+
+					window.draw(menu1);
+					window.display();
+					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num4)) {
+						PierwszeMenu = 0;
+					}
+
+				}
+			}
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
+			window.clear();
+			window.close();
+			menuGlowne = FALSE;
+		}
+
+
 	}
 
 }
