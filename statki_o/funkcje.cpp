@@ -1,4 +1,5 @@
-﻿#include "klasy.h"
+﻿#define NOMINMAX
+#include "klasy.h"
 #include "SFML/Graphics.hpp"
 #include <iostream>
 #include <random>
