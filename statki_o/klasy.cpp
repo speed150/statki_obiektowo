@@ -1,9 +1,9 @@
-#include "klasy.h"
+ #include "klasy.h"
 #include "funkcje.h"
 pole::pole() {
 	wartosc = 0;
-	x = 0;
-	y = 0;
+	x = 10;
+	y = 10;
 };
 pole::pole(int w, int wiersz, int kolumna) {
 	wartosc = w;
