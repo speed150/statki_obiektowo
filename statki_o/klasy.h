@@ -36,3 +36,7 @@ void wypisz(plansza pl);
 void brzegi(int x, int y, plansza &p, int l);
 void zeruj(plansza &p);
 void ai(plansza gracz,int poziom);
+void rysowanieMenu();
+void rysowanieStatkow(int tab[10][10], int tab1[10][10]);
+void rysowanie_planszy();
+void przypisyDoPlanysz();
