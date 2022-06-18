@@ -33,6 +33,13 @@ void zeruj(plansza& p) {
 		}
 	}
 }
+void czysc(plansza& p) {
+	for (int i = 0; i < 10; i++) {
+		for (int j = 0; j < 10; j++) {
+				p.board[i][j] = 0;
+		}
+	}
+}
 void wypisz(plansza pl) {
 	for (int a = 0; a < 10; a++) {
 		for (int b = 0; b < 10; b++) {

@@ -7,7 +7,7 @@ int main() {
 	//plansza g1,g1w,g2,g2w;
 	plansza a;
 
-   rysowanieMenu();
+	przypisyDoPlanszy();
 	ustaw_statki(a, 1);
   }
   

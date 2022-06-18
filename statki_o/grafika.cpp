@@ -4,6 +4,8 @@
 #include <random>
 #include <ctime>
 #include <Windows.h>
+#include <string>
+using namespace std;
 sf::RenderWindow window(sf::VideoMode(1920, 1080, 32), "statki", sf::Style::Default);
 sf::CircleShape pudlo(14.f);
 sf::RectangleShape planszaStatkiGracz1;
@@ -16,7 +18,7 @@ sf::RectangleShape trafienie1(sf::Vector2f(50, 10));
 sf::RectangleShape trafienie2(sf::Vector2f(50, 10));
 
 sf::RectangleShape statekFragment;
-void przypisyDoPlanysz() {
+void przypisyDoPlanszy() {
 	int skok{ 0 };
 	for (int i = 1; i <= 10; i++) {
 		sf::Text liczby;
