@@ -9,13 +9,35 @@ sf::CircleShape pudlo(14.f);
 sf::RectangleShape planszaStatkiGracz1;
 int rozmiarPlanszy{ 700 };
 int Odstemp{ 100 };
-
-
 sf::RectangleShape line(sf::Vector2f(rozmiarPlanszy * 2 + Odstemp, 5));
 sf::RectangleShape trafienie1(sf::Vector2f(50, 10));
 sf::RectangleShape trafienie2(sf::Vector2f(50, 10));
-
 sf::RectangleShape statekFragment;
+void ustawStakiMenu(string nazwaGracza) {
+	window.clear();
+	sf::Text jakUstawicStatko;
+	jakUstawicStatko.setCharacterSize(40);
+	jakUstawicStatko.setFillColor(sf::Color::White);
+	jakUstawicStatko.setOutlineThickness(5.f);
+	jakUstawicStatko.setOutlineColor(sf::Color::Black);
+	sf::Font font;
+	font.loadFromFile("Lato-Regular.ttf");
+	jakUstawicStatko.setFont(font);
+	jakUstawicStatko.setLetterSpacing(1);
+	jakUstawicStatko.setPosition(sf::Vector2f(20, 0));
+	jakUstawicStatko.setString(nazwaGracza);
+	window.draw(jakUstawicStatko);
+	jakUstawicStatko.setPosition(sf::Vector2f(40, 50));
+	jakUstawicStatko.setString("1. automatycznie");
+	window.draw(jakUstawicStatko);
+	jakUstawicStatko.setPosition(sf::Vector2f(40, 90));
+	jakUstawicStatko.setString("2. rencznie");
+	window.draw(jakUstawicStatko);
+	jakUstawicStatko.setPosition(sf::Vector2f(40, 140));
+	jakUstawicStatko.setString("3. wyjdz");
+	window.draw(jakUstawicStatko);
+	window.display();
+}
 void przypisyDoPlanysz() {
 	int skok{ 0 };
 	for (int i = 1; i <= 10; i++) {
@@ -166,11 +188,7 @@ void rysowanieStatkow(int tab[10][10], int tab1[10][10]) {
 void rysowanieMenu() {
 	while (window.isOpen())
 	{
-
-
 		sf::Event event;
-
-
 		while (window.pollEvent(event))
 		{
 			if (event.type == sf::Event::Closed)
@@ -180,7 +198,6 @@ void rysowanieMenu() {
 		while (menuGlowne)
 		{
 			window.clear();
-
 			sf::Text menu1;
 			menu1.setCharacterSize(50);
 			menu1.setFillColor(sf::Color::White);
@@ -189,7 +206,6 @@ void rysowanieMenu() {
 			sf::Font font;
 			font.loadFromFile("Lato-Regular.ttf");
 			menu1.setFont(font);
-
 			menu1.setLetterSpacing(1);
 			menu1.setPosition(sf::Vector2f(20, 0));
 			menu1.setString("statki:");
@@ -204,12 +220,14 @@ void rysowanieMenu() {
 			menu1.setPosition(sf::Vector2f(40, 180));
 			window.draw(menu1);
 			window.display();
+			int poziomTrudnosic{ 0 };
 			int PierwszeMenu{ 0 };
 			int MenuTrudnosci{ 0 };
 			int MenuUstawiania{ 0 };
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {
 				PierwszeMenu = 1;
 				MenuTrudnosci = 0;
+				int MenuStatkow{ 0 };
 				while (PierwszeMenu == 1)
 				{
 					window.clear();
@@ -219,36 +237,78 @@ void rysowanieMenu() {
 					menu1.setString("1. łatwy");
 					menu1.setPosition(sf::Vector2f(40, 60));
 					window.draw(menu1);
-
 					menu1.setString("2. sredni");
 					menu1.setPosition(sf::Vector2f(40, 120));
-
 					window.draw(menu1);
 					menu1.setString("3. trudny");
 					menu1.setPosition(sf::Vector2f(40, 180));
-
 					window.draw(menu1);
 					menu1.setString("4. menu");
 					menu1.setPosition(sf::Vector2f(40, 240));
-
 					window.draw(menu1);
 					window.display();
+					Sleep(300);
 					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num4)) {
 						PierwszeMenu = 0;
 					}
+					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {
+						MenuStatkow = 1;		
+						poziomTrudnosic = 1;
 
+						while (MenuStatkow == 1)
+						{
+							ustawStakiMenu("gracz ");
+							if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
+								MenuStatkow = 0;
+								Sleep(300);
+						}
+						}
+					}
+					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
+						MenuStatkow = 1;
+						poziomTrudnosic = 2;
+						while (MenuStatkow == 1)
+						{
+							ustawStakiMenu("gracz ");
+							if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
+								MenuStatkow = 0;
+								Sleep(300);
+							}
+						}
+					}
+					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
+						poziomTrudnosic = 3;
+						MenuStatkow = 1;
+						while (MenuStatkow == 1)
+						{
+							ustawStakiMenu("gracz ");
+							if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
+								MenuStatkow = 0;
+								Sleep(300);
+							}
+						}
+					}
 				}
 			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
+				PierwszeMenu = 2;
+				while (PierwszeMenu == 2)
+				{
+					ustawStakiMenu("gracz 1");
+					ustawStakiMenu("gracz 2");
+					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
+						PierwszeMenu = 0;
+						Sleep(300);
+					}
+				}
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
+				window.clear();
+				window.close();
+				menuGlowne = FALSE;
+			}
 		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
-			window.clear();
-			window.close();
-			menuGlowne = FALSE;
-		}
-	
-		
 	}
-	
 }
 void brzegi(int x, int y, plansza& p, int l) {
 	if (p.board[x][y] <= 0) return;
