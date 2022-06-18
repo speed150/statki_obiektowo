@@ -152,6 +152,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="funkcje.cpp" />
+    <ClCompile Include="gra.cpp" />
     <ClCompile Include="klasy.cpp" />
     <ClCompile Include="Źródło.cpp" />
   </ItemGroup>
