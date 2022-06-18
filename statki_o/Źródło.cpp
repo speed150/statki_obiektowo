@@ -8,7 +8,8 @@ int main() {
 	plansza a;
 	while (true)
 	{
-//rysowanieMenu();
-	ustaw_statki(a, 1);
-  }
+		//rysowanieMenu();
+		ustaw_statki(a, 1);
+	}
+}
   

@@ -1,7 +1,10 @@
-ï»¿#include "klasy.h"
+ï»¿#define NOMINMAX
+#include <SFML/Graphics.hpp>
+#include "klasy.h"
 #include <iostream>
 #include <random>
 #include <ctime>
+#include <Windows.h>
 using namespace std;
 sf::RenderWindow window(sf::VideoMode(1920, 1080, 32), "statki", sf::Style::Default);
 sf::CircleShape pudlo(14.f);
@@ -224,6 +227,9 @@ void rysowanieMenu() {
 			int MenuTrudnosci{ 0 };
 			int MenuUstawiania{ 0 };
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {
+				Sleep(100);
+				if (!sf::Keyboard::isKeyPressed(sf::Keyboard::Num1))
+				{
 				PierwszeMenu = 1;
 				MenuTrudnosci = 0;
 				int MenuStatkow{ 0 };
@@ -246,12 +252,12 @@ void rysowanieMenu() {
 					menu1.setPosition(sf::Vector2f(40, 240));
 					window.draw(menu1);
 					window.display();
-					Sleep(300);
+					Sleep(250);
 					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num4)) {
 						PierwszeMenu = 0;
 					}
 					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {
-						MenuStatkow = 1;		
+						MenuStatkow = 1;
 						poziomTrudnosic = 1;
 
 						while (MenuStatkow == 1)
@@ -259,8 +265,8 @@ void rysowanieMenu() {
 							ustawStakiMenu("gracz ");
 							if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
 								MenuStatkow = 0;
-								Sleep(300);
-						}
+								Sleep(250);
+							}
 						}
 					}
 					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
@@ -271,7 +277,7 @@ void rysowanieMenu() {
 							ustawStakiMenu("gracz ");
 							if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
 								MenuStatkow = 0;
-								Sleep(300);
+								Sleep(250);
 							}
 						}
 					}
@@ -283,28 +289,33 @@ void rysowanieMenu() {
 							ustawStakiMenu("gracz ");
 							if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
 								MenuStatkow = 0;
-								Sleep(300);
+								Sleep(250);
 							}
 						}
 					}
 				}
 			}
+		}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
-				PierwszeMenu = 2;
-				while (PierwszeMenu == 2)
-				{
-					ustawStakiMenu("gracz 1");
-					ustawStakiMenu("gracz 2");
-					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
-						PierwszeMenu = 0;
-						Sleep(300);
+				Sleep(100);
+				if (!sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
+					PierwszeMenu = 2;
+					while (PierwszeMenu == 2)
+					{
+						ustawStakiMenu("gracz 1");
+						ustawStakiMenu("gracz 2");
+						if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
+							PierwszeMenu = 0;
+							Sleep(250);
+						}
 					}
 				}
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
 				window.clear();
 				window.close();
-				menuGlowne = FALSE;
+				menuGlowne = 0;
+				break;
 			}
 		}
 	}
@@ -497,7 +508,7 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 		int wiersz{}, kolumna{},dobre_pole{1};
 		do {
 			for (int dlugosc = 4; dlugosc > 0; dlugosc--) {
-				for (int pow = 5; pow > dlugosc; pow--) {//powtórzenie statku
+				for (int pow = 5; pow > dlugosc; pow--) {//powtï¿½rzenie statku
 					dust = 0;
 					while (dust == 0) {
 						cin.clear();
@@ -522,7 +533,7 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 								}
 								else {
 									cin.clear();
-									cout << "wybierz kierunek 1lewo 2 góra 3 prawo 4 dol";
+									cout << "wybierz kierunek 1lewo 2 gï¿½ra 3 prawo 4 dol";
 									cin >> kierunek;
 									kierunek -= 1;
 									switch (kierunek)
@@ -553,7 +564,7 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 										}
 										else
 										{
-											cout << "z³e pole"<<endl;
+											cout << "zï¿½e pole"<<endl;
 											dobre_pole = 1;
 										}
 										break;
@@ -580,7 +591,7 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 										}
 										else
 										{
-											cout << "z³e pole" << endl;
+											cout << "zï¿½e pole" << endl;
 											dobre_pole = 1;
 										}
 										break;
@@ -607,7 +618,7 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 										}
 										else
 										{
-											cout << "z³e pole" << endl;
+											cout << "zï¿½e pole" << endl;
 											dobre_pole = 1;
 										}
 										break;
@@ -634,7 +645,7 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 										}
 										else
 										{
-											cout << "z³e pole" << endl;
+											cout << "zï¿½e pole" << endl;
 											dobre_pole = 1;
 										}
 										break;
