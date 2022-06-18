@@ -7,7 +7,7 @@ int trafienia,hitx,hity,tk;
 int statek;
 bool trafiony{ false };
 bool k0{ false }, k1{ false }, k2{ false }, k3{ false }, trafionyk{ false };
-plansza g1;
+plansza g1;//to widzi bot
 
 void ai(plansza gracz,int poziom) {
 	mt19937 generator(time(nullptr));

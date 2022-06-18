@@ -13,6 +13,7 @@ class gracz
 class plansza {
 	int board[10][10]{};
 public:
+	friend void rysowanieStatkow(plansza g1, plansza g2);
 	friend void wypisz(plansza pl);
 	friend void ustaw_statki(plansza &p1, int rodzaj);
 	friend void brzegi(int x, int y, plansza &p, int l);

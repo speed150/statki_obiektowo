@@ -1,3 +1,4 @@
+#define NOMINMAX
 #include "klasy.h"
 #include "SFML/Graphics.hpp"
 #include <iostream>
@@ -71,7 +72,7 @@ void rysowanie_planszy() {
 	}
 	for (int i = 0; i < 9; i++)
 	{
-		line.setPosition(sf::Vector2f(50, 5 + 87.5 + 30 + (rozmiarPlanszy / 10) * i));
+		line.setPosition(sf::Vector2f(50, 5 + 87.5 + 30 + (rozmiarPlanszy/10 ) * i));
 		window.draw(line);
 	}
 	sf::RectangleShape line(sf::Vector2f(rozmiarPlanszy, 5));
@@ -87,14 +88,14 @@ void rysowanie_planszy() {
 	}
 
 }
-void rysowanieStatkow(int tab[10][10], int tab1[10][10]) {
+void rysowanieStatkow(plansza g1, plansza g2) {
 	for (int i = 0; i < 10; i++) {
 		for (int j = 0; j < 10; j++)
 		{
-			if (tab[i][j] == 0)
+			if (g1.board[i][j] == 0)
 			{
 			}
-			else if (tab[i][j] == -1)
+			else if (g1.board[i][j] == -1)
 			{
 
 				pudlo.setPosition(sf::Vector2f((rozmiarPlanszy / 10) * j + 40, (rozmiarPlanszy / 10) * (i)+5));
@@ -104,7 +105,7 @@ void rysowanieStatkow(int tab[10][10], int tab1[10][10]) {
 				pudlo.setOutlineColor(sf::Color(250, 0, 0));
 				window.draw(pudlo);
 			}
-			else if (tab[i][j] == 5)
+			else if (g1.board[i][j] == 5)
 			{
 
 
@@ -122,10 +123,10 @@ void rysowanieStatkow(int tab[10][10], int tab1[10][10]) {
 	for (int i = 0; i < 10; i++) {
 		for (int j = 0; j < 10; j++)
 		{
-			if (tab1[i][j] == 0)
+			if (g2.board[i][j] == 0)
 			{
 			}
-			else if (tab1[i][j] == -1)
+			else if (g2.board[i][j] == -1)
 			{
 
 				pudlo.setPosition(sf::Vector2f((rozmiarPlanszy / 10) * (j)+60 + 12 + rozmiarPlanszy + Odstemp, 5 + (rozmiarPlanszy / 10) * (i)+70));
@@ -135,7 +136,7 @@ void rysowanieStatkow(int tab[10][10], int tab1[10][10]) {
 				pudlo.setOutlineColor(sf::Color(250, 0, 0));
 				window.draw(pudlo);
 			}
-			else if (tab[i][j] == 5)
+			else if (g2.board[i][j] == 5)
 			{
 				trafienie1.setPosition(sf::Vector2f((rozmiarPlanszy / 10) * (j)+60 + 12 + rozmiarPlanszy + Odstemp, (rozmiarPlanszy / 10) * (i)+70 + 5));
 				trafienie1.setFillColor(sf::Color::Red);
