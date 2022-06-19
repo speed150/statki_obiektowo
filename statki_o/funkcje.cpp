@@ -15,6 +15,42 @@ sf::RectangleShape line(sf::Vector2f(rozmiarPlanszy * 2 + Odstemp, 5));
 sf::RectangleShape trafienie1(sf::Vector2f(50, 10));
 sf::RectangleShape trafienie2(sf::Vector2f(50, 10));
 sf::RectangleShape statekFragment;
+void wyburPola(string nazwaGracza, bool czyUstawiane) {
+	window.clear();
+
+	sf::String playerInput;
+	sf::Text playerText;
+	sf::Event event{};
+	sf::Font font;
+	font.loadFromFile("Lato-Regular.ttf");
+	playerText.setPosition(sf::Vector2f(20, 0));
+
+	playerText.setFont(font);
+	playerText.setCharacterSize(50);
+	playerText.setFillColor(sf::Color::White);
+	playerText.setOutlineThickness(5.f);
+	playerText.setOutlineColor(sf::Color::Black);
+	while (!sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
+			window.clear();
+		while (window.pollEvent(event))
+		{
+
+			if (event.type == sf::Event::TextEntered)
+			{
+				if (event.text.unicode < 128)
+				{
+					playerInput += event.text.unicode;
+					playerText.setString(playerInput);
+					window.display();
+				}
+			}
+			window.draw(playerText);
+		}
+		playerInput = "";
+	}
+	
+
+}
 void ustawStakiMenu(string nazwaGracza) {
 	window.clear();
 	sf::Text jakUstawicStatko;
@@ -39,6 +75,21 @@ void ustawStakiMenu(string nazwaGracza) {
 	jakUstawicStatko.setString("3. wyjdz");
 	window.draw(jakUstawicStatko);
 	window.display();
+	
+	int sposubUstawienia{ 0 };
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
+		Sleep(100);
+		sposubUstawienia = 2;
+		window.clear();
+		while (sposubUstawienia==2)
+		{
+			window.clear();
+
+		wyburPola(nazwaGracza, true);
+		//window.display();
+
+		}
+	}
 }
 void przypisyDoPlanysz() {
 	int skok{ 0 };
@@ -62,7 +113,6 @@ void przypisyDoPlanysz() {
 		litery.setFillColor(sf::Color::White);
 		litery.setOutlineThickness(5.f);
 		litery.setOutlineColor(sf::Color::Black);
-
 		sf::Font font;
 		font.loadFromFile("Lato-Regular.ttf");
 		litery.setFont(font);
@@ -70,16 +120,13 @@ void przypisyDoPlanysz() {
 		litery.setLetterSpacing(5.5);
 		litery.setPosition(sf::Vector2f(skok + 50, 0));
 		window.draw(litery);
-
 		if (i == 9) {
 			skok = 104 + rozmiarPlanszy;
 		}
 	}
 }
 void rysowanie_planszy() {
-
 	planszaStatkiGracz1.setSize(sf::Vector2f(rozmiarPlanszy, rozmiarPlanszy));
-
 	planszaStatkiGracz1.setFillColor(sf::Color::Green);
 	trafienie1.setFillColor(sf::Color::Red);
 	trafienie2.setFillColor(sf::Color::Red);
@@ -118,26 +165,20 @@ void rysowanieStatkow(int tab[10][10], int tab1[10][10]) {
 			}
 			else if (tab[i][j] == -1)
 			{
-
 				pudlo.setPosition(sf::Vector2f((rozmiarPlanszy / 10) * j + 40, (rozmiarPlanszy / 10) * (i)+5));
 				pudlo.setFillColor(sf::Color::Black);
-
 				pudlo.setOutlineThickness(5.f);
 				pudlo.setOutlineColor(sf::Color(250, 0, 0));
 				window.draw(pudlo);
 			}
 			else if (tab[i][j] == 5)
 			{
-
-
 			}
 			else {
 				statekFragment.setPosition(sf::Vector2f((rozmiarPlanszy / 10) * j + 60, (rozmiarPlanszy / 10) * i + 65));
 				statekFragment.setFillColor(sf::Color::White);
 				statekFragment.setSize(sf::Vector2f(50, 50));
 				window.draw(statekFragment);
-
-
 			}
 		}
 	}
@@ -149,10 +190,8 @@ void rysowanieStatkow(int tab[10][10], int tab1[10][10]) {
 			}
 			else if (tab1[i][j] == -1)
 			{
-
 				pudlo.setPosition(sf::Vector2f((rozmiarPlanszy / 10) * (j)+60 + 12 + rozmiarPlanszy + Odstemp, 5 + (rozmiarPlanszy / 10) * (i)+70));
 				pudlo.setFillColor(sf::Color::Black);
-
 				pudlo.setOutlineThickness(5.f);
 				pudlo.setOutlineColor(sf::Color(250, 0, 0));
 				window.draw(pudlo);
@@ -168,11 +207,9 @@ void rysowanieStatkow(int tab[10][10], int tab1[10][10]) {
 			}
 			else {
 				statekFragment.setPosition(sf::Vector2f((rozmiarPlanszy / 10) * j + rozmiarPlanszy + Odstemp + 60, (rozmiarPlanszy / 10) * i + 65));
-
 				statekFragment.setFillColor(sf::Color::White);
 				statekFragment.setSize(sf::Vector2f(50, 50));
 				window.draw(statekFragment);
-
 				trafienie1.setPosition(sf::Vector2f((rozmiarPlanszy / 10) * j + 105 + rozmiarPlanszy + Odstemp, (rozmiarPlanszy / 10) * (i)+75));
 				trafienie1.setFillColor(sf::Color::Red);
 				trafienie1.setRotation(135);
@@ -181,7 +218,6 @@ void rysowanieStatkow(int tab[10][10], int tab1[10][10]) {
 				trafienie2.setRotation(45);
 				window.draw(trafienie1);
 				window.draw(trafienie2);
-
 			}
 		}
 	}
@@ -259,7 +295,6 @@ void rysowanieMenu() {
 					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {
 						MenuStatkow = 1;
 						poziomTrudnosic = 1;
-
 						while (MenuStatkow == 1)
 						{
 							ustawStakiMenu("gracz ");
@@ -359,11 +394,12 @@ void wypisz(plansza pl) {
 
 }
 void ustaw_statki(plansza& p1, int rodzaj) {
+	//rysowanieMenu();
+
 	int ilosc = 0;
 	bool dust = 0;//dobrze ustawiony statek
 	int wiersz, kolumna, kierunek;
 	int dobre_pole = 1;
-	rysowanieMenu();
 	if (rodzaj == 1) {// automatycznie
 		mt19937 generator(time(nullptr));
 		uniform_int_distribution<int> x(0, 9);//wiersz
