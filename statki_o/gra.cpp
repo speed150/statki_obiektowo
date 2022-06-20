@@ -7,7 +7,7 @@ int trafienia,hitx,hity,tk;
 int statek;
 bool trafiony{ false };
 bool k0{ false }, k1{ false }, k2{ false }, k3{ false }, trafionyk{ false };
-plansza g1;
+plansza g1;//to widzi bot
 
 void ai(plansza gracz,int poziom) {
 	mt19937 generator(time(nullptr));
@@ -25,7 +25,7 @@ void ai(plansza gracz,int poziom) {
 		while (hit == true) {
 			wiersz = x(generator);
 			kolumna = y(generator);
-			//przerwanie szukania w pobli¿u
+			//przerwanie szukania w pobliç°‘
 			if (statek == gracz.board[hitx][hity]) {
 				if (poziom == 3) {
 					brzegi(hitx, hity, g1, 4-statek);
@@ -47,8 +47,8 @@ void ai(plansza gracz,int poziom) {
 					kierunek = tk;
 				}
 				if (kierunek == 0 && (k0 == false || statek > 1)) {//lewo 
-					if (hity - 1 > -1 && g1.board[hitx][hity - 1] == 0) {//zostaje w tablicy i nie by³o powtórek
-						if (gracz.board[hitx][hity - 1] == 0) {//pud³o
+					if (hity - 1 > -1 && g1.board[hitx][hity - 1] == 0) {//zostaje w tablicy i nie byé€™ powtéŽek
+						if (gracz.board[hitx][hity - 1] == 0) {//pudé€™
 							g1.board[hitx][hity - 1] = -1;
 							k0 = true;
 							hit = false;
@@ -60,26 +60,26 @@ void ai(plansza gracz,int poziom) {
 							tk = kierunek;
 							statek++;
 							trafienia++;
-							hity -= 1;//przesuniêcie
+							hity -= 1;//przesuniç’šie
 							
 						}
 					}
-					else if (((g1.board[hitx][hity - 1] == -1 && hity - 1 > -1) || hity - 1 == -1) && trafionyk == true) {//œciana / znana wartoœæ(pud³o)
+					else if (((g1.board[hitx][hity - 1] == -1 && hity - 1 > -1) || hity - 1 == -1) && trafionyk == true) {//î¯Šiana / znana wartoî°«(pudé€™)
 						k0 = true;
 						kierunek = 2;
 						tk = kierunek;
 						
 					}
-					else if (trafionyk == true && g1.board[hitx][hity - 1] == g1.board[hitx][hity]) {//znana wartoœæ(statek
+					else if (trafionyk == true && g1.board[hitx][hity - 1] == g1.board[hitx][hity]) {//znana wartoî°«(statek
 						if (hity > 0) {
 							hity -= 1;
 						}
 						tk = kierunek;
 					}
 				}
-				else if (kierunek == 1 && (k1 == false || statek > 1)) {//góra 
+				else if (kierunek == 1 && (k1 == false || statek > 1)) {//géŽa 
 					if (hitx - 1 > -1 && g1.board[hitx - 1][hity] == 0) {
-						if (gracz.board[hitx - 1][hity] == 0) {//pud³o
+						if (gracz.board[hitx - 1][hity] == 0) {//pudé€™
 							g1.board[hitx - 1][hity] = -1;
 							k1 = true;
 							hit = false;
@@ -95,13 +95,13 @@ void ai(plansza gracz,int poziom) {
 							
 						}
 					}
-					else if (((g1.board[hitx - 1][hity] == -1 && hity - 1 > -1) || hitx - 1 == -1) && trafionyk == true) {//œciana / znana wartoœæ(pud³o)
+					else if (((g1.board[hitx - 1][hity] == -1 && hity - 1 > -1) || hitx - 1 == -1) && trafionyk == true) {//î¯Šiana / znana wartoî°«(pudé€™)
 						k0 = true;
 						kierunek = 3;
 						tk = kierunek;
 						
 					}
-					else if (trafionyk == true && g1.board[hitx - 1][hity] == g1.board[hitx][hity]) {//znana wartoœæ(statek
+					else if (trafionyk == true && g1.board[hitx - 1][hity] == g1.board[hitx][hity]) {//znana wartoî°«(statek
 						if (hitx > 0) {
 							hitx -= 1;
 						}
@@ -111,7 +111,7 @@ void ai(plansza gracz,int poziom) {
 				}
 				else if (kierunek == 2 && (k2 == false || statek > 1)) {//prawo 
 					if (hity + 1 < 10 && g1.board[hitx][hity + 1] == 0) {
-						if (gracz.board[hitx][hity + 1] == 0) {//pud³o
+						if (gracz.board[hitx][hity + 1] == 0) {//pudé€™
 							g1.board[hitx][hity + 1] = -1;
 							k2 = true;
 							hit = false;
@@ -123,17 +123,17 @@ void ai(plansza gracz,int poziom) {
 							tk = kierunek;
 							statek++;
 							trafienia++;
-							hity += 1;//przesuniêcie
+							hity += 1;//przesuniç’šie
 							
 						}
 					}
-					else if (((g1.board[hitx][hity + 1] == -1 && hity + 1 < 10) || hity + 1 == 10) && trafionyk == true) {//œciana / znana wartoœæ(pud³o)
+					else if (((g1.board[hitx][hity + 1] == -1 && hity + 1 < 10) || hity + 1 == 10) && trafionyk == true) {//î¯Šiana / znana wartoî°«(pudé€™)
 						k2 = true;
 						kierunek = 0;
 						tk = kierunek;
 						
 					}
-					else if (trafionyk == true && g1.board[hitx][hity + 1] ==g1.board[hitx][hity]) {//znana wartoœæ(statek
+					else if (trafionyk == true && g1.board[hitx][hity + 1] ==g1.board[hitx][hity]) {//znana wartoî°«(statek
 						if (hity < 10) {
 							hity += 1;
 						}
@@ -141,9 +141,9 @@ void ai(plansza gracz,int poziom) {
 						
 					}
 				}
-				else if (kierunek == 3 && (k3 == false || statek > 1)) {//dó³ 
+				else if (kierunek == 3 && (k3 == false || statek > 1)) {//dé¦§ 
 					if (hitx + 1 < 10 && g1.board[hitx + 1][hity] == 0) {
-						if (gracz.board[hitx + 1][hity] == 0) {//pud³o
+						if (gracz.board[hitx + 1][hity] == 0) {//pudé€™
 							g1.board[hitx + 1][hity] = -1;
 							k3 = true;
 							hit = false;
@@ -159,13 +159,13 @@ void ai(plansza gracz,int poziom) {
 							
 						}
 					}
-					else if (((g1.board[hitx + 1][hity] == -1 && hity + 1 < 10) || hitx + 1 == 10) && trafionyk == true) {//œciana / znana wartoœæ(pud³o)
+					else if (((g1.board[hitx + 1][hity] == -1 && hity + 1 < 10) || hitx + 1 == 10) && trafionyk == true) {//î¯Šiana / znana wartoî°«(pudé€™)
 						k3 = true;
 						kierunek = 1;
 						tk = kierunek;
 						
 					}
-					else if (trafionyk == true && g1.board[hitx + 1][hity] == g1.board[hitx][hity]) {//znana wartoœæ(statek
+					else if (trafionyk == true && g1.board[hitx + 1][hity] == g1.board[hitx][hity]) {//znana wartoî°«(statek
 						if (hitx < 10) {
 							hitx += 1;
 						}
@@ -174,16 +174,16 @@ void ai(plansza gracz,int poziom) {
 					}
 				}
 			}
-			else if (g1.board[wiersz][kolumna] == 0 && hit == true) {//nie powta¿alne komórki i nie trafiono statku
+			else if (g1.board[wiersz][kolumna] == 0 && hit == true) {//nie powtaç˜¸lne koméŽki i nie trafiono statku
 				{
 					if (gracz.board[wiersz][kolumna] != 0) {//trafienie w statek
-						//³atwy bot
+						//è±‰twy bot
 						if (poziom == 1) {
 							g1.board[wiersz][kolumna] = gracz.board[wiersz][kolumna];
 							trafienia++;
 							
 						}
-						//œredni bot i trudny 
+						//î¯™edni bot i trudny 
 						else {
 							g1.board[wiersz][kolumna] = gracz.board[wiersz][kolumna];
 							trafienia++;

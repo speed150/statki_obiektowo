@@ -1,5 +1,5 @@
  #include "klasy.h"
-#include "funkcje.h"
+
 pole::pole() {
 	wartosc = 0;
 	x = 10;
