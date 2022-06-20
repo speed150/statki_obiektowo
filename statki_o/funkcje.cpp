@@ -56,7 +56,7 @@ void wypisz(plansza pl) {
 
 }
 void ustaw_statki(plansza& p1, int rodzaj) {
-	//rysowanieMenu();
+	rysowanieMenu();
 
 	int ilosc = 0;
 	bool dust = 0;//dobrze ustawiony statek
