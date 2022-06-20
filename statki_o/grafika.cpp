@@ -351,6 +351,7 @@ void rysowanieMenu() {
 				window.clear();
 				window.close();
 				menuGlowne = 0;
+				
 				break;
 			}
 		}
