@@ -70,10 +70,10 @@ void ustawStakiMenu(string nazwaGracza) {
 	jakUstawicStatko.setString("1. automatycznie");
 	window.draw(jakUstawicStatko);
 	jakUstawicStatko.setPosition(sf::Vector2f(40, 90));
-	jakUstawicStatko.setString("2. rencznie");
+	jakUstawicStatko.setString("2. rêcznie");
 	window.draw(jakUstawicStatko);
 	jakUstawicStatko.setPosition(sf::Vector2f(40, 140));
-	jakUstawicStatko.setString("3. wyjdz");
+	jakUstawicStatko.setString("3. wyjdŸ");
 	window.draw(jakUstawicStatko);
 	window.display();
 
@@ -249,13 +249,13 @@ void rysowanieMenu() {
 			menu1.setPosition(sf::Vector2f(20, 0));
 			menu1.setString("statki:");
 			window.draw(menu1);
-			menu1.setString("1 gra z konputerem");
+			menu1.setString("1 gra z komputerem");
 			menu1.setPosition(sf::Vector2f(40, 60));
 			window.draw(menu1);
-			menu1.setString("2 gra z pszeciwnikiem");
+			menu1.setString("2 gra z przeciwnikiem");
 			menu1.setPosition(sf::Vector2f(40, 120));
 			window.draw(menu1);
-			menu1.setString("3 opusc");
+			menu1.setString("3 opuœæ");
 			menu1.setPosition(sf::Vector2f(40, 180));
 			window.draw(menu1);
 			window.display();
@@ -279,7 +279,7 @@ void rysowanieMenu() {
 						menu1.setString("1. ³atwy");
 						menu1.setPosition(sf::Vector2f(40, 60));
 						window.draw(menu1);
-						menu1.setString("2. sredni");
+						menu1.setString("2. œredni");
 						menu1.setPosition(sf::Vector2f(40, 120));
 						window.draw(menu1);
 						menu1.setString("3. trudny");
