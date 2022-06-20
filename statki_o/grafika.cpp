@@ -31,6 +31,13 @@ void wyborPola(string nazwaGracza, bool czyUstawiane) {
 	playerText.setFillColor(sf::Color::White);
 	playerText.setOutlineThickness(5.f);
 	playerText.setOutlineColor(sf::Color::Black);
+	playerText.setFont(font);
+	playerText.setCharacterSize(50);
+	playerText.setFillColor(sf::Color::White);
+	playerText.setOutlineThickness(5.f);
+	playerText.setOutlineColor(sf::Color::Black);
+	playerInput = "";
+
 	while (!sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
 		window.clear();
 		while (window.pollEvent(event))
@@ -40,18 +47,41 @@ void wyborPola(string nazwaGracza, bool czyUstawiane) {
 			{
 				if (event.text.unicode < 128)
 				{
-					playerInput += event.text.unicode;
-					playerText.setString(playerInput);
+
+					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Backspace)) {
+						if (playerInput.getSize() > 0) {
+							playerInput.erase(playerInput.getSize() - 1, 2);
+
+							playerText.setString(playerInput);
+							window.display();
+
+						}
+						window.draw(playerText);
+
+						window.display();
+
+					}
+					else {
+						playerInput += event.text.unicode;
+						playerText.setString(playerInput);
+					}
+
+
+					window.draw(playerText);
 					window.display();
 				}
 			}
-			window.draw(playerText);
+
+
 		}
-		playerInput = "";
 	}
+	playerInput = "";
 
 
 }
+
+
+
 void ustawStakiMenu(string nazwaGracza) {
 	window.clear();
 	sf::Text jakUstawicStatko;
