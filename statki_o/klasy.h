@@ -1,4 +1,6 @@
 #pragma once
+#include<string>
+using namespace std;
 class pole {
 	int wartosc;//0-puste,1-1.mosztowiec,2-2.masztowiec...5-zatopiony
 	int x, y;//miejsce w planszy
@@ -40,6 +42,8 @@ void zeruj(plansza &p);
 void czysc(plansza& p);
 void ai(plansza gracz,int poziom);
 void rysowanieMenu();
-void rysowanieStatkow(int tab[10][10], int tab1[10][10]);
+void rysowanieStatkow(plansza p1, plansza p2);
 void rysowanie_planszy();
 void przypisyDoPlanszy();
+void ustawStakiMenu(string nazwaGracza);
+void wyborPola(string nazwaGracza, bool czyUstawiane);
