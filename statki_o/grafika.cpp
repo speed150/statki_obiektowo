@@ -16,16 +16,14 @@ sf::RectangleShape line(sf::Vector2f(rozmiarPlanszy * 2 + Odstemp, 5));
 sf::RectangleShape trafienie1(sf::Vector2f(50, 10));
 sf::RectangleShape trafienie2(sf::Vector2f(50, 10));
 sf::RectangleShape statekFragment;
-void wyborPola(string nazwaGracza, bool czyUstawiane) {
+std::string wyborPola(string nazwaGracza, bool czyUstawiane) {
 	window.clear();
-
 	sf::String playerInput;
 	sf::Text playerText;
 	sf::Event event{};
 	sf::Font font;
 	font.loadFromFile("Lato-Regular.ttf");
 	playerText.setPosition(sf::Vector2f(20, 0));
-
 	playerText.setFont(font);
 	playerText.setCharacterSize(50);
 	playerText.setFillColor(sf::Color::White);
@@ -75,15 +73,13 @@ void wyborPola(string nazwaGracza, bool czyUstawiane) {
 
 		}
 	}
+	return playerInput;
 	playerInput = "";
 
-
 }
-
-
-
-void ustawStakiMenu(string nazwaGracza) {
+void ustawStakiMenu(string nazwaGracza, plansza& p1) {
 	window.clear();
+	
 	sf::Text jakUstawicStatko;
 	jakUstawicStatko.setCharacterSize(40);
 	jakUstawicStatko.setFillColor(sf::Color::White);
@@ -106,7 +102,6 @@ void ustawStakiMenu(string nazwaGracza) {
 	jakUstawicStatko.setString("3. wyjdü");
 	window.draw(jakUstawicStatko);
 	window.display();
-
 	int sposubUstawienia{ 0 };
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
 		Sleep(100);
@@ -115,8 +110,8 @@ void ustawStakiMenu(string nazwaGracza) {
 		while (sposubUstawienia == 2)
 		{
 			window.clear();
-
-			wyborPola(nazwaGracza, true);
+			ustaw_statki(p1, sposubUstawienia);
+			//std::string wyborPola(nazwaGracza, true);
 			//window.display();
 
 		}
@@ -266,6 +261,7 @@ void rysowanieMenu() {
 		bool menuGlowne{ true };
 		while (menuGlowne)
 		{
+			
 			window.clear();
 			sf::Text menu1;
 			menu1.setCharacterSize(50);
@@ -328,7 +324,8 @@ void rysowanieMenu() {
 							poziomTrudnosic = 1;
 							while (MenuStatkow == 1)
 							{
-								ustawStakiMenu("gracz ");
+								plansza p1;
+								ustawStakiMenu("gracz ",p1);
 								if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
 									MenuStatkow = 0;
 									Sleep(250);
@@ -338,9 +335,11 @@ void rysowanieMenu() {
 						if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
 							MenuStatkow = 1;
 							poziomTrudnosic = 2;
+								plansza pl;
 							while (MenuStatkow == 1)
-							{
-								ustawStakiMenu("gracz ");
+						
+							
+								ustawStakiMenu("gracz ",pl);
 								if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
 									MenuStatkow = 0;
 									Sleep(250);
@@ -352,7 +351,9 @@ void rysowanieMenu() {
 							MenuStatkow = 1;
 							while (MenuStatkow == 1)
 							{
-								ustawStakiMenu("gracz ");
+								plansza p1;
+								
+								ustawStakiMenu("gracz ",p1);
 								if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
 									MenuStatkow = 0;
 									Sleep(250);
@@ -361,15 +362,17 @@ void rysowanieMenu() {
 						}
 					}
 				}
-			}
+			
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
 				Sleep(100);
 				if (!sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
 					PierwszeMenu = 2;
 					while (PierwszeMenu == 2)
 					{
-						ustawStakiMenu("gracz 1");
-						ustawStakiMenu("gracz 2");
+						plansza p1;
+						plansza p2;
+						ustawStakiMenu("gracz 1",p1);
+						ustawStakiMenu("gracz 2",p2);
 						if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
 							PierwszeMenu = 0;
 							Sleep(250);

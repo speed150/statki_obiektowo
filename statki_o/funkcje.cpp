@@ -7,6 +7,7 @@
 #include <random>
 #include <ctime>
 #include <Windows.h>
+#include <string>
 using namespace std;
 
 
@@ -56,7 +57,7 @@ void wypisz(plansza pl) {
 
 }
 void ustaw_statki(plansza& p1, int rodzaj) {
-	rysowanieMenu();
+	//rysowanieMenu();
 
 	int ilosc = 0;
 	bool dust = 0;//dobrze ustawiony statek
@@ -197,8 +198,8 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 		zeruj(p1);
 	}
 	else {//przez gracza
-\
-	char pozycja[3]{};
+
+	string pozycja{};
 	int kierunek{};
 	ilosc = 0;
 	bool dkier = 0;
@@ -211,14 +212,15 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 					cin.clear();
 					cout << "ustaw " << dlugosc << ".masztowiec" << endl;
 					wypisz(p1);
-					cin >> pozycja;
+					pozycja=wyborPola("gracz", true);
+					//cin >> pozycja;
 					if (pozycja[0] <= 'J' && pozycja[0] >= 'A') {
 						kolumna = pozycja[0] - 'A';
 					}
 					else {
 						kolumna = pozycja[0] - 'a';
 					}
-					wiersz = atoi(pozycja + 1) - 1;
+					wiersz = stoi(pozycja.substr(1,1)) - 1;
 					dkier = 0;
 					cin.clear();
 					if ((wiersz <= 9 && wiersz >= 0) && (kolumna <= 9 && kolumna >= 0)) {
