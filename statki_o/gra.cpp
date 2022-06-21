@@ -212,9 +212,48 @@ void ai(plansza &gracz,plansza &g1,int poziom) {
 	}
 	wypisz(g1);
 }
-void gra(plansza& p1, plansza& p2, plansza& p1w, plansza& p2w, gracz& g1, gracz& g2) {
-	while (g1.punkty != 20 || g2.punkty != 20) {
-
+void player(plansza& plan, plansza& planw, gracz& gra) {//plansza niewidoczna(sprawdzana),plansza widoczna,gracz
+	char pozycja[3]{};
+	bool hit{ 1 }, pp{ 0 };
+	int px{ 0 }, py{ 0 };
+	while (hit == 1) {
+		if (gra.punkty == 20) {
+			hit = 0;
+		}
+		else {
+			cin.clear();
+			cout << "wybierz pole";
+			cin >> pozycja;
+			if (pozycja[0] <= 'j' && pozycja[0] >= 'a') {
+				py = pozycja[0] - 'a';
+			}
+			else if (pozycja[0] <= 'J' && pozycja[0] >= 'A') {
+				py = pozycja[0] - 'A';
+			}
+			else {
+				cout << "nie ma takiego pola";
+			}
+			if (atoi(pozycja + 1) - 1 <= 9 && atoi(pozycja + 1) - 1 >= 0) {
+				px = atoi(pozycja + 1) - 1;
+			}
+			else {
+				cout << "nie ma takiego pola";
+			}
+			if (planw.board[px][py] == 0) {
+				if (plan.board[px][py] != 0) {
+					planw.board[px][py] = 5;
+					cout << "trafiono " << plan.board[px][py] << ".masztowiec" << endl;
+					gra.punkty++;
+				}
+				else {
+					planw.board[px][py] = -1;
+					cout << "pudło";
+					hit = 0;
+				}
+			}
+			else {
+				cout << "już sprawdzałeś to pole";
+			}
+		}
 	}
 }
-
