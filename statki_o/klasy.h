@@ -14,7 +14,7 @@ public:
 	friend void czysc(plansza& p);
 	friend void gra(plansza& p1, plansza& p2, plansza& p1w, plansza& p2w, gracz& g1, gracz& g2);
 	plansza();
-	friend void player(plansza& plan, plansza& planw, gracz& gra);
+	friend void player(plansza& plan, plansza& planw, gracz& grac);
 };
 
 class gracz
@@ -41,4 +41,4 @@ void gra(plansza& p1, plansza& p2, plansza& p1w, plansza& p2w, gracz& g1, gracz&
 
 void ustawStakiMenu(string nazwaGracza, plansza& p1);
 std::string wyborPola(string nazwaGracza, bool czyUstawiane);
-
+void player(plansza& plan, plansza& planw, gracz& grac);
