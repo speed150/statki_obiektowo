@@ -29,6 +29,7 @@ void brzegi(int x, int y, plansza& p, int l) {
 		if (y < 9) brzegi(x, y + 1, p, l);
 	}
 }
+
 void zeruj(plansza& p) {
 	for (int i = 0; i < 10; i++) {
 		for (int j = 0; j < 10; j++) {
@@ -55,6 +56,7 @@ void wypisz(plansza pl) {
 
 
 }
+
 void ustaw_statki(plansza& p1, int rodzaj) {
 	rysowanieMenu();
 
@@ -197,7 +199,7 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 		zeruj(p1);
 	}
 	else {//przez gracza
-\
+
 	char pozycja[3]{};
 	int kierunek{};
 	ilosc = 0;
