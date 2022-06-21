@@ -45,5 +45,5 @@ void rysowanieMenu();
 void rysowanieStatkow(plansza p1, plansza p2);
 void rysowanie_planszy();
 void przypisyDoPlanszy();
-void ustawStakiMenu(string nazwaGracza);
-void wyborPola(string nazwaGracza, bool czyUstawiane);
+void ustawStakiMenu(string nazwaGracza, plansza& p1);
+std::string wyborPola(string nazwaGracza, bool czyUstawiane);

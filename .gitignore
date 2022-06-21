@@ -365,3 +365,5 @@ statki_o/statki_o.vcxproj
 *.vcxproj
 statki_o/statki_o.vcxproj
 statki_o/statki_o.vcxproj
+*.dll
+statki_o/statki_o.vcxproj
