@@ -18,12 +18,13 @@ sf::RectangleShape trafienie2(sf::Vector2f(50, 10));
 sf::RectangleShape statekFragment;
 std::string wyborPola(string nazwaGracza, bool czyUstawiane) {
 	window.clear();
+	window.display();
 	sf::String playerInput;
 	sf::Text playerText;
 	sf::Event event{};
 	sf::Font font;
 	font.loadFromFile("Lato-Regular.ttf");
-	playerText.setPosition(sf::Vector2f(20, 0));
+	playerText.setPosition(sf::Vector2f(20, 800));
 	playerText.setFont(font);
 	playerText.setCharacterSize(50);
 	playerText.setFillColor(sf::Color::White);
@@ -35,47 +36,49 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane) {
 	playerText.setOutlineThickness(5.f);
 	playerText.setOutlineColor(sf::Color::Black);
 	playerInput = "";
-
 	while (!sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
-		window.clear();
+		
+		rysowanie_planszy();
+		//rysowanieStatkow(p1);
+		przypisyDoPlanszy();
 		while (window.pollEvent(event))
 		{
-
 			if (event.type == sf::Event::TextEntered)
 			{
 				if (event.text.unicode < 128)
 				{
-
 					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Backspace)) {
 						if (playerInput.getSize() > 0) {
 							playerInput.erase(playerInput.getSize() - 1, 2);
-
 							playerText.setString(playerInput);
+							window.clear();
 							window.display();
-
+							
 						}
-						window.draw(playerText);
-
 						window.display();
 
+						window.draw(playerText);
+						window.display();
 					}
 					else {
 						playerInput += event.text.unicode;
 						playerText.setString(playerInput);
-					}
+						window.clear();
 
+						window.draw(playerText);
+						window.display();
+					}
+					window.clear();
 
 					window.draw(playerText);
 					window.display();
 				}
 			}
-
-
 		}
 	}
+	window.clear();
 	return playerInput;
 	playerInput = "";
-
 }
 void ustawStakiMenu(string nazwaGracza, plansza& p1) {
 	window.clear();
@@ -103,20 +106,42 @@ void ustawStakiMenu(string nazwaGracza, plansza& p1) {
 	window.draw(jakUstawicStatko);
 	window.display();
 	int sposubUstawienia{ 0 };
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
-		Sleep(100);
-		sposubUstawienia = 2;
-		window.clear();
-		while (sposubUstawienia == 2)
-		{
+	//przypisyDoPlanszy();
+	
+	/*if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
+		rysowanieMenu();
+	}*/
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
+		//	cout << "kurwa";
+					sposubUstawienia = 2;
 			window.clear();
-			ustaw_statki(p1, sposubUstawienia);
-			//std::string wyborPola(nazwaGracza, true);
-			//window.display();
+			while (sposubUstawienia == 2)
+			{
+				window.clear();
+				ustaw_statki(p1, sposubUstawienia);
+				//std::string wyborPola(nazwaGracza, true);
+				//window.display();
 
+			}
 		}
+				//if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1) ){
+				//	cout << "kurwa";
+				//		Sleep(100);
+				//		sposubUstawienia = 1;
+				//		window.clear();
+				//		while (sposubUstawienia == 1)
+				//		{
+				//			window.clear();
+				//				ustaw_statki(p1, sposubUstawienia);
+				//				//std::string wyborPola(nazwaGracza, true);
+				//				//window.display();
+
+				//		}
+	
+				//}
+
 	}
-}
+//}
 void przypisyDoPlanszy() {
 	int skok{ 0 };
 	for (int i = 1; i <= 10; i++) {
@@ -150,39 +175,45 @@ void przypisyDoPlanszy() {
 			skok = 104 + rozmiarPlanszy;
 		}
 	}
+	window.display();
+
 }
 void rysowanie_planszy() {
-	planszaStatkiGracz1.setSize(sf::Vector2f(rozmiarPlanszy, rozmiarPlanszy));
-	planszaStatkiGracz1.setFillColor(sf::Color::Green);
-	trafienie1.setFillColor(sf::Color::Red);
-	trafienie2.setFillColor(sf::Color::Red);
-	window.draw(trafienie1);
-	window.draw(trafienie2);
-	bool pierwszyPrzebieg = TRUE;
-	line.setFillColor(sf::Color::Black);
-	for (int i = 0; i < 2; i++) {
-		planszaStatkiGracz1.setPosition(sf::Vector2f(50 + Odstemp * i + rozmiarPlanszy * i, 60));
-		window.draw(planszaStatkiGracz1);
-	}
-	for (int i = 0; i < 9; i++)
-	{
-		line.setPosition(sf::Vector2f(50, 5 + 87.5 + 30 + (rozmiarPlanszy / 10) * i));
-		window.draw(line);
-	}
-	sf::RectangleShape line(sf::Vector2f(rozmiarPlanszy, 5));
-	line.rotate(90);
-	line.setFillColor(sf::Color::Black);
-	float skok{ 0 };
-	for (int i = 0; i < 18; i++) {
-		line.setPosition(sf::Vector2f(90 + 30 + (rozmiarPlanszy / 10) * i + skok, 55));
-		window.draw(line);
-		if (i == 8) {
-			skok = 104 + rozmiarPlanszy * 0.1;
+	
+		planszaStatkiGracz1.setSize(sf::Vector2f(rozmiarPlanszy, rozmiarPlanszy));
+		planszaStatkiGracz1.setFillColor(sf::Color::Green);
+		trafienie1.setFillColor(sf::Color::Red);
+		trafienie2.setFillColor(sf::Color::Red);
+		window.draw(trafienie1);
+		window.draw(trafienie2);
+		bool pierwszyPrzebieg = TRUE;
+		line.setFillColor(sf::Color::Black);
+		for (int i = 0; i < 2; i++) {
+			planszaStatkiGracz1.setPosition(sf::Vector2f(50 + Odstemp * i + rozmiarPlanszy * i, 60));
+			window.draw(planszaStatkiGracz1);
 		}
-	}
+		for (int i = 0; i < 9; i++)
+		{
+			line.setPosition(sf::Vector2f(50, 5 + 87.5 + 30 + (rozmiarPlanszy / 10) * i));
+			window.draw(line);
+		}
+		sf::RectangleShape line(sf::Vector2f(rozmiarPlanszy, 5));
+		line.rotate(90);
+		line.setFillColor(sf::Color::Black);
+		float skok{ 0 };
+		for (int i = 0; i < 18; i++) {
+			line.setPosition(sf::Vector2f(90 + 30 + (rozmiarPlanszy / 10) * i + skok, 55));
+			window.draw(line);
+			if (i == 8) {
+				skok = 104 + rozmiarPlanszy * 0.1;
+			}
+		}
+
+		window.display();
 
 }
 void rysowanieStatkow(plansza p1, plansza p2) {
+	
 	for (int i = 0; i < 10; i++) {
 		for (int j = 0; j < 10; j++)
 		{
@@ -247,11 +278,12 @@ void rysowanieStatkow(plansza p1, plansza p2) {
 			}
 		}
 	}
-
+	window.display();
 }
 void rysowanieMenu() {
 	while (window.isOpen())
 	{
+
 		sf::Event event;
 		while (window.pollEvent(event))
 		{

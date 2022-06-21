@@ -195,6 +195,10 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 				}
 			}
 		} while (ilosc != 10);
+	;
+	przypisyDoPlanszy();
+	rysowanie_planszy();
+	rysowanieStatkow(p1, p1);
 		zeruj(p1);
 	}
 	else {//przez gracza
@@ -202,6 +206,7 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 	string pozycja{};
 	int kierunek{};
 	ilosc = 0;
+					
 	bool dkier = 0;
 	int wiersz{}, kolumna{}, dobre_pole{ 1 };
 	do {
@@ -209,10 +214,13 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 			for (int pow = 5; pow > dlugosc; pow--) {//powtórzenie statku
 				dust = 0;
 				while (dust == 0) {
-					cin.clear();
+					//cin.clear();
 					cout << "ustaw " << dlugosc << ".masztowiec" << endl;
 					wypisz(p1);
-					pozycja=wyborPola("gracz", true);
+					rysowanie_planszy();
+					przypisyDoPlanszy();
+					rysowanieStatkow(p1, p1);
+					pozycja = wyborPola("gracz", true);
 					//cin >> pozycja;
 					if (pozycja[0] <= 'J' && pozycja[0] >= 'A') {
 						kolumna = pozycja[0] - 'A';
@@ -220,7 +228,14 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 					else {
 						kolumna = pozycja[0] - 'a';
 					}
-					wiersz = stoi(pozycja.substr(1,1)) - 1;
+					string a = pozycja.substr(1, 1);
+					
+					if (isdigit(pozycja[1])) {
+						wiersz = stoi(pozycja.substr(1, 1)) - 1;
+					}
+					else {
+						cout << "cos sie nie konwertuje";
+					}
 					dkier = 0;
 					cin.clear();
 					if ((wiersz <= 9 && wiersz >= 0) && (kolumna <= 9 && kolumna >= 0)) {
@@ -233,8 +248,16 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 							else {
 								cin.clear();
 								cout << "wybierz kierunek 1lewo 2 góra 3 prawo 4 dol";
-								cin >> kierunek;
+								pozycja = wyborPola("gracz", true);
 								kierunek -= 1;
+								string a = pozycja.substr(0, 1);
+
+								if (isdigit(pozycja[1])) {
+									kierunek = stoi(pozycja.substr(1, 1)) - 1;
+								}
+								else {
+									cout << "nie ma takiego kierunku";
+								}
 								switch (kierunek)
 								{
 								default:
@@ -365,48 +388,48 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 		} while (ilosc!=10);
 	}
 }
-void player(plansza& plan, plansza& planw, gracz& gra) {//plansza niewidoczna(sprawdzana),plansza widoczna,gracz
-	char pozycja[3]{};
-	bool hit{ 1 }, pp{ 0 };
-	int px{ 0 }, py{ 0 };
-	while (hit == 1) {
-		if (gra.punkty == 20) {
-			hit = 0;
-		}
-		else {
-			cin.clear();
-			cout << "wybierz pole";
-			cin >> pozycja;
-			if (pozycja[0] <= 'j' && pozycja[0] >= 'a') {
-				py = pozycja[0] - 'a';
-			}
-			else if (pozycja[0] <= 'J' && pozycja[0] >= 'A') {
-				py = pozycja[0] - 'A';
-			}
-			else {
-				cout << "nie ma takiego pola";
-			}
-			if (atoi(pozycja + 1) - 1 <= 9 && atoi(pozycja + 1) - 1 >= 0) {
-				px = atoi(pozycja + 1) - 1;
-			}
-			else {
-				cout << "nie ma takiego pola";
-			}
-			if (planw.board[px][py] == 0) {
-				if (plan.board[px][py] != 0) {
-					planw.board[px][py] = 5;
-					cout << "trafiono " << plan.board[px][py] << ".masztowiec" << endl;
-					gra.punkty++;
-				}
-				else {
-					planw.board[px][py] = -1;
-					cout << "pudło";
-					hit = 0;
-				}
-			}
-			else {
-				cout << "już sprawdzałeś to pole";
-			}
-		}
-	}
-}
+//void player(plansza& plan, plansza& planw, gracz& gra) {//plansza niewidoczna(sprawdzana),plansza widoczna,gracz
+//	char pozycja[3]{};
+//	bool hit{ 1 }, pp{ 0 };
+//	int px{ 0 }, py{ 0 };
+//	while (hit == 1) {
+//		if (gra.punkty == 20) {
+//			hit = 0;
+//		}
+//		else {
+//			cin.clear();
+//			cout << "wybierz pole";
+//			cin >> pozycja;
+//			if (pozycja[0] <= 'j' && pozycja[0] >= 'a') {
+//				py = pozycja[0] - 'a';
+//			}
+//			else if (pozycja[0] <= 'J' && pozycja[0] >= 'A') {
+//				py = pozycja[0] - 'A';
+//			}
+//			else {
+//				cout << "nie ma takiego pola";
+//			}
+//			if (atoi(pozycja + 1) - 1 <= 9 && atoi(pozycja + 1) - 1 >= 0) {
+//				px = atoi(pozycja + 1) - 1;
+//			}
+//			else {
+//				cout << "nie ma takiego pola";
+//			}
+//			if (planw.board[px][py] == 0) {
+//				if (plan.board[px][py] != 0) {
+//					planw.board[px][py] = 5;
+//					cout << "trafiono " << plan.board[px][py] << ".masztowiec" << endl;
+//					gra.punkty++;
+//				}
+//				else {
+//					planw.board[px][py] = -1;
+//					cout << "pudło";
+//					hit = 0;
+//				}
+//			}
+//			else {
+//				cout << "już sprawdzałeś to pole";
+//			}
+//		}
+//	}
+//}

@@ -29,6 +29,10 @@ void ai(plansza &gracz,plansza &g1,int poziom) {
 				if (poziom == 3) {
 					brzegi(hitx, hity, g1, 4-statek);
 					wypisz(g1);
+					rysowanie_planszy();
+					przypisyDoPlanszy();
+					rysowanieStatkow(gracz, g1);
+
 				}
 				trafiony = false;
 				statek = 1;
@@ -211,6 +215,9 @@ void ai(plansza &gracz,plansza &g1,int poziom) {
 		}
 	}
 	wypisz(g1);
+	rysowanie_planszy();
+	przypisyDoPlanszy();
+	rysowanieStatkow(gracz, g1);
 }
 void player(plansza& plan, plansza& planw, gracz& gra) {//plansza niewidoczna(sprawdzana),plansza widoczna,gracz
 	char pozycja[3]{};
