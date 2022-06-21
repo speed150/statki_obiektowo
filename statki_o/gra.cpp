@@ -219,12 +219,12 @@ void ai(plansza &gracz,plansza &g1,int poziom) {
 	przypisyDoPlanszy();
 	rysowanieStatkow(gracz, g1);
 }
-void player(plansza& plan, plansza& planw, gracz& gra) {//plansza niewidoczna(sprawdzana),plansza widoczna,gracz
+void player(plansza& plan, plansza& planw, gracz& grac) {//plansza niewidoczna(sprawdzana),plansza widoczna,gracz
 	char pozycja[3]{};
 	bool hit{ 1 }, pp{ 0 };
 	int px{ 0 }, py{ 0 };
 	while (hit == 1) {
-		if (gra.punkty == 20) {
+		if (grac.punkty == 20) {
 			hit = 0;
 		}
 		else {
@@ -250,7 +250,7 @@ void player(plansza& plan, plansza& planw, gracz& gra) {//plansza niewidoczna(sp
 				if (plan.board[px][py] != 0) {
 					planw.board[px][py] = 5;
 					cout << "trafiono " << plan.board[px][py] << ".masztowiec" << endl;
-					gra.punkty++;
+					grac.punkty++;
 				}
 				else {
 					planw.board[px][py] = -1;
