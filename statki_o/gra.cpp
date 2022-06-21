@@ -7,9 +7,8 @@ int trafienia,hitx,hity,tk;
 int statek;
 bool trafiony{ false };
 bool k0{ false }, k1{ false }, k2{ false }, k3{ false }, trafionyk{ false };
-plansza g1;//to widzi bot
 
-void ai(plansza gracz,int poziom) {
+void ai(plansza &gracz,plansza &g1,int poziom) {
 	mt19937 generator(time(nullptr));
 	uniform_int_distribution<int> x(0, 9);
 	uniform_int_distribution<int> y(0, 9);
@@ -212,4 +211,49 @@ void ai(plansza gracz,int poziom) {
 		}
 	}
 	wypisz(g1);
+}
+void player(plansza& plan, plansza& planw, gracz& gra) {//plansza niewidoczna(sprawdzana),plansza widoczna,gracz
+	char pozycja[3]{};
+	bool hit{ 1 }, pp{ 0 };
+	int px{ 0 }, py{ 0 };
+	while (hit == 1) {
+		if (gra.punkty == 20) {
+			hit = 0;
+		}
+		else {
+			cin.clear();
+			cout << "wybierz pole";
+			cin >> pozycja;
+			if (pozycja[0] <= 'j' && pozycja[0] >= 'a') {
+				py = pozycja[0] - 'a';
+			}
+			else if (pozycja[0] <= 'J' && pozycja[0] >= 'A') {
+				py = pozycja[0] - 'A';
+			}
+			else {
+				cout << "nie ma takiego pola";
+			}
+			if (atoi(pozycja + 1) - 1 <= 9 && atoi(pozycja + 1) - 1 >= 0) {
+				px = atoi(pozycja + 1) - 1;
+			}
+			else {
+				cout << "nie ma takiego pola";
+			}
+			if (planw.board[px][py] == 0) {
+				if (plan.board[px][py] != 0) {
+					planw.board[px][py] = 5;
+					cout << "trafiono " << plan.board[px][py] << ".masztowiec" << endl;
+					gra.punkty++;
+				}
+				else {
+					planw.board[px][py] = -1;
+					cout << "pudło";
+					hit = 0;
+				}
+			}
+			else {
+				cout << "już sprawdzałeś to pole";
+			}
+		}
+	}
 }

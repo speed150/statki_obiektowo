@@ -7,6 +7,7 @@
 #include <random>
 #include <ctime>
 #include <Windows.h>
+#include <string>
 using namespace std;
 
 
@@ -29,7 +30,6 @@ void brzegi(int x, int y, plansza& p, int l) {
 		if (y < 9) brzegi(x, y + 1, p, l);
 	}
 }
-
 void zeruj(plansza& p) {
 	for (int i = 0; i < 10; i++) {
 		for (int j = 0; j < 10; j++) {
@@ -56,9 +56,8 @@ void wypisz(plansza pl) {
 
 
 }
-
 void ustaw_statki(plansza& p1, int rodzaj) {
-	rysowanieMenu();
+	//rysowanieMenu();
 
 	int ilosc = 0;
 	bool dust = 0;//dobrze ustawiony statek
@@ -200,7 +199,7 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 	}
 	else {//przez gracza
 
-	char pozycja[3]{};
+	string pozycja{};
 	int kierunek{};
 	ilosc = 0;
 	bool dkier = 0;
@@ -213,14 +212,15 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 					cin.clear();
 					cout << "ustaw " << dlugosc << ".masztowiec" << endl;
 					wypisz(p1);
-					cin >> pozycja;
+					pozycja=wyborPola("gracz", true);
+					//cin >> pozycja;
 					if (pozycja[0] <= 'J' && pozycja[0] >= 'A') {
 						kolumna = pozycja[0] - 'A';
 					}
 					else {
 						kolumna = pozycja[0] - 'a';
 					}
-					wiersz = atoi(pozycja + 1) - 1;
+					wiersz = stoi(pozycja.substr(1,1)) - 1;
 					dkier = 0;
 					cin.clear();
 					if ((wiersz <= 9 && wiersz >= 0) && (kolumna <= 9 && kolumna >= 0)) {
@@ -363,5 +363,50 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 			}
 			}
 		} while (ilosc!=10);
+	}
+}
+void player(plansza& plan, plansza& planw, gracz& gra) {//plansza niewidoczna(sprawdzana),plansza widoczna,gracz
+	char pozycja[3]{};
+	bool hit{ 1 }, pp{ 0 };
+	int px{ 0 }, py{ 0 };
+	while (hit == 1) {
+		if (gra.punkty == 20) {
+			hit = 0;
+		}
+		else {
+			cin.clear();
+			cout << "wybierz pole";
+			cin >> pozycja;
+			if (pozycja[0] <= 'j' && pozycja[0] >= 'a') {
+				py = pozycja[0] - 'a';
+			}
+			else if (pozycja[0] <= 'J' && pozycja[0] >= 'A') {
+				py = pozycja[0] - 'A';
+			}
+			else {
+				cout << "nie ma takiego pola";
+			}
+			if (atoi(pozycja + 1) - 1 <= 9 && atoi(pozycja + 1) - 1 >= 0) {
+				px = atoi(pozycja + 1) - 1;
+			}
+			else {
+				cout << "nie ma takiego pola";
+			}
+			if (planw.board[px][py] == 0) {
+				if (plan.board[px][py] != 0) {
+					planw.board[px][py] = 5;
+					cout << "trafiono " << plan.board[px][py] << ".masztowiec" << endl;
+					gra.punkty++;
+				}
+				else {
+					planw.board[px][py] = -1;
+					cout << "pudło";
+					hit = 0;
+				}
+			}
+			else {
+				cout << "już sprawdzałeś to pole";
+			}
+		}
 	}
 }
