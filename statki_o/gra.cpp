@@ -7,9 +7,8 @@ int trafienia,hitx,hity,tk;
 int statek;
 bool trafiony{ false };
 bool k0{ false }, k1{ false }, k2{ false }, k3{ false }, trafionyk{ false };
-plansza g1;//to widzi bot
 
-void ai(plansza gracz,int poziom) {
+void ai(plansza &gracz,plansza &g1,int poziom) {
 	mt19937 generator(time(nullptr));
 	uniform_int_distribution<int> x(0, 9);
 	uniform_int_distribution<int> y(0, 9);
@@ -213,3 +212,9 @@ void ai(plansza gracz,int poziom) {
 	}
 	wypisz(g1);
 }
+void gra(plansza& p1, plansza& p2, plansza& p1w, plansza& p2w, gracz& g1, gracz& g2) {
+	while (g1.punkty != 20 || g2.punkty != 20) {
+
+	}
+}
+
