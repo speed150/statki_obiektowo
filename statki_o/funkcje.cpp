@@ -41,7 +41,7 @@ void zeruj(plansza& p) {
 void czysc(plansza& p) {
 	for (int i = 0; i < 10; i++) {
 		for (int j = 0; j < 10; j++) {
-				p.board[i][j] = 0;
+			p.board[i][j] = 0;
 		}
 	}
 }
@@ -80,7 +80,7 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 							if (p1.board[wiersz][kolumna] == 0) {
 								p1.board[wiersz][kolumna] = dlugosc;
 								brzegi(wiersz, kolumna, p1, 3);
-								
+
 								dust = 1;
 							}
 						}
@@ -194,220 +194,220 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 					}
 					ilosc += 1;
 				}
-					/*przypisyDoPlanszy();
-					rysowanie_planszy();
-					rysowanieStatkow(p1, p1);*/
+				/*przypisyDoPlanszy();
+				rysowanie_planszy();
+				rysowanieStatkow(p1, p1);*/
 			}
 		} while (ilosc != 10);
 
-	przypisyDoPlanszy();
-	rysowanie_planszy();
-	rysowanieStatkow(p1, p1);
+		przypisyDoPlanszy();
+		rysowanie_planszy();
+		rysowanieStatkow(p1, p1);
 		zeruj(p1);
 	}
 	else {//przez gracza
 
-	string pozycja{};
-	char poz{};
-	int kierunek{};
-	ilosc = 0;
-	bool dane{1};
-	bool dkier = 0;
-	int wiersz{}, kolumna{}, dobre_pole{ 1 };
-	do {
-		for (int dlugosc = 4; dlugosc > 0; dlugosc--) {
-			for (int pow = 5; pow > dlugosc; pow--) {//powtórzenie statku
-				dust = 0;
-				while (dust == 0) {
-					//cin.clear();
-					string wiadomosc = "ustaw" + to_string(dlugosc) + ".masztowiec";
-					
+		string pozycja{};
+		char poz{};
+		int kierunek{};
+		ilosc = 0;
+		bool dane{ 1 };
+		bool dkier = 0;
+		int wiersz{}, kolumna{}, dobre_pole{ 1 };
+		do {
+			for (int dlugosc = 4; dlugosc > 0; dlugosc--) {
+				for (int pow = 5; pow > dlugosc; pow--) {//powtórzenie statku
+					dust = 0;
+					while (dust == 0) {
+						//cin.clear();
+						string wiadomosc = "ustaw" + to_string(dlugosc) + ".masztowiec";
 
-					komunikat(wiadomosc,40,60);
-					//wypisz(p1);
-				
 
-				
-					pozycja = wyborPola("gracz", true,p1);
-					komunikat("wybierz kolumne",100,90);
+						komunikat(wiadomosc, 40, 60);
+						//wypisz(p1);
 
-					wiersz = numerPola();
-					rysowanie_planszy();
-			
-					rysowanieStatkow(p1, p1);
-					//cin >> pozycja;
-					if (pozycja[0] <= 'J' && pozycja[0] >= 'A') {
-						kolumna = pozycja[0] - 'A';
-					} 
-					else {
-						kolumna = pozycja[0] - 'a';
-					}
-					 //stirng a = pozycja.substr(1, 1);
-					
-			
-					dkier = 0;
-					cin.clear();
-					if ((wiersz <= 9 && wiersz >= 0) && (kolumna <= 9 && kolumna >= 0)) {
-						if (p1.board[wiersz][kolumna] == 0) {
-							if (dlugosc == 1) {
-								p1.board[wiersz][kolumna] = dlugosc;
-								brzegi(wiersz, kolumna, p1, 3);
-								dust = 1;
-							}
-							else {
-								//cin.clear();
-								//cout << "wybierz kierunek 1lewo 2 góra 3 prawo 4 dol";
-								komunikat("wybierz kierunek 1lewo 2 góra 3 prawo 4 dol",110,50);
-								//kierunek = stoi(wyborPola("gracz", false));
-								//int a= numerPola();
-								kierunek = numerPola();
-								kierunek -= 1;
-								//string a = pozycja.substr(0, 1);
 
-							
-								switch (kierunek)
-								{
-								default:
-									komunikat("nie ma takiego kierunku",150,50);
-									break;
-								case 0:
-									if (kolumna - dlugosc + 1 >= 0) {
-										for (int st = 0; st < dlugosc; st++) {
-											if (p1.board[wiersz][kolumna - st] == 0) {
-												dobre_pole += 1;
 
+						pozycja = wyborPola("gracz", true, p1);
+						komunikat("wybierz kolumne", 100, 90);
+
+						wiersz = numerPola();
+						rysowanie_planszy();
+
+						rysowanieStatkow(p1, p1);
+						//cin >> pozycja;
+						if (pozycja[0] <= 'J' && pozycja[0] >= 'A') {
+							kolumna = pozycja[0] - 'A';
+						}
+						else {
+							kolumna = pozycja[0] - 'a';
+						}
+						//stirng a = pozycja.substr(1, 1);
+
+
+						dkier = 0;
+						cin.clear();
+						if ((wiersz <= 9 && wiersz >= 0) && (kolumna <= 9 && kolumna >= 0)) {
+							if (p1.board[wiersz][kolumna] == 0) {
+								if (dlugosc == 1) {
+									p1.board[wiersz][kolumna] = dlugosc;
+									brzegi(wiersz, kolumna, p1, 3);
+									dust = 1;
+								}
+								else {
+									//cin.clear();
+									//cout << "wybierz kierunek 1lewo 2 góra 3 prawo 4 dol";
+									komunikat("wybierz kierunek 1lewo 2 góra 3 prawo 4 dol", 110, 50);
+									//kierunek = stoi(wyborPola("gracz", false));
+									//int a= numerPola();
+									kierunek = numerPola();
+									kierunek -= 1;
+									//string a = pozycja.substr(0, 1);
+
+
+									switch (kierunek)
+									{
+									default:
+										komunikat("nie ma takiego kierunku", 150, 50);
+										break;
+									case 0:
+										if (kolumna - dlugosc + 1 >= 0) {
+											for (int st = 0; st < dlugosc; st++) {
+												if (p1.board[wiersz][kolumna - st] == 0) {
+													dobre_pole += 1;
+
+												}
+											}
+											if (dobre_pole == dlugosc + 1) {
+												for (int s = 0; s < dlugosc; s++) {
+													p1.board[wiersz][kolumna - s] = dlugosc;
+												}
+												dobre_pole = 1;
+												dust = 1;
+												brzegi(wiersz, kolumna, p1, 4 - dlugosc);
+											}
+
+											else
+											{
+
+
+												dobre_pole = 1;
+												komunikat("zły kierunku", 400, 70);
 											}
 										}
-										if (dobre_pole == dlugosc + 1) {
-											for (int s = 0; s < dlugosc; s++) {
-												p1.board[wiersz][kolumna - s] = dlugosc;
-											}
+										else
+										{
+											//cout << "z³e pole" << endl;
+											komunikat("zły pole", 350, 140);
+
 											dobre_pole = 1;
-											dust = 1;
-											brzegi(wiersz, kolumna, p1, 4 - dlugosc);
+										}
+										break;
+									case 1:
+										if (wiersz - dlugosc + 1 >= 0) {
+											for (int st = 0; st < dlugosc; st++) {
+												if (p1.board[wiersz - st][kolumna] == 0) {
+													dobre_pole += 1;
+												}
+											}
+											if (dobre_pole == dlugosc + 1) {
+												for (int s = 0; s < dlugosc; s++) {
+													p1.board[wiersz - s][kolumna] = dlugosc;
+												}
+												dobre_pole = 1;
+												dust = 1;
+												brzegi(wiersz, kolumna, p1, 4 - dlugosc);
+											}
+
+											dobre_pole = 1;
+											//cout << "zly kierunek" << endl;
+											komunikat("zły kierunku", 400, 70);
+
 										}
 
 										else
 										{
-											
+											//cout << "z³e pole" << endl;
+											komunikat("zły pole", 350, 140);
 
 											dobre_pole = 1;
-											komunikat("zły kierunku",400,70);
 										}
-									}
-									else
-									{
-										//cout << "z³e pole" << endl;
-										komunikat("zły pole",350,140);
+										break;
+									case 2:
+										if (kolumna + dlugosc - 1 <= 9) {
+											for (int st = 0; st < dlugosc; st++) {
+												if (p1.board[wiersz][kolumna + st] == 0) {
+													dobre_pole += 1;
+												}
+											}
+											if (dobre_pole == dlugosc + 1) {
+												for (int s = 0; s < dlugosc; s++) {
+													p1.board[wiersz][kolumna + s] = dlugosc;
+												}
+												dobre_pole = 1;
+												dust = 1;
+												brzegi(wiersz, kolumna, p1, 4 - dlugosc);
+											}
+											else {
+												dobre_pole = 1;
+												//cout << "zly kierunek" << endl;
+												komunikat("zły kierunku", 400, 70);
 
-										dobre_pole = 1;
-									}
-									break;
-								case 1:
-									if (wiersz - dlugosc + 1 >= 0) {
-										for (int st = 0; st < dlugosc; st++) {
-											if (p1.board[wiersz - st][kolumna] == 0) {
-												dobre_pole += 1;
 											}
 										}
-										if (dobre_pole == dlugosc + 1) {
-											for (int s = 0; s < dlugosc; s++) {
-												p1.board[wiersz - s][kolumna] = dlugosc;
+										else
+										{
+											//cout << "z³e pole" << endl;
+											komunikat("zły pole", 350, 140);
+
+											dobre_pole = 1;
+										}
+										break;
+									case 3:
+										if (wiersz + dlugosc - 1 >= 9) {
+											for (int st = 0; st < dlugosc; st++) {
+												if (p1.board[wiersz + st][kolumna] == 0) {
+													dobre_pole += 1;
+												}
 											}
-											dobre_pole = 1;
-											dust = 1;
-											brzegi(wiersz, kolumna, p1, 4 - dlugosc);
-										}
-
-											dobre_pole = 1;
-											//cout << "zly kierunek" << endl;
-												komunikat("zły kierunku",400,70);
-
-										}
-									
-									else
-									{
-										//cout << "z³e pole" << endl;
-										komunikat("zły pole", 350, 140);
-
-										dobre_pole = 1;
-									}
-									break;
-								case 2:
-									if (kolumna + dlugosc - 1 <= 9) {
-										for (int st = 0; st < dlugosc; st++) {
-											if (p1.board[wiersz][kolumna + st] == 0) {
-												dobre_pole += 1;
+											if (dobre_pole == dlugosc + 1) {
+												for (int s = 0; s < dlugosc; s++) {
+													p1.board[wiersz + s][kolumna] = dlugosc;
+												}
+												dobre_pole = 1;
+												dust = 1;
+												brzegi(wiersz, kolumna, p1, 4 - dlugosc);
 											}
-										}
-										if (dobre_pole == dlugosc + 1) {
-											for (int s = 0; s < dlugosc; s++) {
-												p1.board[wiersz][kolumna + s] = dlugosc;
-											}
-											dobre_pole = 1;
-											dust = 1;
-											brzegi(wiersz, kolumna, p1, 4 - dlugosc);
-										}
-					                    else{
-											dobre_pole = 1;
-											//cout << "zly kierunek" << endl;
-											komunikat("zły kierunku", 400, 70);
+											else {
+												dobre_pole = 1;
+												//cout << "zly kierunek" << endl;
+												komunikat("zły kierunku", 400, 70);
 
-										}
-									}
-									else
-									{
-										//cout << "z³e pole" << endl;
-										komunikat("zły pole", 350, 140);
-
-										dobre_pole = 1;
-									}
-									break;
-								case 3:
-									if (wiersz + dlugosc - 1 >= 9) {
-										for (int st = 0; st < dlugosc; st++) {
-											if (p1.board[wiersz + st][kolumna] == 0) {
-												dobre_pole += 1;
 											}
 										}
-										if (dobre_pole == dlugosc + 1) {
-											for (int s = 0; s < dlugosc; s++) {
-												p1.board[wiersz + s][kolumna] = dlugosc;
-											}
-											dobre_pole = 1;
-											dust = 1;
-											brzegi(wiersz, kolumna, p1, 4 - dlugosc);
-										}
-							            else{
-											dobre_pole = 1;
-											//cout << "zly kierunek" << endl;
-											komunikat("zły kierunku", 400, 70);
+										else
+										{
+											//cout << "z³e pole" << endl;
+											komunikat("zły pole", 350, 140);
 
+											dobre_pole = 1;
 										}
+										break;
 									}
-									else
-									{
-										//cout << "z³e pole" << endl;
-										komunikat("zły pole", 350, 140);
-
-										dobre_pole = 1;
-									}
-									break;
 								}
 							}
 						}
-					}
-					else {
-						//cout << "zle pole" << endl;
-						komunikat("zły pole", 350, 140);
+						else {
+							//cout << "zle pole" << endl;
+							komunikat("zły pole", 350, 140);
+
+						}
 
 					}
+					ilosc++;
 
 				}
-				ilosc++;
-
 			}
-			}
-		} while (ilosc!=10);
+		} while (ilosc != 10);
 	}
 }

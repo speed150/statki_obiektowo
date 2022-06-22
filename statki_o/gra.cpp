@@ -3,12 +3,12 @@
 #include <random>
 #include <ctime> 
 using namespace std;
-int trafienia,hitx,hity,tk;
+int trafienia, hitx, hity, tk;
 int statek;
 bool trafiony{ false };
 bool k0{ false }, k1{ false }, k2{ false }, k3{ false }, trafionyk{ false };
 
-void ai(plansza &gracz,plansza &g1,int poziom) {
+void ai(plansza& gracz, plansza& g1, int poziom) {
 	mt19937 generator(time(nullptr));
 	uniform_int_distribution<int> x(0, 9);
 	uniform_int_distribution<int> y(0, 9);
@@ -28,7 +28,7 @@ void ai(plansza &gracz,plansza &g1,int poziom) {
 			//przerwanie szukania w pobli簑
 			if (statek == gracz.board[hitx][hity]) {
 				if (poziom == 3) {
-					brzegi(hitx, hity, g1, 4-statek);
+					brzegi(hitx, hity, g1, 4 - statek);
 					wypisz(g1);
 					rysowanie_planszy();
 					przypisyDoPlanszy();
@@ -56,7 +56,7 @@ void ai(plansza &gracz,plansza &g1,int poziom) {
 							g1.board[hitx][hity - 1] = -1;
 							k0 = true;
 							hit = false;
-							
+
 						}
 						else {//trafienie
 							g1.board[hitx][hity - 1] = gracz.board[hitx][hity - 1];
@@ -65,14 +65,14 @@ void ai(plansza &gracz,plansza &g1,int poziom) {
 							statek++;
 							trafienia++;
 							hity -= 1;//przesuni璚ie
-							
+
 						}
 					}
 					else if (((g1.board[hitx][hity - 1] == -1 && hity - 1 > -1) || hity - 1 == -1) && trafionyk == true) {//iana / znana warto(pud這)
 						k0 = true;
 						kierunek = 2;
 						tk = kierunek;
-						
+
 					}
 					else if (trafionyk == true && g1.board[hitx][hity - 1] == g1.board[hitx][hity]) {//znana warto(statek
 						if (hity > 0) {
@@ -87,7 +87,7 @@ void ai(plansza &gracz,plansza &g1,int poziom) {
 							g1.board[hitx - 1][hity] = -1;
 							k1 = true;
 							hit = false;
-							
+
 						}
 						else {//trafienie
 							g1.board[hitx - 1][hity] = gracz.board[hitx - 1][hity];
@@ -96,21 +96,21 @@ void ai(plansza &gracz,plansza &g1,int poziom) {
 							statek++;
 							trafienia++;
 							hitx -= 1;
-							
+
 						}
 					}
 					else if (((g1.board[hitx - 1][hity] == -1 && hity - 1 > -1) || hitx - 1 == -1) && trafionyk == true) {//iana / znana warto(pud這)
 						k0 = true;
 						kierunek = 3;
 						tk = kierunek;
-						
+
 					}
 					else if (trafionyk == true && g1.board[hitx - 1][hity] == g1.board[hitx][hity]) {//znana warto(statek
 						if (hitx > 0) {
 							hitx -= 1;
 						}
 						tk = kierunek;
-						
+
 					}
 				}
 				else if (kierunek == 2 && (k2 == false || statek > 1)) {//prawo 
@@ -119,7 +119,7 @@ void ai(plansza &gracz,plansza &g1,int poziom) {
 							g1.board[hitx][hity + 1] = -1;
 							k2 = true;
 							hit = false;
-							
+
 						}
 						else {//trafienie
 							g1.board[hitx][hity + 1] = gracz.board[hitx][hity + 1];
@@ -128,21 +128,21 @@ void ai(plansza &gracz,plansza &g1,int poziom) {
 							statek++;
 							trafienia++;
 							hity += 1;//przesuni璚ie
-							
+
 						}
 					}
 					else if (((g1.board[hitx][hity + 1] == -1 && hity + 1 < 10) || hity + 1 == 10) && trafionyk == true) {//iana / znana warto(pud這)
 						k2 = true;
 						kierunek = 0;
 						tk = kierunek;
-						
+
 					}
-					else if (trafionyk == true && g1.board[hitx][hity + 1] ==g1.board[hitx][hity]) {//znana warto(statek
+					else if (trafionyk == true && g1.board[hitx][hity + 1] == g1.board[hitx][hity]) {//znana warto(statek
 						if (hity < 10) {
 							hity += 1;
 						}
 						tk = kierunek;
-						
+
 					}
 				}
 				else if (kierunek == 3 && (k3 == false || statek > 1)) {//d馧 
@@ -151,7 +151,7 @@ void ai(plansza &gracz,plansza &g1,int poziom) {
 							g1.board[hitx + 1][hity] = -1;
 							k3 = true;
 							hit = false;
-							
+
 						}
 						else {//trafienie5
 							g1.board[hitx + 1][hity] = gracz.board[hitx + 1][hity];
@@ -160,21 +160,21 @@ void ai(plansza &gracz,plansza &g1,int poziom) {
 							statek++;
 							trafienia++;
 							hitx += 1;
-							
+
 						}
 					}
 					else if (((g1.board[hitx + 1][hity] == -1 && hity + 1 < 10) || hitx + 1 == 10) && trafionyk == true) {//iana / znana warto(pud這)
 						k3 = true;
 						kierunek = 1;
 						tk = kierunek;
-						
+
 					}
 					else if (trafionyk == true && g1.board[hitx + 1][hity] == g1.board[hitx][hity]) {//znana warto(statek
 						if (hitx < 10) {
 							hitx += 1;
 						}
 						tk = kierunek;
-						
+
 					}
 				}
 			}
@@ -185,17 +185,17 @@ void ai(plansza &gracz,plansza &g1,int poziom) {
 						if (poziom == 1) {
 							g1.board[wiersz][kolumna] = gracz.board[wiersz][kolumna];
 							trafienia++;
-							
+
 						}
 						//edni bot i trudny 
 						else {
 							g1.board[wiersz][kolumna] = gracz.board[wiersz][kolumna];
 							trafienia++;
-							if (statek <g1.board[wiersz][kolumna]) {
+							if (statek < g1.board[wiersz][kolumna]) {
 								trafiony = true;
 								hity = kolumna;
 								hitx = wiersz;
-								
+
 							}
 							else if (statek == g1.board[wiersz][kolumna] && poziom == 3) {
 								hity = kolumna;
@@ -208,7 +208,7 @@ void ai(plansza &gracz,plansza &g1,int poziom) {
 					else {
 						g1.board[wiersz][kolumna] = -1;
 						hit = false;
-						
+
 
 					}
 				}
@@ -233,7 +233,7 @@ void player(plansza& plan, plansza& planw, gracz& grac) {//plansza niewidoczna(s
 			cout << "wybierz pole";
 			komunikat("wybierz pole", 100, 100);
 			//cin >> pozycja;
-			
+
 			string poleLitera = wyborPola(grac.nazwa, false, planw);
 			int poleCyfra = numerPola();
 			if (poleLitera[0] <= 'j' && poleLitera[0] >= 'a') {
@@ -274,7 +274,7 @@ void player(plansza& plan, plansza& planw, gracz& grac) {//plansza niewidoczna(s
 			}
 			else {
 				cout << "już sprawdzałeś to pole";
-				komunikat("już sprawdzałeś to pole",60,60);
+				komunikat("już sprawdzałeś to pole", 60, 60);
 			}
 		}
 	}
