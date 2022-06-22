@@ -58,35 +58,36 @@ int numerPola() {
 	while (pole < 10) {
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num0)) {
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num0)) {}
+			//window.clear();
 			window.draw(kwarat);
-			window.display();
+			//window.display();
 			//window.clear();
 			pole = 0;
-			window.clear();
-			window.display();
+			/*window.clear();
+			window.display();*/
 			playerInput = to_string(pole);
 			playerText.setString(playerInput);
-			window.clear();
-			window.display();
+		/*	window.clear();
+			window.display();*/
 			window.draw(playerText);
 			window.display();
 			//
-			window.clear();
+			/*window.clear();*/
 
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {}
-
+		//	window.clear();
 			window.draw(kwarat);
-			window.display();
-			window.clear();
+			/*window.display();
+			window.clear();*/
 			pole = 1;
-			window.clear();
-			window.display();
+			/*window.clear();
+			window.display();*/
 			playerInput = to_string(pole);
 			playerText.setString(playerInput);
-			window.clear();
-			window.display();
+			/*window.clear();
+			window.display();*/
 			window.draw(playerText);
 			window.display();
 
@@ -94,34 +95,34 @@ int numerPola() {
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {}
-
+		//	window.clear();
 			window.draw(kwarat);
-			window.display();
+			//window.display();
 			//	window.clear();
 			pole = 2;
-			window.clear();
-			window.display();
+			/*window.clear();
+			window.display();*/
 			playerInput = to_string(pole);
 			playerText.setString(playerInput);
-			window.clear();
-			window.display();
+			/*window.clear();
+			window.display();*/
 			window.draw(playerText);
 			window.display();
 
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {}
-
+		//	window.clear();
 			window.draw(kwarat);
-			window.display();
+	//		window.display();
 			//window.clear();
 			pole = 3;
-			window.clear();
-			window.display();
+	//		window.clear();
+	//		window.display();
 			playerInput = to_string(pole);
 			playerText.setString(playerInput);
-			window.clear();
-			window.display();
+	//		window.clear();
+		//	window.display();
 			window.draw(playerText);
 			window.display();
 
@@ -129,100 +130,102 @@ int numerPola() {
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num4)) {
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num4)) {}
-
+		//	window.clear();
 			window.draw(kwarat);
-			window.display();
+	//		window.display();
 			//window.clear();
 			pole = 4;
-			window.clear();
-			window.display();
+	//		window.clear();
+		//	window.display();
 			playerInput = to_string(pole);
 			playerText.setString(playerInput);
-			window.clear();
-			window.display();
+	//		window.clear();
+	//		window.display();
 			window.draw(playerText);
 			window.display();
 
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num5)) {
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num5)) {}
-
+		//	window.clear();
 			window.draw(kwarat);
 			window.display();
-			//window.clear();
+		//	//window.clear();
 			pole = 5;
-			window.clear();
-			window.display();
+		//	window.clear();
+		//	window.display();
 			playerInput = to_string(pole);
 			playerText.setString(playerInput);
-			window.clear();
-			window.display();
+		//	window.clear();
+		//	window.display();
 			window.draw(playerText);
 			window.display();
 
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num6)) {
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num6)) {}
-
+	//		window.clear();
 			window.draw(kwarat);
-			window.display();
+		//	window.display();
 			//window.clear();
 			pole = 6;
-			window.clear();
-			window.display();
+		//	window.clear();
+		//	window.display();
 			playerInput = to_string(pole);
 			playerText.setString(playerInput);
-			window.clear();
-			window.display();
+		//	window.clear();
+		//	window.display();
 			window.draw(playerText);
 			window.display();
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num7)) {
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num7)) {}
-
+	//		window.clear();
 			window.draw(kwarat);
-			window.display();
-			//window.clear();
+			//window.display();
+			////window.clear();
 			pole = 7;
-			window.clear();
-			window.display();
+		/*	window.clear();
+			window.display()*/;
 			playerInput = to_string(pole);
 			playerText.setString(playerInput);
-			window.clear();
-			window.display();
+			/*window.clear();
+			window.display();*/
 			window.draw(playerText);
 			window.display();
 
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num8)) {
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num8)) {}
+	//		window.clear();
 			window.draw(kwarat);
-			window.display();
+			//window.display();
 			//window.clear();
 			pole = 8;
-			window.clear();
-			window.display();
+			/*window.clear();
+			window.display();*/
 			playerInput = to_string(pole);
 			playerText.setString(playerInput);
-			window.clear();
-			window.display();
+			/*window.clear();
+			window.display();*/
 			window.draw(playerText);
 			window.display();
 
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num9)) {
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num9)) {}
+	//		window.clear();
 			window.draw(kwarat);
-			window.display();
+			//window.display();
 			//window.clear();
 			pole = 9;
 			playerInput = "9";
-			window.clear();
-			window.display();
+			//window.clear();
+			//window.display();
 			playerInput = to_string(pole);
 			playerText.setString(playerInput);
-			window.clear();
-			window.display();
+			//window.clear();
+			//window.display();
 			window.draw(playerText);
 			window.display();
 
@@ -239,8 +242,8 @@ int numerPola() {
 
 std::string wyborPola(string nazwaGracza, bool czyUstawiane, plansza pl) {
 	komunikat("wybierz kolumne od A do I", 0, 0);
-	window.clear();
-	window.display();
+	//window.clear();
+	//window.display();
 	string pole{};
 	sf::String playerInput{};
 	sf::Text playerText{};
@@ -312,10 +315,10 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane, plansza pl) {
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {}
-
-			window.draw(kwarat);
-			window.display();
 			window.clear();
+			window.draw(kwarat);
+		//	window.display();
+		//	window.clear();
 
 			komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak", 0, 0);
 			pole = "A";
@@ -325,144 +328,144 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane, plansza pl) {
 			rysowanieStatkow(pl, pl);
 			window.draw(playerText);
 			window.display();
-			window.clear();
+		//	window.clear();
 
 
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {}
-
-			window.draw(kwarat);
-			window.display();
 			window.clear();
+			window.draw(kwarat);
+		//	window.display();
+		//	window.clear();
 			komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak", 0, 0);
 			pole = "B";
 			playerInput = pole;
 			playerText.setString(playerInput);
 			window.draw(playerText);
 			window.display();
-			window.clear();
+		//	window.clear();
 
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::C)) {
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::C)) {}
-
-			window.draw(kwarat);
-			window.display();
 			window.clear();
+			window.draw(kwarat);
+		//	window.display();
+		//	window.clear();
 			komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak", 0, 0);
 			pole = "C";
 			playerInput = pole;
 			playerText.setString(playerInput);
 			window.draw(playerText);
 			window.display();
-			window.clear();
+		//	window.clear();
 
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {}
 
-
-			window.draw(kwarat);
-			window.display();
 			window.clear();
+			window.draw(kwarat);
+		//	window.display();
+		//	window.clear();
 			komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak", 0, 0);
 			pole = "D";
 			playerInput = pole;
 			playerText.setString(playerInput);
 			window.draw(playerText);
 			window.display();
-			window.clear();
+		//	window.clear();
 
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::E)) {
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::E)) {}
 
-
-			window.draw(kwarat);
-			window.display();
 			window.clear();
+			window.draw(kwarat);
+		//	window.display();
+		//	window.clear();
 			komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak", 0, 0);
 			pole = "E";
 			playerInput = pole;
 			playerText.setString(playerInput);
 			window.draw(playerText);
 			window.display();
-			window.clear();
+		//	window.clear();
 
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::F)) {
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::F)) {}
-
-			window.draw(kwarat);
-			window.display();
-			komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak", 0, 0);
 			window.clear();
+			window.draw(kwarat);
+		//	window.display();
+			komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak", 0, 0);
+		//	window.clear();
 			pole = "F";
 			playerInput = pole;
 			playerText.setString(playerInput);
 			window.draw(playerText);
 			window.display();
-			window.clear();
+		//	window.clear();
 
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::G)) {
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::G)) {}
-
-			window.draw(kwarat);
-			window.display();
 			window.clear();
+			window.draw(kwarat);
+		//	window.display();
+		//	window.clear();
 			komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak", 0, 0);
 			pole = "G";
 			playerInput = pole;
 			playerText.setString(playerInput);
 			window.draw(playerText);
 			window.display();
-			window.clear();
+		//	window.clear();
 
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::H)) {
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::H)) {}
-
-			window.draw(kwarat);
-			window.display();
 			window.clear();
+			window.draw(kwarat);
+	//		window.display();
+		//	window.clear();
 			komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak", 0, 0);
 			pole = "H";
 			playerInput = pole;
 			playerText.setString(playerInput);
 			window.draw(playerText);
 			window.display();
-			window.clear();
+		//	window.clear();
 
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::I)) {
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::I)) {}
 			window.draw(kwarat);
-
-			window.display();
 			window.clear();
+		//	window.display();
+		//	window.clear();
 			komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak", 0, 0);
 			pole = "I";
 			playerInput = pole;
 			playerText.setString(playerInput);
 			window.draw(playerText);
 			window.display();
-			window.clear();
+		//	window.clear();
 
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::J)) {
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::J)) {}
-
-			window.draw(kwarat);
-			window.display();
 			window.clear();
+			window.draw(kwarat);
+		//	window.display();
+		//	window.clear();
 			pole = "J";
 			playerInput = pole;
 			playerText.setString(playerInput);
 			window.draw(playerText);
 			window.display();
-			window.clear();
+		//	window.clear();
 			komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak", 0, 0);
 
 		}
