@@ -61,7 +61,7 @@ int numerPola() {
 			window.draw(kwarat);
 			window.display();
 			//window.clear();
-			pole = 0;
+			pole = 10;
 			playerInput =to_string( pole);
 			playerText.setString(playerInput);
 			window.draw(playerText);
@@ -207,7 +207,7 @@ int numerPola() {
 	}
 
 std::string wyborPola(string nazwaGracza, bool czyUstawiane) {
-	komunikat("wybierz kolumne od A do I");
+	komunikat("wybierz kolumne od A do J");
 	window.clear();
 	window.display();
 	string pole{};
@@ -277,7 +277,7 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane) {
 	//}
 
 		while (pole.length() < 2) {
-			komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak");
+			komunikat("wybierz kolumne od A do J enter aby przejść dalej backspace aby usunąć znak");
 
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
 				while (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {}
@@ -286,7 +286,7 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane) {
 				window.display();
 				window.clear();
 				
-				komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak");
+				komunikat("wybierz kolumne od A do J enter aby przejść dalej backspace aby usunąć znak");
 				pole = "A";
 				playerInput = pole;
 				playerText.setString(playerInput);
@@ -302,7 +302,7 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane) {
 				window.draw(kwarat);
 				window.display();
 				window.clear();
-				komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak");
+				komunikat("wybierz kolumne od A do J enter aby przejść dalej backspace aby usunąć znak");
 				pole = "B";
 				playerInput = pole;
 				playerText.setString(playerInput);
@@ -317,7 +317,7 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane) {
 				window.draw(kwarat);
 				window.display();
 				window.clear();
-				komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak");
+				komunikat("wybierz kolumne od A do J enter aby przejść dalej backspace aby usunąć znak");
 				pole = "C";
 				playerInput = pole;
 				playerText.setString(playerInput);
@@ -333,7 +333,7 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane) {
 				window.draw(kwarat);
 				window.display();
 				window.clear();
-				komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak");
+				komunikat("wybierz kolumne od A do J enter aby przejść dalej backspace aby usunąć znak");
 				pole = "D";
 				playerInput = pole;
 				playerText.setString(playerInput);
@@ -349,7 +349,7 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane) {
 				window.draw(kwarat);
 				window.display();
 				window.clear();
-				komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak");
+				komunikat("wybierz kolumne od A do J enter aby przejść dalej backspace aby usunąć znak");
 				pole = "E";
 				playerInput = pole;
 				playerText.setString(playerInput);
@@ -363,7 +363,7 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane) {
 
 				window.draw(kwarat);
 				window.display();
-				komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak");
+				komunikat("wybierz kolumne od A do J enter aby przejść dalej backspace aby usunąć znak");
 				window.clear();
 				pole = "F";
 				playerInput = pole;
@@ -379,7 +379,7 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane) {
 				window.draw(kwarat);
 				window.display();
 				window.clear();
-				komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak");
+				komunikat("wybierz kolumne od A do J enter aby przejść dalej backspace aby usunąć znak");
 				pole = "G";
 				playerInput = pole;
 				playerText.setString(playerInput);
@@ -394,7 +394,7 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane) {
 				window.draw(kwarat);
 				window.display();
 				window.clear();
-				komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak");
+				komunikat("wybierz kolumne od A do J enter aby przejść dalej backspace aby usunąć znak");
 				pole = "H";
 				playerInput = pole;
 				playerText.setString(playerInput);
@@ -409,7 +409,7 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane) {
 
 				window.display();
 				window.clear();
-				komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak");
+				komunikat("wybierz kolumne od A do J enter aby przejść dalej backspace aby usunąć znak");
 				pole = "I";
 				playerInput = pole;
 				playerText.setString(playerInput);
@@ -430,11 +430,11 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane) {
 				window.draw(playerText);
 				window.display();
 				window.clear();
-				komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak");
+				komunikat("wybierz kolumne od A do J enter aby przejść dalej backspace aby usunąć znak");
 
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
-				komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak");
+				komunikat("wybierz kolumne od A do J enter aby przejść dalej backspace aby usunąć znak");
 
 				while (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {}
 				return pole;
@@ -451,7 +451,7 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane) {
 				window.draw(kwarat);
 				window.display();
 				window.clear();
-				komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak");
+				komunikat("wybierz kolumne od A do J enter aby przejść dalej backspace aby usunąć znak");
 
 			
 		}
@@ -481,10 +481,10 @@ void ustawStakiMenu(string nazwaGracza, plansza& p1) {
 	jakUstawicStatko.setString("1. automatycznie");
 	window.draw(jakUstawicStatko);
 	jakUstawicStatko.setPosition(sf::Vector2f(40, 90));
-	jakUstawicStatko.setString("2. rêcznie");
+	jakUstawicStatko.setString("2. ręcznie");
 	window.draw(jakUstawicStatko);
 	jakUstawicStatko.setPosition(sf::Vector2f(40, 140));
-	jakUstawicStatko.setString("3. wyjdŸ");
+	jakUstawicStatko.setString("3. wyjdź");
 	window.draw(jakUstawicStatko);
 	window.display();
 	int sposubUstawienia{ 0 };
@@ -492,13 +492,10 @@ void ustawStakiMenu(string nazwaGracza, plansza& p1) {
 		while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {}
 		sposubUstawienia = 1;
 		window.clear();
-		while (sposubUstawienia == 1)//tu jest b��d powa�ny niesko�czony while
-		{
+		
 			window.clear();
 			ustaw_statki(p1, sposubUstawienia);
-
-
-		}
+		
 
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
@@ -509,13 +506,12 @@ void ustawStakiMenu(string nazwaGracza, plansza& p1) {
 		while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {}
 		sposubUstawienia = 2;
 		window.clear();
-		while (sposubUstawienia == 2)
-		{
+	
 			window.clear();
 			ustaw_statki(p1, sposubUstawienia);
 
 
-		}
+		
 	}
 
 }

@@ -199,11 +199,11 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 					rysowanieStatkow(p1, p1);*/
 			}
 		} while (ilosc != 10);
-
+		zeruj(p1);
 	przypisyDoPlanszy();
 	rysowanie_planszy();
 	rysowanieStatkow(p1, p1);
-		zeruj(p1);
+	
 	}
 	else {//przez gracza
 
@@ -222,7 +222,7 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 					//cin.clear();
 					string wiadomosc = "ustaw" + to_string(dlugosc) + ".masztowiec";
 					
-
+					
 					komunikat(wiadomosc);
 					wypisz(p1);
 				
