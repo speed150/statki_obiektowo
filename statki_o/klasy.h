@@ -22,6 +22,7 @@ class gracz
 {
 	int punkty ;
 public:
+	string nazwa;
 	friend void gra(plansza& p1, plansza& p2, plansza& p1w, plansza& p2w, gracz& g1, gracz& g2);
 	gracz();
 	friend void player(plansza& plan, plansza& planw, gracz& gra);
@@ -40,7 +41,7 @@ void przypisyDoPlanszy();
 
 void gra(plansza& p1, plansza& p2, plansza& p1w, plansza& p2w, gracz& g1, gracz& g2);
 
-void ustawStakiMenu(string nazwaGracza, plansza& p1);
-std::string wyborPola(string nazwaGracza, bool czyUstawiane);
+void ustawStakiMenu(string nazwaGracza, plansza& p1,int iloscGraczyDoUtworzenia);
+std::string wyborPola(string nazwaGracza, bool czyUstawiane,plansza pl);
 int numerPola();
 void player(plansza& plan, plansza& planw, gracz& grac);

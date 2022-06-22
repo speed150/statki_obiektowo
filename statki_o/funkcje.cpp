@@ -228,7 +228,7 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 				
 
 				
-					pozycja = wyborPola("gracz", true);
+					pozycja = wyborPola("gracz", true,p1);
 					komunikat("wybierz kolumne",100,90);
 
 					wiersz = numerPola();

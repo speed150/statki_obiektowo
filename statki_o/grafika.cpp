@@ -231,12 +231,13 @@ int numerPola() {
 				while (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {}
 				return pole;
 			}
+			
 
 		}
 
 	}
 
-std::string wyborPola(string nazwaGracza, bool czyUstawiane) {
+std::string wyborPola(string nazwaGracza, bool czyUstawiane,plansza pl) {
 	komunikat("wybierz kolumne od A do I",0,0);
 	window.clear();
 	window.display();
@@ -320,6 +321,8 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane) {
 				pole = "A";
 				playerInput = pole;
 				playerText.setString(playerInput);
+				rysowanie_planszy();
+				rysowanieStatkow(pl, pl);
 				window.draw(playerText);
 				window.display();
 				window.clear();
@@ -492,7 +495,7 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane) {
 		///playerInput = "";
 	
 }
-void ustawStakiMenu(string nazwaGracza, plansza& p1) {
+void ustawStakiMenu(string nazwaGracza, plansza& p1,int iloscGraczy) {
 	window.clear();
 
 	sf::Text jakUstawicStatko;
@@ -543,7 +546,10 @@ void ustawStakiMenu(string nazwaGracza, plansza& p1) {
 
 		
 	}
-
+	if (iloscGraczy == 2) {
+		plansza p2;
+		ustawStakiMenu("gracz 2", p2, 1);
+	}
 }
 
 void przypisyDoPlanszy() {
@@ -762,7 +768,7 @@ void rysowanieMenu() {
 							while (MenuStatkow == 1)
 							{
 								plansza p1;
-								ustawStakiMenu("gracz ",p1);
+								ustawStakiMenu("gracz ",p1,1);
 								if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
 									while(sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {}
 									MenuStatkow = 0;
@@ -778,7 +784,7 @@ void rysowanieMenu() {
 							while (MenuStatkow == 1)
 						
 							
-								ustawStakiMenu("gracz ",pl);
+								ustawStakiMenu("gracz ",pl,1);
 								if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
 									while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {}
 									MenuStatkow = 0;
@@ -794,7 +800,7 @@ void rysowanieMenu() {
 							{
 								plansza p1;
 								
-								ustawStakiMenu("gracz ",p1);
+								ustawStakiMenu("gracz ",p1,1);
 								if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
 									while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {}
 									MenuStatkow = 0;
@@ -812,9 +818,13 @@ void rysowanieMenu() {
 					while (PierwszeMenu == 2)
 					{
 						plansza p1;
-						plansza p2;
-						ustawStakiMenu("gracz 1",p1);
-						ustawStakiMenu("gracz 2",p2);
+						
+				/*	gracz PierwszyGracz;
+					gracz DrugiGracz;*/
+
+						ustawStakiMenu("gracz 1",p1,2);
+
+						//ustawStakiMenu("gracz 2",p2);
 						if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
 							PierwszeMenu = 0;
 							Sleep(250);

@@ -18,6 +18,7 @@ void ai(plansza &gracz,plansza &g1,int poziom) {
 
 	if (trafienia == 20) {
 		cout << "przegrales";
+		komunikat("przegrales", 100, 100);
 
 	}
 	else {
@@ -230,36 +231,50 @@ void player(plansza& plan, plansza& planw, gracz& grac) {//plansza niewidoczna(s
 		else {
 			cin.clear();
 			cout << "wybierz pole";
-			cin >> pozycja;
-			if (pozycja[0] <= 'j' && pozycja[0] >= 'a') {
-				py = pozycja[0] - 'a';
+			komunikat("wybierz pole", 100, 100);
+			//cin >> pozycja;
+			
+			string poleLitera = wyborPola(grac.nazwa, false, planw);
+			int poleCyfra = numerPola();
+			if (poleLitera[0] <= 'j' && poleLitera[0] >= 'a') {
+				py = poleLitera[0] - 'a';
 			}
-			else if (pozycja[0] <= 'J' && pozycja[0] >= 'A') {
-				py = pozycja[0] - 'A';
-			}
-			else {
-				cout << "nie ma takiego pola";
-			}
-			if (atoi(pozycja + 1) - 1 <= 9 && atoi(pozycja + 1) - 1 >= 0) {
-				px = atoi(pozycja + 1) - 1;
+			else if (poleLitera[0] <= 'J' && poleLitera[0] >= 'A') {
+				py = poleLitera[0] - 'A';
 			}
 			else {
 				cout << "nie ma takiego pola";
+				komunikat("nie ma takiego pola", 80, 80);
+			}
+			if ((poleCyfra + 1) - 1 <= 9 && (poleCyfra + 1) - 1 >= 0) {
+				px = (poleCyfra + 1) - 1;
+			}
+			else {
+				cout << "nie ma takiego pola";
+				komunikat("nie ma takiego pola", 80, 80);
 			}
 			if (planw.board[px][py] == 0) {
 				if (plan.board[px][py] != 0) {
 					planw.board[px][py] = 5;
 					cout << "trafiono " << plan.board[px][py] << ".masztowiec" << endl;
+					komunikat("trafiono" + to_string(plan.board[px][py]) + "masztowiec", 90, 90);
 					grac.punkty++;
+					rysowanie_planszy();
+					rysowanieStatkow(plan, planw);
 				}
 				else {
 					planw.board[px][py] = -1;
 					cout << "pudło";
+					komunikat("pudlo", 60, 60);
+
 					hit = 0;
+					rysowanie_planszy();
+					rysowanieStatkow(plan, planw);
 				}
 			}
 			else {
 				cout << "już sprawdzałeś to pole";
+				komunikat("już sprawdzałeś to pole",60,60);
 			}
 		}
 	}
