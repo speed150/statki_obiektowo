@@ -70,6 +70,8 @@ int numerPola() {
 			window.display();
 			window.draw(playerText);
 			window.display();
+			//
+			window.clear();
 		
 		}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {
@@ -509,10 +511,10 @@ void ustawStakiMenu(string nazwaGracza, plansza& p1) {
 	jakUstawicStatko.setString("1. automatycznie");
 	window.draw(jakUstawicStatko);
 	jakUstawicStatko.setPosition(sf::Vector2f(40, 90));
-	jakUstawicStatko.setString("2. rêcznie");
+	jakUstawicStatko.setString("2. ręcznie");
 	window.draw(jakUstawicStatko);
 	jakUstawicStatko.setPosition(sf::Vector2f(40, 140));
-	jakUstawicStatko.setString("3. wyjdŸ");
+	jakUstawicStatko.setString("3. wyjdź");
 	window.draw(jakUstawicStatko);
 	window.display();
 	int sposubUstawienia{ 0 };
@@ -520,13 +522,10 @@ void ustawStakiMenu(string nazwaGracza, plansza& p1) {
 		while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {}
 		sposubUstawienia = 1;
 		window.clear();
-		while (sposubUstawienia == 1)//tu jest b��d powa�ny niesko�czony while
-		{
+		
 			window.clear();
 			ustaw_statki(p1, sposubUstawienia);
-
-
-		}
+		
 
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
@@ -537,13 +536,12 @@ void ustawStakiMenu(string nazwaGracza, plansza& p1) {
 		while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {}
 		sposubUstawienia = 2;
 		window.clear();
-		while (sposubUstawienia == 2)
-		{
+	
 			window.clear();
 			ustaw_statki(p1, sposubUstawienia);
 
 
-		}
+		
 	}
 
 }
@@ -718,7 +716,7 @@ void rysowanieMenu() {
 			menu1.setString("2 gra z przeciwnikiem");
 			menu1.setPosition(sf::Vector2f(40, 120));
 			window.draw(menu1);
-			menu1.setString("3 opuœæ");
+			menu1.setString("3 opusc");
 			menu1.setPosition(sf::Vector2f(40, 180));
 			window.draw(menu1);
 			window.display();
@@ -740,10 +738,10 @@ void rysowanieMenu() {
 						menu1.setPosition(sf::Vector2f(20, 0));
 						menu1.setString("wybierz poziom trudnosci");
 						window.draw(menu1);
-						menu1.setString("1. ³atwy");
+						menu1.setString("1. latwy");
 						menu1.setPosition(sf::Vector2f(40, 60));
 						window.draw(menu1);
-						menu1.setString("2. œredni");
+						menu1.setString("2. sredni");
 						menu1.setPosition(sf::Vector2f(40, 120));
 						window.draw(menu1);
 						menu1.setString("3. trudny");
