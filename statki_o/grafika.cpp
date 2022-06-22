@@ -32,8 +32,9 @@ void komunikat(string tresc) {
 sf::RectangleShape trafienie1(sf::Vector2f(50, 10));
 sf::RectangleShape trafienie2(sf::Vector2f(50, 10));
 sf::RectangleShape statekFragment;
-std::string numerPola() {
-	string pole;
+int numerPola() {
+	int pole{};
+
 	sf::String playerInput{};
 	sf::Text playerText{};
 	sf::Event event{};
@@ -54,14 +55,14 @@ std::string numerPola() {
 	sf::RectangleShape kwarat(sf::Vector2f(50, 50));
 	kwarat.setPosition(sf::Vector2f(70, 880));
 	kwarat.setFillColor(sf::Color::Black);
-	while (pole.length() < 2) {
+	while (pole < 10) {
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num0)) {
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num0)) {}
 			window.draw(kwarat);
 			window.display();
 			//window.clear();
-			pole = "0";
-			playerInput = pole;
+			pole = 0;
+			playerInput =to_string( pole);
 			playerText.setString(playerInput);
 			window.draw(playerText);
 			window.display();
@@ -75,8 +76,8 @@ std::string numerPola() {
 				window.draw(kwarat);
 				window.display();
 				//window.clear();
-				pole = "1";
-				playerInput = pole;
+				pole = 1;
+				playerInput = to_string(pole);
 				playerText.setString(playerInput);
 				window.draw(playerText);
 				window.display();
@@ -90,8 +91,8 @@ std::string numerPola() {
 				window.draw(kwarat);
 				window.display();
 			//	window.clear();
-				pole = "2";
-				playerInput = pole;
+				pole = 2;
+				playerInput = to_string(pole);
 				playerText.setString(playerInput);
 				window.draw(playerText);
 				window.display();
@@ -104,8 +105,8 @@ std::string numerPola() {
 				window.draw(kwarat);
 				window.display();
 				//window.clear();
-				pole = "3";
-				playerInput = pole;
+				pole = 3;
+				playerInput = to_string(pole);;
 				playerText.setString(playerInput);
 				window.draw(playerText);
 				window.display();
@@ -119,8 +120,8 @@ std::string numerPola() {
 				window.draw(kwarat);
 				window.display();
 				//window.clear();
-				pole = "4";
-				playerInput = pole;
+				pole = 4;
+				playerInput = to_string(pole);
 				playerText.setString(playerInput);
 				window.draw(playerText);
 				window.display();
@@ -134,8 +135,8 @@ std::string numerPola() {
 				window.draw(kwarat);
 				window.display();
 				//window.clear();
-				pole = "5";
-				playerInput = pole;
+				pole = 5;
+				playerInput = to_string(pole);
 				playerText.setString(playerInput);
 				window.draw(playerText);
 				window.display();
@@ -148,8 +149,8 @@ std::string numerPola() {
 				window.draw(kwarat);
 				window.display();
 				//window.clear();
-				pole = "6";
-				playerInput = pole;
+				pole = 6;
+				playerInput = to_string(pole);
 				playerText.setString(playerInput);
 				window.draw(playerText);
 				window.display();
@@ -162,8 +163,8 @@ std::string numerPola() {
 				window.draw(kwarat);
 				window.display();
 				//window.clear();
-				pole = "7";
-				playerInput = pole;
+				pole = 7;
+				playerInput = to_string(pole);
 				playerText.setString(playerInput);
 				window.draw(playerText);
 				window.display();
@@ -175,8 +176,8 @@ std::string numerPola() {
 				window.draw(kwarat);
 				window.display();
 				//window.clear();
-				pole = "8";
-				playerInput = pole;
+				pole = 8;
+				playerInput = to_string(pole);
 				playerText.setString(playerInput);
 				window.draw(playerText);
 				window.display();
@@ -188,8 +189,8 @@ std::string numerPola() {
 				window.draw(kwarat);
 				window.display();
 				//window.clear();
-				pole = "9";
-				playerInput = pole;
+				pole = 9;
+				playerInput = "9";
 				playerText.setString(playerInput);
 				window.draw(playerText);
 				window.display();
@@ -206,6 +207,7 @@ std::string numerPola() {
 	}
 
 std::string wyborPola(string nazwaGracza, bool czyUstawiane) {
+	komunikat("wybierz kolumne od A do I");
 	window.clear();
 	window.display();
 	string pole{};
@@ -273,7 +275,7 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane) {
 	//		}
 	//	}
 	//}
-	if (czyUstawiane == TRUE) {
+
 		while (pole.length() < 2) {
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
 				while (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {}
@@ -410,7 +412,7 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane) {
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
 				while (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {}
-				pole += numerPola();
+				return pole;
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::BackSpace)) {
 				while (sf::Keyboard::isKeyPressed(sf::Keyboard::BackSpace)) {}
@@ -424,13 +426,10 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane) {
 				window.display();
 				window.clear();
 
-			}
+			
 		}
 	}
-else
-	{
-	return numerPola();
-	}
+
 		window.clear();
 		return playerInput;
 		///playerInput = "";

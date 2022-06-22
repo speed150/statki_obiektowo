@@ -223,7 +223,11 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 					rysowanie_planszy();
 					przypisyDoPlanszy();
 					rysowanieStatkow(p1, p1);
+				
+
+				
 					pozycja = wyborPola("gracz", true);
+					wiersz = numerPola();
 					//cin >> pozycja;
 					if (pozycja[0] <= 'J' && pozycja[0] >= 'A') {
 						kolumna = pozycja[0] - 'A';
@@ -231,15 +235,9 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 					else {
 						kolumna = pozycja[0] - 'a';
 					}
-					string a = pozycja.substr(1, 1);
+					 //stirng a = pozycja.substr(1, 1);
 					
-					if (isdigit(pozycja[1])) {
-						kierunek = stoi(pozycja.substr(1, 1)) - 1;
-					}
-					else {
-						cout << "cos sie nie konwertuje";
-						continue;
-					}
+			
 					dkier = 0;
 					cin.clear();
 					if ((wiersz <= 9 && wiersz >= 0) && (kolumna <= 9 && kolumna >= 0)) {
@@ -253,17 +251,13 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 								cin.clear();
 								cout << "wybierz kierunek 1lewo 2 góra 3 prawo 4 dol";
 								komunikat("wybierz kierunek 1lewo 2 góra 3 prawo 4 dol");
-								pozycja = wyborPola("gracz", true);
+								//kierunek = stoi(wyborPola("gracz", false));
+								int a= numerPola();
+								kierunek = numerPola();
 								kierunek -= 1;
-								string a = pozycja.substr(0, 1);
+								//string a = pozycja.substr(0, 1);
 
-								if (isdigit(pozycja[1])) {
-									kierunek = stoi(pozycja.substr(1, 1)) - 1;
-								}
-								else {
-									cout << "nie ma takiego kierunku";
-									komunikat("nie ma takiego kierunku");
-								}
+							
 								switch (kierunek)
 								{
 								default:
