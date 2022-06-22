@@ -1,4 +1,4 @@
-#define NOMINMAX
+﻿#define NOMINMAX
 #include "klasy.h"
 #include "SFML/Graphics.hpp"
 #include <iostream>
@@ -277,11 +277,16 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane) {
 	//}
 
 		while (pole.length() < 2) {
+			komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak");
+
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
 				while (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {}
+
 				window.draw(kwarat);
 				window.display();
 				window.clear();
+				
+				komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak");
 				pole = "A";
 				playerInput = pole;
 				playerText.setString(playerInput);
@@ -297,6 +302,7 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane) {
 				window.draw(kwarat);
 				window.display();
 				window.clear();
+				komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak");
 				pole = "B";
 				playerInput = pole;
 				playerText.setString(playerInput);
@@ -311,6 +317,7 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane) {
 				window.draw(kwarat);
 				window.display();
 				window.clear();
+				komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak");
 				pole = "C";
 				playerInput = pole;
 				playerText.setString(playerInput);
@@ -321,9 +328,12 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane) {
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
 				while (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {}
+				
+
 				window.draw(kwarat);
 				window.display();
 				window.clear();
+				komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak");
 				pole = "D";
 				playerInput = pole;
 				playerText.setString(playerInput);
@@ -334,9 +344,12 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane) {
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::E)) {
 				while (sf::Keyboard::isKeyPressed(sf::Keyboard::E)) {}
+			
+
 				window.draw(kwarat);
 				window.display();
 				window.clear();
+				komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak");
 				pole = "E";
 				playerInput = pole;
 				playerText.setString(playerInput);
@@ -347,8 +360,10 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane) {
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::F)) {
 				while (sf::Keyboard::isKeyPressed(sf::Keyboard::F)) {}
+
 				window.draw(kwarat);
 				window.display();
+				komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak");
 				window.clear();
 				pole = "F";
 				playerInput = pole;
@@ -360,9 +375,11 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane) {
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::G)) {
 				while (sf::Keyboard::isKeyPressed(sf::Keyboard::G)) {}
+
 				window.draw(kwarat);
 				window.display();
 				window.clear();
+				komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak");
 				pole = "G";
 				playerInput = pole;
 				playerText.setString(playerInput);
@@ -373,9 +390,11 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane) {
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::H)) {
 				while (sf::Keyboard::isKeyPressed(sf::Keyboard::H)) {}
+
 				window.draw(kwarat);
 				window.display();
 				window.clear();
+				komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak");
 				pole = "H";
 				playerInput = pole;
 				playerText.setString(playerInput);
@@ -387,8 +406,10 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane) {
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::I)) {
 				while (sf::Keyboard::isKeyPressed(sf::Keyboard::I)) {}
 				window.draw(kwarat);
+
 				window.display();
 				window.clear();
+				komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak");
 				pole = "I";
 				playerInput = pole;
 				playerText.setString(playerInput);
@@ -399,6 +420,7 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane) {
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::J)) {
 				while (sf::Keyboard::isKeyPressed(sf::Keyboard::J)) {}
+
 				window.draw(kwarat);
 				window.display();
 				window.clear();
@@ -408,13 +430,17 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane) {
 				window.draw(playerText);
 				window.display();
 				window.clear();
+				komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak");
 
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
+				komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak");
+
 				while (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {}
 				return pole;
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::BackSpace)) {
+
 				while (sf::Keyboard::isKeyPressed(sf::Keyboard::BackSpace)) {}
 				window.draw(kwarat);
 				window.clear();
@@ -425,6 +451,7 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane) {
 				window.draw(kwarat);
 				window.display();
 				window.clear();
+				komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak");
 
 			
 		}
@@ -454,10 +481,10 @@ void ustawStakiMenu(string nazwaGracza, plansza& p1) {
 	jakUstawicStatko.setString("1. automatycznie");
 	window.draw(jakUstawicStatko);
 	jakUstawicStatko.setPosition(sf::Vector2f(40, 90));
-	jakUstawicStatko.setString("2. r�cznie");
+	jakUstawicStatko.setString("2. rêcznie");
 	window.draw(jakUstawicStatko);
 	jakUstawicStatko.setPosition(sf::Vector2f(40, 140));
-	jakUstawicStatko.setString("3. wyjd�");
+	jakUstawicStatko.setString("3. wyjdŸ");
 	window.draw(jakUstawicStatko);
 	window.display(); 
 	int sposubUstawienia{ 0 };
@@ -664,7 +691,7 @@ void rysowanieMenu() {
 			menu1.setString("2 gra z przeciwnikiem");
 			menu1.setPosition(sf::Vector2f(40, 120));
 			window.draw(menu1);
-			menu1.setString("3 opu��");
+			menu1.setString("3 opuœæ");
 			menu1.setPosition(sf::Vector2f(40, 180));
 			window.draw(menu1);
 			window.display();
@@ -686,10 +713,10 @@ void rysowanieMenu() {
 						menu1.setPosition(sf::Vector2f(20, 0));
 						menu1.setString("wybierz poziom trudnosci");
 						window.draw(menu1);
-						menu1.setString("1. �atwy");
+						menu1.setString("1. ³atwy");
 						menu1.setPosition(sf::Vector2f(40, 60));
 						window.draw(menu1);
-						menu1.setString("2. �redni");
+						menu1.setString("2. œredni");
 						menu1.setPosition(sf::Vector2f(40, 120));
 						window.draw(menu1);
 						menu1.setString("3. trudny");

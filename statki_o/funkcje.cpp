@@ -227,6 +227,8 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 
 				
 					pozycja = wyborPola("gracz", true);
+					komunikat("wybierz kolune");
+
 					wiersz = numerPola();
 					//cin >> pozycja;
 					if (pozycja[0] <= 'J' && pozycja[0] >= 'A') {
@@ -252,7 +254,7 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 								cout << "wybierz kierunek 1lewo 2 góra 3 prawo 4 dol";
 								komunikat("wybierz kierunek 1lewo 2 góra 3 prawo 4 dol");
 								//kierunek = stoi(wyborPola("gracz", false));
-								int a= numerPola();
+								//int a= numerPola();
 								kierunek = numerPola();
 								kierunek -= 1;
 								//string a = pozycja.substr(0, 1);
