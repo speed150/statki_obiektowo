@@ -492,7 +492,7 @@ void ustawStakiMenu(string nazwaGracza, plansza& p1) {
 		while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {}
 		sposubUstawienia = 1;
 		window.clear();
-		while (sposubUstawienia == 1)//tu jest b³¹d powa¿ny nieskoñczony while
+		while (sposubUstawienia == 1)//tu jest bï¿½ï¿½d powaï¿½ny nieskoï¿½czony while
 		{
 			window.clear();
 			ustaw_statki(p1, sposubUstawienia);

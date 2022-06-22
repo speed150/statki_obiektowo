@@ -192,11 +192,11 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 							}
 						}
 					}
-					przypisyDoPlanszy();
-					rysowanie_planszy();
-					rysowanieStatkow(p1, p1);
 					ilosc += 1;
 				}
+					/*przypisyDoPlanszy();
+					rysowanie_planszy();
+					rysowanieStatkow(p1, p1);*/
 			}
 		} while (ilosc != 10);
 
@@ -225,9 +225,6 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 
 					komunikat(wiadomosc);
 					wypisz(p1);
-					rysowanie_planszy();
-					przypisyDoPlanszy();
-					rysowanieStatkow(p1, p1);
 				
 
 				
@@ -235,6 +232,9 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 					komunikat("wybierz kolune");
 
 					wiersz = numerPola();
+					rysowanie_planszy();
+			
+					rysowanieStatkow(p1, p1);
 					//cin >> pozycja;
 					if (pozycja[0] <= 'J' && pozycja[0] >= 'A') {
 						kolumna = pozycja[0] - 'A';
