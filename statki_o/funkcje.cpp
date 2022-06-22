@@ -80,6 +80,7 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 							if (p1.board[wiersz][kolumna] == 0) {
 								p1.board[wiersz][kolumna] = dlugosc;
 								brzegi(wiersz, kolumna, p1, 3);
+								
 								dust = 1;
 							}
 						}
@@ -191,11 +192,14 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 							}
 						}
 					}
+					przypisyDoPlanszy();
+					rysowanie_planszy();
+					rysowanieStatkow(p1, p1);
 					ilosc += 1;
 				}
 			}
 		} while (ilosc != 10);
-	;
+
 	przypisyDoPlanszy();
 	rysowanie_planszy();
 	rysowanieStatkow(p1, p1);
@@ -204,9 +208,10 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 	else {//przez gracza
 
 	string pozycja{};
+	char poz{};
 	int kierunek{};
 	ilosc = 0;
-					
+	bool dane{1};
 	bool dkier = 0;
 	int wiersz{}, kolumna{}, dobre_pole{ 1 };
 	do {
@@ -359,7 +364,7 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 									}
 									break;
 								case 3:
-									if (kolumna + dlugosc - 1 >= 9) {
+									if (wiersz + dlugosc - 1 >= 9) {
 										for (int st = 0; st < dlugosc; st++) {
 											if (p1.board[wiersz + st][kolumna] == 0) {
 												dobre_pole += 1;

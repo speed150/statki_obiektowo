@@ -464,7 +464,7 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane) {
 }
 void ustawStakiMenu(string nazwaGracza, plansza& p1) {
 	window.clear();
-	
+
 	sf::Text jakUstawicStatko;
 	jakUstawicStatko.setCharacterSize(40);
 	jakUstawicStatko.setFillColor(sf::Color::White);
@@ -486,40 +486,40 @@ void ustawStakiMenu(string nazwaGracza, plansza& p1) {
 	jakUstawicStatko.setPosition(sf::Vector2f(40, 140));
 	jakUstawicStatko.setString("3. wyjdÅ¸");
 	window.draw(jakUstawicStatko);
-	window.display(); 
+	window.display();
 	int sposubUstawienia{ 0 };
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {
 		while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {}
 		sposubUstawienia = 1;
 		window.clear();
-		while (sposubUstawienia == 1)
+		while (sposubUstawienia == 1)//tu jest b³¹d powa¿ny nieskoñczony while
 		{
 			window.clear();
 			ustaw_statki(p1, sposubUstawienia);
 
 
 		}
-	
+
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
 		while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {}
 		rysowanieMenu();
 	}
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
-					while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {}
-					sposubUstawienia = 2;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
+		while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {}
+		sposubUstawienia = 2;
+		window.clear();
+		while (sposubUstawienia == 2)
+		{
 			window.clear();
-			while (sposubUstawienia == 2)
-			{
-				window.clear();
-				ustaw_statki(p1, sposubUstawienia);
-			
+			ustaw_statki(p1, sposubUstawienia);
 
-			}
+
 		}
-				
 	}
-//}
+
+}
+
 void przypisyDoPlanszy() {
 	int skok{ 0 };
 	for (int i = 1; i <= 10; i++) {
