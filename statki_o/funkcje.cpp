@@ -215,7 +215,10 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 				dust = 0;
 				while (dust == 0) {
 					//cin.clear();
-					cout << "ustaw " << dlugosc << ".masztowiec" << endl;
+					string wiadomosc = "ustaw" + to_string(dlugosc) + ".masztowiec";
+					
+
+					komunikat(wiadomosc);
 					wypisz(p1);
 					rysowanie_planszy();
 					przypisyDoPlanszy();
@@ -249,6 +252,7 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 							else {
 								cin.clear();
 								cout << "wybierz kierunek 1lewo 2 góra 3 prawo 4 dol";
+								komunikat("wybierz kierunek 1lewo 2 góra 3 prawo 4 dol");
 								pozycja = wyborPola("gracz", true);
 								kierunek -= 1;
 								string a = pozycja.substr(0, 1);
@@ -258,11 +262,12 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 								}
 								else {
 									cout << "nie ma takiego kierunku";
+									komunikat("nie ma takiego kierunku");
 								}
 								switch (kierunek)
 								{
 								default:
-									cout << "nie ma takiego kierunku";
+									komunikat("nie ma takiego kierunku");
 									break;
 								case 0:
 									if (kolumna - dlugosc + 1 >= 0) {
@@ -286,12 +291,14 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 											
 
 											dobre_pole = 1;
-											cout << "zly kierunek" << endl;
+											komunikat("zły kierunku");
 										}
 									}
 									else
 									{
 										cout << "z³e pole" << endl;
+										komunikat("zły pole");
+
 										dobre_pole = 1;
 									}
 									break;
@@ -313,11 +320,15 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 
 											dobre_pole = 1;
 											cout << "zly kierunek" << endl;
+											komunikat("zły kierunku");
+
 										}
 									
 									else
 									{
 										cout << "z³e pole" << endl;
+										komunikat("zły pole");
+
 										dobre_pole = 1;
 									}
 									break;
@@ -339,11 +350,15 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 					                    else{
 											dobre_pole = 1;
 											cout << "zly kierunek" << endl;
+											komunikat("zły kierunku");
+
 										}
 									}
 									else
 									{
 										cout << "z³e pole" << endl;
+										komunikat("zły pole");
+
 										dobre_pole = 1;
 									}
 									break;
@@ -365,11 +380,15 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 							            else{
 											dobre_pole = 1;
 											cout << "zly kierunek" << endl;
+											komunikat("zły kierunku");
+
 										}
 									}
 									else
 									{
 										cout << "z³e pole" << endl;
+										komunikat("zły pole");
+
 										dobre_pole = 1;
 									}
 									break;
@@ -379,6 +398,8 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 					}
 					else {
 						cout << "zle pole" << endl;
+						komunikat("zły pole");
+
 					}
 
 				}

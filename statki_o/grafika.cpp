@@ -13,18 +13,33 @@ sf::RectangleShape planszaStatkiGracz1;
 int rozmiarPlanszy{ 700 };
 int Odstemp{ 100 };
 sf::RectangleShape line(sf::Vector2f(rozmiarPlanszy * 2 + Odstemp, 5));
+void komunikat(string tresc) {
+	sf::Text komuikat;
+	komuikat.setCharacterSize(40);
+	komuikat.setFillColor(sf::Color::White);
+	komuikat.setOutlineThickness(5.f);
+	komuikat.setOutlineColor(sf::Color::Black);
+	sf::Font font;
+	font.loadFromFile("Lato-Regular.ttf");
+	komuikat.setFont(font);
+	komuikat.setLetterSpacing(1);
+	komuikat.setPosition(sf::Vector2f(0,820));
+	komuikat.setString(tresc);
+	window.draw(komuikat);
+	window.display();
+
+}
 sf::RectangleShape trafienie1(sf::Vector2f(50, 10));
 sf::RectangleShape trafienie2(sf::Vector2f(50, 10));
 sf::RectangleShape statekFragment;
-std::string wyborPola(string nazwaGracza, bool czyUstawiane) {
-	window.clear();
-	window.display();
-	sf::String playerInput;
-	sf::Text playerText;
+std::string numerPola() {
+	string pole;
+	sf::String playerInput{};
+	sf::Text playerText{};
 	sf::Event event{};
 	sf::Font font;
 	font.loadFromFile("Lato-Regular.ttf");
-	playerText.setPosition(sf::Vector2f(20, 800));
+	playerText.setPosition(sf::Vector2f(70, 880));
 	playerText.setFont(font);
 	playerText.setCharacterSize(50);
 	playerText.setFillColor(sf::Color::White);
@@ -36,51 +51,390 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane) {
 	playerText.setOutlineThickness(5.f);
 	playerText.setOutlineColor(sf::Color::Black);
 	playerInput = "";
-	while (!sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
+	sf::RectangleShape kwarat(sf::Vector2f(50, 50));
+	kwarat.setPosition(sf::Vector2f(70, 880));
+	kwarat.setFillColor(sf::Color::Black);
+	while (pole.length() < 2) {
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num0)) {
+			while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num0)) {}
+			window.draw(kwarat);
+			window.display();
+			//window.clear();
+			pole = "0";
+			playerInput = pole;
+			playerText.setString(playerInput);
+			window.draw(playerText);
+			window.display();
+			//
+			window.clear();
 		
-		rysowanie_planszy();
-		//rysowanieStatkow(p1);
-		przypisyDoPlanszy();
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::TextEntered)
-			{
-				if (event.text.unicode < 128)
-				{
-					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Backspace)) {
-						if (playerInput.getSize() > 0) {
-							playerInput.erase(playerInput.getSize() - 1, 2);
-							playerText.setString(playerInput);
-							window.clear();
-							window.display();
-							
-						}
-						window.display();
+		}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {
+				while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {}
 
-						window.draw(playerText);
-						window.display();
-					}
-					else
-						if (!sf::Keyboard::isKeyPressed(sf::Keyboard::Backspace)) 
-						 {
-						playerInput += event.text.unicode;
-						playerText.setString(playerInput);
-						window.clear();
+				window.draw(kwarat);
+				window.display();
+				//window.clear();
+				pole = "1";
+				playerInput = pole;
+				playerText.setString(playerInput);
+				window.draw(playerText);
+				window.display();
+				window.clear();
+				
 
-						window.draw(playerText);
-						window.display();
-					}
-					window.clear();
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
+				while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {}
 
-					window.draw(playerText);
-					window.display();
-				}
+				window.draw(kwarat);
+				window.display();
+			//	window.clear();
+				pole = "2";
+				playerInput = pole;
+				playerText.setString(playerInput);
+				window.draw(playerText);
+				window.display();
+				window.clear();
+			
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
+				while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {}
+
+				window.draw(kwarat);
+				window.display();
+				//window.clear();
+				pole = "3";
+				playerInput = pole;
+				playerText.setString(playerInput);
+				window.draw(playerText);
+				window.display();
+				window.clear();
+	
+
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num4)) {
+				while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num4)) {}
+
+				window.draw(kwarat);
+				window.display();
+				//window.clear();
+				pole = "4";
+				playerInput = pole;
+				playerText.setString(playerInput);
+				window.draw(playerText);
+				window.display();
+				window.clear();
+	
+
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num5)) {
+				while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num5)) {}
+
+				window.draw(kwarat);
+				window.display();
+				//window.clear();
+				pole = "5";
+				playerInput = pole;
+				playerText.setString(playerInput);
+				window.draw(playerText);
+				window.display();
+				window.clear();
+	
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num6)) {
+				while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num6)) {}
+
+				window.draw(kwarat);
+				window.display();
+				//window.clear();
+				pole = "6";
+				playerInput = pole;
+				playerText.setString(playerInput);
+				window.draw(playerText);
+				window.display();
+				window.clear();
+
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num7)) {
+				while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num7)) {}
+
+				window.draw(kwarat);
+				window.display();
+				//window.clear();
+				pole = "7";
+				playerInput = pole;
+				playerText.setString(playerInput);
+				window.draw(playerText);
+				window.display();
+				window.clear();
+
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num8)) {
+				while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num8)) {}
+				window.draw(kwarat);
+				window.display();
+				//window.clear();
+				pole = "8";
+				playerInput = pole;
+				playerText.setString(playerInput);
+				window.draw(playerText);
+				window.display();
+				window.clear();
+
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num9)) {
+				while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num9)) {}
+				window.draw(kwarat);
+				window.display();
+				//window.clear();
+				pole = "9";
+				playerInput = pole;
+				playerText.setString(playerInput);
+				window.draw(playerText);
+				window.display();
+				window.clear();
+
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
+				while (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {}
+				return pole;
+			}
+
+		}
+
+	}
+
+std::string wyborPola(string nazwaGracza, bool czyUstawiane) {
+	window.clear();
+	window.display();
+	string pole{};
+	sf::String playerInput{};
+	sf::Text playerText{};
+	sf::Event event{};
+	sf::Font font;
+	font.loadFromFile("Lato-Regular.ttf");
+	playerText.setPosition(sf::Vector2f(20, 880));
+	playerText.setFont(font);
+	playerText.setCharacterSize(50);
+	playerText.setFillColor(sf::Color::White);
+	playerText.setOutlineThickness(5.f);
+	playerText.setOutlineColor(sf::Color::Black);
+	playerText.setFont(font);
+	playerText.setCharacterSize(50);
+	playerText.setFillColor(sf::Color::White);
+	playerText.setOutlineThickness(5.f);
+	playerText.setOutlineColor(sf::Color::Black);
+	playerInput = "";
+	sf::RectangleShape kwarat(sf::Vector2f(50, 50));
+	kwarat.setPosition(sf::Vector2f(20, 880));
+	kwarat.setFillColor(sf::Color::Black);
+
+	//while (!sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
+	//	
+	//	rysowanie_planszy();
+	//	//rysowanieStatkow(p1);
+	//	przypisyDoPlanszy();
+	//	while (window.pollEvent(event))
+	//	{
+	//		if (event.type == sf::Event::TextEntered)
+	//		{
+	//			if (event.text.unicode < 128)
+	//			{
+	//				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Backspace)) {
+	//					if (playerInput.getSize() > 0) {
+	//						playerInput.erase(playerInput.getSize() - 1, 2);
+	//						playerText.setString(playerInput);
+	//						window.clear();
+	//						window.display();
+	//						//cout << playerInput;
+	//						
+	//					}
+	//					window.display();
+
+	//					window.draw(playerText);
+	//					window.display();
+	//				}
+	//				else
+	//					if (!sf::Keyboard::isKeyPressed(sf::Keyboard::Backspace)) 
+	//					 {
+	//					playerInput += event.text.unicode;
+	//					playerText.setString(playerInput);
+	//					window.clear();
+
+	//					window.draw(playerText);
+	//					window.display();
+	//				}
+	//				window.clear();
+
+	//				window.draw(playerText);
+	//				window.display();
+	//			}
+	//		}
+	//	}
+	//}
+	if (czyUstawiane == TRUE) {
+		while (pole.length() < 2) {
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+				while (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {}
+				window.draw(kwarat);
+				window.display();
+				window.clear();
+				pole = "A";
+				playerInput = pole;
+				playerText.setString(playerInput);
+				window.draw(playerText);
+				window.display();
+				window.clear();
+
+
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
+				while (sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {}
+
+				window.draw(kwarat);
+				window.display();
+				window.clear();
+				pole = "B";
+				playerInput = pole;
+				playerText.setString(playerInput);
+				window.draw(playerText);
+				window.display();
+				window.clear();
+
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::C)) {
+				while (sf::Keyboard::isKeyPressed(sf::Keyboard::C)) {}
+
+				window.draw(kwarat);
+				window.display();
+				window.clear();
+				pole = "C";
+				playerInput = pole;
+				playerText.setString(playerInput);
+				window.draw(playerText);
+				window.display();
+				window.clear();
+
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+				while (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {}
+				window.draw(kwarat);
+				window.display();
+				window.clear();
+				pole = "D";
+				playerInput = pole;
+				playerText.setString(playerInput);
+				window.draw(playerText);
+				window.display();
+				window.clear();
+
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::E)) {
+				while (sf::Keyboard::isKeyPressed(sf::Keyboard::E)) {}
+				window.draw(kwarat);
+				window.display();
+				window.clear();
+				pole = "E";
+				playerInput = pole;
+				playerText.setString(playerInput);
+				window.draw(playerText);
+				window.display();
+				window.clear();
+
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::F)) {
+				while (sf::Keyboard::isKeyPressed(sf::Keyboard::F)) {}
+				window.draw(kwarat);
+				window.display();
+				window.clear();
+				pole = "F";
+				playerInput = pole;
+				playerText.setString(playerInput);
+				window.draw(playerText);
+				window.display();
+				window.clear();
+
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::G)) {
+				while (sf::Keyboard::isKeyPressed(sf::Keyboard::G)) {}
+				window.draw(kwarat);
+				window.display();
+				window.clear();
+				pole = "G";
+				playerInput = pole;
+				playerText.setString(playerInput);
+				window.draw(playerText);
+				window.display();
+				window.clear();
+
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::H)) {
+				while (sf::Keyboard::isKeyPressed(sf::Keyboard::H)) {}
+				window.draw(kwarat);
+				window.display();
+				window.clear();
+				pole = "H";
+				playerInput = pole;
+				playerText.setString(playerInput);
+				window.draw(playerText);
+				window.display();
+				window.clear();
+
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::I)) {
+				while (sf::Keyboard::isKeyPressed(sf::Keyboard::I)) {}
+				window.draw(kwarat);
+				window.display();
+				window.clear();
+				pole = "I";
+				playerInput = pole;
+				playerText.setString(playerInput);
+				window.draw(playerText);
+				window.display();
+				window.clear();
+
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::J)) {
+				while (sf::Keyboard::isKeyPressed(sf::Keyboard::J)) {}
+				window.draw(kwarat);
+				window.display();
+				window.clear();
+				pole = "J";
+				playerInput = pole;
+				playerText.setString(playerInput);
+				window.draw(playerText);
+				window.display();
+				window.clear();
+
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
+				while (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {}
+				pole += numerPola();
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::BackSpace)) {
+				while (sf::Keyboard::isKeyPressed(sf::Keyboard::BackSpace)) {}
+				window.draw(kwarat);
+				window.clear();
+				window.display();
+				pole = " ";
+				playerInput = pole;
+				playerText.setString(playerInput);
+				window.draw(kwarat);
+				window.display();
+				window.clear();
+
 			}
 		}
 	}
-	window.clear();
-	return playerInput;
-	playerInput = "";
+else
+	{
+	return numerPola();
+	}
+		window.clear();
+		return playerInput;
+		///playerInput = "";
+	
 }
 void ustawStakiMenu(string nazwaGracza, plansza& p1) {
 	window.clear();
