@@ -1,7 +1,7 @@
 #include "klasy.h"
 #include <iostream>
 #include <random>
-#include <ctime>
+#include <ctime> 
 using namespace std;
 int trafienia,hitx,hity,tk;
 int statek;

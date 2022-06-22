@@ -231,11 +231,10 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 					string a = pozycja.substr(1, 1);
 					
 					if (isdigit(pozycja[1])) {
-						kierunek = stoi(pozycja.substr(1, 1)) - 1;
+						wiersz = stoi(pozycja.substr(1, 1)) - 1;
 					}
 					else {
 						cout << "cos sie nie konwertuje";
-						continue;
 					}
 					dkier = 0;
 					cin.clear();

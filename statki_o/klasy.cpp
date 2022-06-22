@@ -12,4 +12,4 @@ plansza::plansza(){
 }
 gracz::gracz() {
 	punkty = 0;
-}
+} 

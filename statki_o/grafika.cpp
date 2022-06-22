@@ -60,7 +60,9 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane) {
 						window.draw(playerText);
 						window.display();
 					}
-					else {
+					else
+						if (!sf::Keyboard::isKeyPressed(sf::Keyboard::Backspace)) 
+						 {
 						playerInput += event.text.unicode;
 						playerText.setString(playerInput);
 						window.clear();
@@ -104,42 +106,38 @@ void ustawStakiMenu(string nazwaGracza, plansza& p1) {
 	jakUstawicStatko.setPosition(sf::Vector2f(40, 140));
 	jakUstawicStatko.setString("3. wyjdü");
 	window.draw(jakUstawicStatko);
-	window.display();
+	window.display(); 
 	int sposubUstawienia{ 0 };
-	//przypisyDoPlanszy();
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {
+		while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {}
+		sposubUstawienia = 1;
+		window.clear();
+		while (sposubUstawienia == 1)
+		{
+			window.clear();
+			ustaw_statki(p1, sposubUstawienia);
+
+
+		}
 	
-	/*if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
+		while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {}
 		rysowanieMenu();
-	}*/
+	}
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
-		//	cout << "kurwa";
+					while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {}
 					sposubUstawienia = 2;
 			window.clear();
 			while (sposubUstawienia == 2)
 			{
 				window.clear();
 				ustaw_statki(p1, sposubUstawienia);
-				//std::string wyborPola(nazwaGracza, true);
-				//window.display();
+			
 
 			}
 		}
-				//if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1) ){
-				//	cout << "kurwa";
-				//		Sleep(100);
-				//		sposubUstawienia = 1;
-				//		window.clear();
-				//		while (sposubUstawienia == 1)
-				//		{
-				//			window.clear();
-				//				ustaw_statki(p1, sposubUstawienia);
-				//				//std::string wyborPola(nazwaGracza, true);
-				//				//window.display();
-
-				//		}
-	
-				//}
-
+				
 	}
 //}
 void przypisyDoPlanszy() {
@@ -208,7 +206,7 @@ void rysowanie_planszy() {
 				skok = 104 + rozmiarPlanszy * 0.1;
 			}
 		}
-
+		przypisyDoPlanszy();
 		window.display();
 
 }
@@ -322,9 +320,10 @@ void rysowanieMenu() {
 			int MenuTrudnosci{ 0 };
 			int MenuUstawiania{ 0 };
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {
-				Sleep(100);
-				if (!sf::Keyboard::isKeyPressed(sf::Keyboard::Num1))
+			
+				while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1))
 				{
+				}
 					PierwszeMenu = 1;
 					MenuTrudnosci = 0;
 					int MenuStatkow{ 0 };
@@ -347,11 +346,12 @@ void rysowanieMenu() {
 						menu1.setPosition(sf::Vector2f(40, 240));
 						window.draw(menu1);
 						window.display();
-						Sleep(250);
+						
 						if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num4)) {
 							PierwszeMenu = 0;
 						}
 						if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {
+							while(sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)){}
 							MenuStatkow = 1;
 							poziomTrudnosic = 1;
 							while (MenuStatkow == 1)
@@ -359,12 +359,14 @@ void rysowanieMenu() {
 								plansza p1;
 								ustawStakiMenu("gracz ",p1);
 								if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
+									while(sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {}
 									MenuStatkow = 0;
-									Sleep(250);
+									
 								}
 							}
 						}
 						if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
+							while(sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {}
 							MenuStatkow = 1;
 							poziomTrudnosic = 2;
 								plansza pl;
@@ -373,12 +375,14 @@ void rysowanieMenu() {
 							
 								ustawStakiMenu("gracz ",pl);
 								if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
+									while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {}
 									MenuStatkow = 0;
-									Sleep(250);
+									
 								}
 							}
 						}
 						if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
+							while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {}
 							poziomTrudnosic = 3;
 							MenuStatkow = 1;
 							while (MenuStatkow == 1)
@@ -387,16 +391,17 @@ void rysowanieMenu() {
 								
 								ustawStakiMenu("gracz ",p1);
 								if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
+									while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {}
 									MenuStatkow = 0;
-									Sleep(250);
+									
 								}
 							}
 						}
-					}
+					
 				}
 			
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
-				Sleep(100);
+				while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {}
 				if (!sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
 					PierwszeMenu = 2;
 					while (PierwszeMenu == 2)

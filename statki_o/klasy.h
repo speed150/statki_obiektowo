@@ -3,7 +3,7 @@
 using namespace std;
 class gracz;
 class plansza {
-	int board[10][10]{};
+	int board[10][10]{}; 
 public:
 	friend void rysowanieStatkow(plansza g1, plansza g2);
 	friend void wypisz(plansza pl);
