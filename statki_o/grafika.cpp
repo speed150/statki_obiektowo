@@ -61,7 +61,7 @@ int numerPola() {
 			window.draw(kwarat);
 			window.display();
 			//window.clear();
-			pole = 0;
+			pole = 10;
 			playerInput =to_string( pole);
 			playerText.setString(playerInput);
 			window.draw(playerText);

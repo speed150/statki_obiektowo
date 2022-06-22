@@ -203,7 +203,7 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 	przypisyDoPlanszy();
 	rysowanie_planszy();
 	rysowanieStatkow(p1, p1);
-	zeruj(p1);
+	
 	}
 	else {//przez gracza
 
