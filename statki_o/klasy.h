@@ -17,7 +17,7 @@ public:
 	friend void player(plansza& plan, plansza& planw, gracz& grac);
 };
 
-void komunikat(string);
+void komunikat(string,int ,int);
 class gracz
 {
 	int punkty ;
