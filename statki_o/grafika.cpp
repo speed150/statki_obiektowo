@@ -507,9 +507,9 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane, plansza pl) {
 	///playerInput = "";
 
 }
-void ustawStakiMenu(string nazwaGracza, plansza& p1, int iloscGraczy) {
+bool ustawStakiMenu(string nazwaGracza, plansza& p1, int iloscGraczy) {
 	window.clear();
-
+	bool war = 0;
 	sf::Text jakUstawicStatko;
 	jakUstawicStatko.setCharacterSize(40);
 	jakUstawicStatko.setFillColor(sf::Color::White);
@@ -540,12 +540,15 @@ void ustawStakiMenu(string nazwaGracza, plansza& p1, int iloscGraczy) {
 
 		window.clear();
 		ustaw_statki(p1, sposubUstawienia);
-
+		war = 1;
+		return war;
 
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
 		while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {}
+		return war;
 		rysowanieMenu();
+		
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
 		while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {}
@@ -554,14 +557,12 @@ void ustawStakiMenu(string nazwaGracza, plansza& p1, int iloscGraczy) {
 
 		window.clear();
 		ustaw_statki(p1, sposubUstawienia);
-
+		war = 1;
+		return war;
 
 
 	}
-	if (iloscGraczy == 2) {
-		plansza p2;
-		ustawStakiMenu("gracz 2", p2, 1);
-	}
+
 }
 
 void przypisyDoPlanszy() {
@@ -834,10 +835,10 @@ void rysowanieMenu() {
 
 						/*	gracz PierwszyGracz;
 							gracz DrugiGracz;*/
-
-						ustawStakiMenu("gracz 1", p1, 2);
-
-						//ustawStakiMenu("gracz 2",p2);
+						bool w1, w2;
+						w1 =ustawStakiMenu("gracz 1", p1, 1);	
+						w2=ustawStakiMenu("gracz 2", p2, 1);
+						
 						if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
 							PierwszeMenu = 0;
 							Sleep(250);

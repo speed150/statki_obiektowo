@@ -1,4 +1,5 @@
 #include "klasy.h"
+#include "SFML/Graphics.hpp"
 #include <iostream>
 #include <random>
 #include <ctime> 
@@ -29,10 +30,7 @@ void ai(plansza& gracz, plansza& g1, int poziom) {
 			if (statek == gracz.board[hitx][hity]) {
 				if (poziom == 3) {
 					brzegi(hitx, hity, g1, 4 - statek);
-					wypisz(g1);
-					rysowanie_planszy();
-					przypisyDoPlanszy();
-					rysowanieStatkow(gracz, g1);
+					
 
 				}
 				trafiony = false;
@@ -215,10 +213,7 @@ void ai(plansza& gracz, plansza& g1, int poziom) {
 			}
 		}
 	}
-	wypisz(g1);
-	rysowanie_planszy();
-	przypisyDoPlanszy();
-	rysowanieStatkow(gracz, g1);
+
 }
 void player(plansza& plan, plansza& planw, gracz& grac) {//plansza niewidoczna(sprawdzana),plansza widoczna,gracz
 	
@@ -278,4 +273,37 @@ void player(plansza& plan, plansza& planw, gracz& grac) {//plansza niewidoczna(s
 			}
 		}
 	}
+}
+void gra(plansza& p1, plansza& p2, plansza& p1w, plansza& p2w, gracz& g1, gracz& g2,int Ai) {
+	if (Ai !=0) {
+		while (g1.punkty != 20 || g2.punkty != 20) {
+			player(p2, p2w, g1);
+			ai(p1, p1w, Ai);
+			g2.punkty = trafienia;
+		}
+		if (g1.punkty == 20) {
+			komunikat("wygrales", 200, 100);
+		}
+		else {
+			komunikat("przegrales", 200, 100);
+		}
+	}
+	if (Ai==0) {
+		while (g1.punkty != 20 || g2.punkty != 20) {
+			player(p2, p2w, g1);
+			player(p1, p1w, g2);
+		}
+		if (g1.punkty == 20) {
+			komunikat("wygrał gracz 1", 200, 100);
+		}
+		else {
+			komunikat("wygrał gracz 2", 200, 100);
+		}
+
+	}
+	czysc(p1);
+	czysc(p2);
+	czysc(p1w);
+	czysc(p2w);
+
 }
