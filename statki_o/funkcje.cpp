@@ -231,7 +231,7 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 						pozycja = wyborPola("gracz", true, p1);
 						komunikat("wybierz kolumne", 100, 90);
 
-						wiersz = numerPola();
+						wiersz = numerPola(p1);
 						rysowanie_planszy();
 
 						rysowanieStatkow(p1, p1);
@@ -260,7 +260,7 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 									komunikat("wybierz kierunek 1lewo 2 góra 3 prawo 4 dol", 110, 50);
 									//kierunek = stoi(wyborPola("gracz", false));
 									//int a= numerPola();
-									kierunek = numerPola();
+									kierunek = numerPola(p1);
 									kierunek -= 1;
 									//string a = pozycja.substr(0, 1);
 

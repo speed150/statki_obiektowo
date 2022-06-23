@@ -235,7 +235,7 @@ void player(plansza& plan, plansza& planw, gracz& grac) {//plansza niewidoczna(s
 			//cin >> pozycja;
 
 			string poleLitera = wyborPola(grac.nazwa, false, planw);
-			int poleCyfra = numerPola();
+			int poleCyfra = numerPola(planw);
 			if (poleLitera[0] <= 'j' && poleLitera[0] >= 'a') {
 				py = poleLitera[0] - 'a';
 			}

@@ -367,3 +367,7 @@ statki_o/statki_o.vcxproj
 statki_o/statki_o.vcxproj
 *.dll
 statki_o/statki_o.vcxproj
+include/SFML/Audio.hpp
+*.hpp
+*.hpp
+*.cmake

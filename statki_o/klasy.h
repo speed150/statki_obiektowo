@@ -43,5 +43,5 @@ void gra(plansza& p1, plansza& p2, plansza& p1w, plansza& p2w, gracz& g1, gracz&
 
 void ustawStakiMenu(string nazwaGracza, plansza& p1, int iloscGraczyDoUtworzenia);
 std::string wyborPola(string nazwaGracza, bool czyUstawiane, plansza pl);
-int numerPola();
+int numerPola(plansza pl);
 void player(plansza& plan, plansza& planw, gracz& grac);
