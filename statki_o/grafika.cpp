@@ -849,6 +849,7 @@ void rysowanieStatkow(plansza p1, plansza p2) {
 }
 void rysowanieMenu() {
 	plansza p1,p1w,p2,p2w;
+	gracz g1, g2;
 	while (window.isOpen())
 	{
 
@@ -928,6 +929,7 @@ void rysowanieMenu() {
 						{
 
 							ustawStakiMenu("gracz ", p1, 1);
+							gra(p1, p2, p1w, p2w, g1, g2, poziomTrudnosic);
 							if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
 								while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {}
 								MenuStatkow = 0;
@@ -944,6 +946,7 @@ void rysowanieMenu() {
 
 
 							ustawStakiMenu("gracz ", pl, 1);
+						gra(p1, p2, p1w, p2w, g1, g2, poziomTrudnosic);
 						if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
 							while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {}
 							MenuStatkow = 0;
@@ -960,6 +963,7 @@ void rysowanieMenu() {
 
 
 							ustawStakiMenu("gracz ", p1, 1);
+							gra(p1, p2, p1w, p2w, g1, g2, poziomTrudnosic);
 							if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
 								while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {}
 								MenuStatkow = 0;
@@ -979,8 +983,11 @@ void rysowanieMenu() {
 						/*	gracz PierwszyGracz;
 							gracz DrugiGracz;*/
 						bool w1, w2;
-						w1 =ustawStakiMenu("gracz 1", p1, 1);	
-						w2=ustawStakiMenu("gracz 2", p2, 1);
+						w1 = ustawStakiMenu("gracz 1", p1, 1);
+						w2 = ustawStakiMenu("gracz 2", p2, 1);
+						if (w1 == 1 && w2 == 1) {
+							gra(p1, p2, p1w, p2w, g1, g2, 0);
+						}
 						
 						if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
 							PierwszeMenu = 0;
