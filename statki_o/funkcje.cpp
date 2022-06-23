@@ -223,13 +223,13 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 						string wiadomosc = "ustaw" + to_string(dlugosc) + ".masztowiec";
 
 
-						komunikat(wiadomosc, 40, 60);
+						komunikat(wiadomosc, 40, 120);
 						//wypisz(p1);
 
 
 
 						pozycja = wyborPola("gracz", true, p1);
-						komunikat("wybierz kolumne", 100, 90);
+						komunikat("wybierz kolumne", 100, 190);
 
 						wiersz = numerPola(p1);
 						rysowanie_planszy();
@@ -268,7 +268,7 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 									switch (kierunek)
 									{
 									default:
-										komunikat("nie ma takiego kierunku", 150, 50);
+										komunikat("nie ma takiego kierunku", 250, 50);
 										break;
 									case 0:
 										if (kolumna - dlugosc + 1 >= 0) {
