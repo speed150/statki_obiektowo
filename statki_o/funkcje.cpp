@@ -58,7 +58,7 @@ void wypisz(plansza pl) {
 }
 void ustaw_statki(plansza& p1, int rodzaj) {
 	//rysowanieMenu();
-
+	plansza zero;
 	int ilosc = 0;
 	bool dust = 0;//dobrze ustawiony statek
 	int wiersz, kolumna, kierunek;
@@ -199,10 +199,10 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 				rysowanieStatkow(p1, p1);*/
 			}
 		} while (ilosc != 10);
-
+		
 		przypisyDoPlanszy();
 		rysowanie_planszy();
-		rysowanieStatkow(p1, p1);
+		rysowanieStatkow(p1, zero);
 		zeruj(p1);
 	}
 	else {//przez gracza
@@ -234,7 +234,7 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 						wiersz = numerPola();
 						rysowanie_planszy();
 
-						rysowanieStatkow(p1, p1);
+						rysowanieStatkow(p1, zero);
 						//cin >> pozycja;
 						if (pozycja[0] <= 'J' && pozycja[0] >= 'A') {
 							kolumna = pozycja[0] - 'A';
@@ -292,13 +292,13 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 
 
 												dobre_pole = 1;
-												komunikat("zły kierunku", 400, 70);
+												komunikat("zły kierunek", 400, 70);
 											}
 										}
 										else
 										{
 											//cout << "z³e pole" << endl;
-											komunikat("zły pole", 350, 140);
+											komunikat("złe pole", 350, 140);
 
 											dobre_pole = 1;
 										}
@@ -321,7 +321,7 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 
 											dobre_pole = 1;
 											//cout << "zly kierunek" << endl;
-											komunikat("zły kierunku", 400, 70);
+											komunikat("zły kierunek", 400, 70);
 
 										}
 
@@ -364,7 +364,7 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 										}
 										break;
 									case 3:
-										if (wiersz + dlugosc - 1 >= 9) {
+										if (wiersz + dlugosc - 1 <= 9) {
 											for (int st = 0; st < dlugosc; st++) {
 												if (p1.board[wiersz + st][kolumna] == 0) {
 													dobre_pole += 1;

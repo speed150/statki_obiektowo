@@ -601,6 +601,8 @@ void przypisyDoPlanszy() {
 
 }
 void rysowanie_planszy() {
+	
+	
 
 	planszaStatkiGracz1.setSize(sf::Vector2f(rozmiarPlanszy, rozmiarPlanszy));
 	planszaStatkiGracz1.setFillColor(sf::Color::Green);
@@ -702,6 +704,7 @@ void rysowanieStatkow(plansza p1, plansza p2) {
 	window.display();
 }
 void rysowanieMenu() {
+	plansza p1,p1w,p2,p2w;
 	while (window.isOpen())
 	{
 
@@ -779,7 +782,7 @@ void rysowanieMenu() {
 						poziomTrudnosic = 1;
 						while (MenuStatkow == 1)
 						{
-							plansza p1;
+
 							ustawStakiMenu("gracz ", p1, 1);
 							if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
 								while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {}
@@ -803,33 +806,31 @@ void rysowanieMenu() {
 
 						}
 					}
-				}
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
-					while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {}
-					poziomTrudnosic = 3;
-					MenuStatkow = 1;
-					while (MenuStatkow == 1)
-					{
-						plansza p1;
 
-						ustawStakiMenu("gracz ", p1, 1);
-						if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
-							while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {}
-							MenuStatkow = 0;
+					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
+						while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {}
+						poziomTrudnosic = 3;
+						MenuStatkow = 1;
+						while (MenuStatkow == 1)
+						{
 
+
+							ustawStakiMenu("gracz ", p1, 1);
+							if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
+								while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {}
+								MenuStatkow = 0;
+
+							}
 						}
 					}
 				}
-
 			}
 
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
 				while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {}
-				if (!sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
 					PierwszeMenu = 2;
 					while (PierwszeMenu == 2)
 					{
-						plansza p1;
 
 						/*	gracz PierwszyGracz;
 							gracz DrugiGracz;*/
@@ -842,7 +843,7 @@ void rysowanieMenu() {
 							Sleep(250);
 						}
 					}
-				}
+				
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
 				window.clear();
