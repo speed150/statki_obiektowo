@@ -12,7 +12,7 @@ public:
 	friend void zeruj(plansza& p);
 	friend void ai(plansza& gracz, plansza& g1, int poziom);
 	friend void czysc(plansza& p);
-	friend void gra(plansza& p1, plansza& p2, plansza& p1w, plansza& p2w, gracz& g1, gracz& g2);
+	friend void gra(plansza& p1, plansza& p2, plansza& p1w, plansza& p2w, gracz& g1, gracz& g2,int Ai);
 	plansza();
 	friend void player(plansza& plan, plansza& planw, gracz& grac);
 };
@@ -23,7 +23,7 @@ class gracz
 	int punkty;
 public:
 	string nazwa;
-	friend void gra(plansza& p1, plansza& p2, plansza& p1w, plansza& p2w, gracz& g1, gracz& g2);
+	friend void gra(plansza& p1, plansza& p2, plansza& p1w, plansza& p2w, gracz& g1, gracz& g2,int Ai);
 	gracz();
 	friend void player(plansza& plan, plansza& planw, gracz& gra);
 };
@@ -41,7 +41,8 @@ void przypisyDoPlanszy();
 
 void gra(plansza& p1, plansza& p2, plansza& p1w, plansza& p2w, gracz& g1, gracz& g2);
 
-void ustawStakiMenu(string nazwaGracza, plansza& p1, int iloscGraczyDoUtworzenia);
+bool ustawStakiMenu(string nazwaGracza, plansza& p1, int iloscGraczyDoUtworzenia);
 std::string wyborPola(string nazwaGracza, bool czyUstawiane, plansza pl);
 int numerPola(plansza pl);
 void player(plansza& plan, plansza& planw, gracz& grac);
+void gra(plansza& p1, plansza& p2, plansza& p1w, plansza& p2w, gracz& g1, gracz& g2,int Ai);
