@@ -332,7 +332,7 @@ int numerPola(plansza pl) {
 }
 
 std::string wyborPola(string nazwaGracza, bool czyUstawiane, plansza pl) {
-	komunikat("wybierz kolumne od A do I", 0, 0);
+	komunikat("wybierz kolumne od A do J", 0, 0);
 	//window.clear();
 	//window.display();
 	string pole{};
@@ -359,7 +359,7 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane, plansza pl) {
 
 
 	while (pole.length() < 2) {
-		komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak", 0, 0);
+		komunikat("wybierz kolumne od A do J enter aby przejść dalej backspace aby usunąć znak", 0, 0);
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {}
@@ -373,7 +373,7 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane, plansza pl) {
 			window.draw(playerText);
 			window.display();
 
-			komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak", 0, 0);
+			komunikat("wybierz kolumne od A do J enter aby przejść dalej backspace aby usunąć znak", 0, 0);
 			window.clear();
 			rysowanie_planszy();
 			rysowanieStatkow(pl, pl);
@@ -397,7 +397,7 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane, plansza pl) {
 			window.display();
 			window.clear();
 			window.display();
-			komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak", 0, 0);
+			komunikat("wybierz kolumne od A do J enter aby przejść dalej backspace aby usunąć znak", 0, 0);
 			window.clear();
 			rysowanie_planszy();
 			rysowanieStatkow(pl, pl);
@@ -420,7 +420,7 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane, plansza pl) {
 	
 			
 
-			komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak", 0, 0);
+			komunikat("wybierz kolumne od A do J enter aby przejść dalej backspace aby usunąć znak", 0, 0);
 			window.clear();
 			rysowanie_planszy();
 			rysowanieStatkow(pl, pl);
@@ -448,7 +448,7 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane, plansza pl) {
 			window.draw(playerText);
 			window.display();
 			
-			komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak", 0, 0);
+			komunikat("wybierz kolumne od A do J enter aby przejść dalej backspace aby usunąć znak", 0, 0);
 			window.clear();
 			rysowanie_planszy();
 			rysowanieStatkow(pl, pl);
@@ -473,7 +473,7 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane, plansza pl) {
 			window.display();
 			window.clear();
 			window.display();
-			komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak", 0, 0);
+			komunikat("wybierz kolumne od A do J enter aby przejść dalej backspace aby usunąć znak", 0, 0);
 			window.clear();
 			rysowanie_planszy();
 			rysowanieStatkow(pl, pl);
@@ -500,7 +500,7 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane, plansza pl) {
 			window.draw(playerText);
 			window.display();
 
-			komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak", 0, 0);
+			komunikat("wybierz kolumne od A do J enter aby przejść dalej backspace aby usunąć znak", 0, 0);
 			window.clear();
 			rysowanie_planszy();
 			rysowanieStatkow(pl, pl);
@@ -528,7 +528,7 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane, plansza pl) {
 			window.draw(playerText);
 			window.display();
 
-			komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak", 0, 0);
+			komunikat("wybierz kolumne od A do J enter aby przejść dalej backspace aby usunąć znak", 0, 0);
 			window.clear();
 			rysowanie_planszy();
 			rysowanieStatkow(pl, pl);
@@ -551,7 +551,7 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane, plansza pl) {
 			window.display();
 			window.clear();
 			window.display();
-			komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak", 0, 0);
+			komunikat("wybierz kolumne od A do J enter aby przejść dalej backspace aby usunąć znak", 0, 0);
 			window.clear();
 			rysowanie_planszy();
 			rysowanieStatkow(pl, pl);
@@ -576,7 +576,7 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane, plansza pl) {
 			window.display();
 			window.clear();
 			window.display();
-			komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak", 0, 0);
+			komunikat("wybierz kolumne od A do J enter aby przejść dalej backspace aby usunąć znak", 0, 0);
 			window.clear();
 			rysowanie_planszy();
 			rysowanieStatkow(pl, pl);
@@ -599,7 +599,7 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane, plansza pl) {
 			window.display();
 			window.clear();
 			window.display();
-			komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak", 0, 0);
+			komunikat("wybierz kolumne od A do J enter aby przejść dalej backspace aby usunąć znak", 0, 0);
 			window.clear();
 			rysowanie_planszy();
 			rysowanieStatkow(pl, pl);
@@ -615,7 +615,7 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane, plansza pl) {
 
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
-			komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak", 0, 0);
+			komunikat("wybierz kolumne od A do J enter aby przejść dalej backspace aby usunąć znak", 0, 0);
 
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {}
 			return pole;
@@ -627,7 +627,7 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane, plansza pl) {
 			window.display();
 			window.clear();
 			window.display();
-			komunikat("wybierz kolumne od A do I enter aby przejść dalej backspace aby usunąć znak", 0, 0);
+			komunikat("wybierz kolumne od A do J enter aby przejść dalej backspace aby usunąć znak", 0, 0);
 			window.clear();
 			rysowanie_planszy();
 			rysowanieStatkow(pl, pl);
