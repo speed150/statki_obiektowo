@@ -221,7 +221,7 @@ void ai(plansza& gracz, plansza& g1, int poziom) {
 	rysowanieStatkow(gracz, g1);
 }
 void player(plansza& plan, plansza& planw, gracz& grac) {//plansza niewidoczna(sprawdzana),plansza widoczna,gracz
-	char pozycja[3]{};
+	
 	bool hit{ 1 }, pp{ 0 };
 	int px{ 0 }, py{ 0 };
 	while (hit == 1) {
@@ -229,8 +229,8 @@ void player(plansza& plan, plansza& planw, gracz& grac) {//plansza niewidoczna(s
 			hit = 0;
 		}
 		else {
-			cin.clear();
-			cout << "wybierz pole";
+			//cin.clear();
+			//cout << "wybierz pole";
 			komunikat("wybierz pole", 100, 100);
 			//cin >> pozycja;
 
@@ -256,8 +256,8 @@ void player(plansza& plan, plansza& planw, gracz& grac) {//plansza niewidoczna(s
 			if (planw.board[px][py] == 0) {
 				if (plan.board[px][py] != 0) {
 					planw.board[px][py] = 5;
-					cout << "trafiono " << plan.board[px][py] << ".masztowiec" << endl;
-					komunikat("trafiono" + to_string(plan.board[px][py]) + "masztowiec", 90, 90);
+					//cout << "trafiono " << plan.board[px][py] << ".masztowiec" << endl;
+					komunikat("trafiono " + to_string(plan.board[px][py]) + "masztowiec", 90, 90);
 					grac.punkty++;
 					rysowanie_planszy();
 					rysowanieStatkow(plan, planw);
@@ -273,7 +273,7 @@ void player(plansza& plan, plansza& planw, gracz& grac) {//plansza niewidoczna(s
 				}
 			}
 			else {
-				cout << "już sprawdzałeś to pole";
+				//cout << "już sprawdzałeś to pole";
 				komunikat("już sprawdzałeś to pole", 60, 60);
 			}
 		}

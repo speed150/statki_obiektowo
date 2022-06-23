@@ -100,7 +100,7 @@ int numerPola(plansza pl) {
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {}
-
+		//	window.clear();
 			window.draw(kwarat);
 			window.display();
 			window.clear();
@@ -120,13 +120,13 @@ int numerPola(plansza pl) {
 			playerText.setString(playerInput);
 			window.draw(playerText);
 			window.display();
-
+			
 
 
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {}
-
+		//	window.clear();
 			window.draw(kwarat);
 			window.display();
 			window.clear();
@@ -146,11 +146,11 @@ int numerPola(plansza pl) {
 			playerText.setString(playerInput);
 			window.draw(playerText);
 			window.display();
-
+			
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {}
-
+		//	window.clear();
 			window.draw(kwarat);
 			window.display();
 			window.clear();
@@ -170,13 +170,13 @@ int numerPola(plansza pl) {
 			playerText.setString(playerInput);
 			window.draw(playerText);
 			window.display();
-
+			
 
 
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num4)) {
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num4)) {}
-
+		//	window.clear();
 			window.draw(kwarat);
 			window.display();
 			window.clear();
@@ -201,7 +201,7 @@ int numerPola(plansza pl) {
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num5)) {
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num5)) {}
-
+		//	window.clear();
 			window.draw(kwarat);
 			window.display();
 			window.clear();
@@ -221,11 +221,11 @@ int numerPola(plansza pl) {
 			playerText.setString(playerInput);
 			window.draw(playerText);
 			window.display();
-
+			
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num6)) {
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num6)) {}
-
+	//		window.clear();
 			window.draw(kwarat);
 			window.display();
 			window.clear();
@@ -273,6 +273,7 @@ int numerPola(plansza pl) {
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num8)) {
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num8)) {}
+	//		window.clear();
 			window.draw(kwarat);
 			window.display();
 			window.clear();
@@ -297,6 +298,7 @@ int numerPola(plansza pl) {
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num9)) {
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num9)) {}
+	//		window.clear();
 			window.draw(kwarat);
 			window.display();
 			window.clear();
@@ -331,8 +333,8 @@ int numerPola(plansza pl) {
 
 std::string wyborPola(string nazwaGracza, bool czyUstawiane, plansza pl) {
 	komunikat("wybierz kolumne od A do I", 0, 0);
-	window.clear();
-	window.display();
+	//window.clear();
+	//window.display();
 	string pole{};
 	sf::String playerInput{};
 	sf::Text playerText{};
@@ -389,7 +391,8 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane, plansza pl) {
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {}
-
+	//		window.clear();
+			
 			window.draw(kwarat);
 			window.display();
 			window.clear();
@@ -411,7 +414,7 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane, plansza pl) {
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::C)) {
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::C)) {}
-
+			
 			window.draw(kwarat);
 			window.display();
 	
@@ -434,7 +437,6 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane, plansza pl) {
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {}
-
 
 			window.draw(kwarat);
 			window.display();
@@ -466,7 +468,7 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane, plansza pl) {
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::E)) {
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::E)) {}
 
-
+	//		window.clear();
 			window.draw(kwarat);
 			window.display();
 			window.clear();
@@ -488,7 +490,6 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane, plansza pl) {
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::F)) {
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::F)) {}
-
 			window.draw(kwarat);
 			window.display();
 			window.clear();
@@ -506,11 +507,11 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane, plansza pl) {
 			playerText.setString(playerInput);
 			window.draw(playerText);
 			window.display();
+			window.clear();
 
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::G)) {
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::G)) {}
-
 			window.draw(kwarat);
 			window.display();
 			window.clear();
@@ -528,12 +529,12 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane, plansza pl) {
 			playerText.setString(playerInput);
 			window.draw(playerText);
 			window.display();
-
+			window.clear();
 
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::H)) {
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::H)) {}
-
+			
 			window.draw(kwarat);
 			window.display();
 			window.clear();
@@ -556,6 +557,7 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane, plansza pl) {
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::I)) {
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::I)) {}
+			;
 			window.draw(kwarat);
 
 			window.draw(kwarat);
@@ -580,7 +582,7 @@ std::string wyborPola(string nazwaGracza, bool czyUstawiane, plansza pl) {
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::J)) {
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::J)) {}
-
+			
 			window.draw(kwarat);
 			window.display();
 			window.clear();
@@ -730,6 +732,8 @@ void przypisyDoPlanszy() {
 
 }
 void rysowanie_planszy() {
+	
+	
 
 	planszaStatkiGracz1.setSize(sf::Vector2f(rozmiarPlanszy, rozmiarPlanszy));
 	planszaStatkiGracz1.setFillColor(sf::Color::Green);
@@ -831,6 +835,7 @@ void rysowanieStatkow(plansza p1, plansza p2) {
 	window.display();
 }
 void rysowanieMenu() {
+	plansza p1,p1w,p2,p2w;
 	while (window.isOpen())
 	{
 
@@ -908,7 +913,7 @@ void rysowanieMenu() {
 						poziomTrudnosic = 1;
 						while (MenuStatkow == 1)
 						{
-							plansza p1;
+
 							ustawStakiMenu("gracz ", p1, 1);
 							if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
 								while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {}
@@ -932,33 +937,31 @@ void rysowanieMenu() {
 
 						}
 					}
-				}
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
-					while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {}
-					poziomTrudnosic = 3;
-					MenuStatkow = 1;
-					while (MenuStatkow == 1)
-					{
-						plansza p1;
 
-						ustawStakiMenu("gracz ", p1, 1);
-						if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
-							while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {}
-							MenuStatkow = 0;
+					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
+						while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {}
+						poziomTrudnosic = 3;
+						MenuStatkow = 1;
+						while (MenuStatkow == 1)
+						{
 
+
+							ustawStakiMenu("gracz ", p1, 1);
+							if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
+								while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {}
+								MenuStatkow = 0;
+
+							}
 						}
 					}
 				}
-
 			}
 
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
 				while (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {}
-				if (!sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
 					PierwszeMenu = 2;
 					while (PierwszeMenu == 2)
 					{
-						plansza p1;
 
 						/*	gracz PierwszyGracz;
 							gracz DrugiGracz;*/
@@ -971,7 +974,7 @@ void rysowanieMenu() {
 							Sleep(250);
 						}
 					}
-				}
+				
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
 				window.clear();
