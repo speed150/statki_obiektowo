@@ -1,7 +1,7 @@
 #define NOMINMAX
 
 #include "klasy.h"
-#include "SFML/Graphics.hpp"
+//#include "SFML/Graphics.hpp"
 
 #include <iostream>
 #include <random>
@@ -45,17 +45,65 @@ void czysc(plansza& p) {
 		}
 	}
 }
-void wypisz(plansza pl) {
+void wypisz(plansza pl,plansza p2) {
+	int a = 0;
+	char litery[12]{ " ABCDEFGHIJ" };
+	int liczby[10]{ 1,2,3,4,5,6,7,8,9,10 };
 	for (int a = 0; a < 10; a++) {
-		for (int b = 0; b < 10; b++) {
-			//cout << pl.board[a][b] << " ";
+		if (a == 0) {
+			for (int k = 0; k < 12; k++) {
+				cout.width(3);
+				cout << litery[k];
+			}
+			cout << "\t|\t";
 		}
-		//cout << endl;
+
+		if (a == 0) {
+			for (int k = 0; k < 12; k++) {
+				cout.width(3);
+				cout << litery[k];
+			}
+			cout << endl;
+		}
+		for (int j = 0; j < 10; j++) {
+			if (j == 0) {
+				cout.width(3);
+				cout << a + 1;
+			}
+			cout.width(3);
+			if (pl.board[a][j] == 0)
+				cout << " ";
+			else if (pl.board[a][j] == -1)
+				cout << "O";
+			else if (pl.board[a][j] == 5)
+				cout << "X";
+			else
+				cout << pl.board[a][j];
+		}
+		cout << "\t|\t";
+
+		for (int j = 0; j < 10; j++) {
+			if (j == 0) {
+				cout.width(3);
+				cout << a + 1;
+			}
+			cout.width(3);
+			if (p2.board[a][j] == 0)
+				cout << " ";
+			else if (p2.board[a][j] == -1)
+				cout << "O";
+			else if (p2.board[a][j] == 5)
+				cout << "X";
+			else
+				cout << p2.board[a][j];
+		}
+		cout << endl;
 	}
-	//cout << endl;
+	cout << endl;
 
 
 }
+
 void ustaw_statki(plansza& p1, int rodzaj) {
 	//rysowanieMenu();
 	plansza zero;
@@ -200,9 +248,7 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 			}
 		} while (ilosc != 10);
 		
-		przypisyDoPlanszy();
-		rysowanie_planszy();
-		rysowanieStatkow(p1, zero);
+		
 		zeruj(p1);
 	}
 	else {//przez gracza
@@ -219,22 +265,7 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 				for (int pow = 5; pow > dlugosc; pow--) {//powtórzenie statku
 					dust = 0;
 					while (dust == 0) {
-						//cin.clear();
-						string wiadomosc = "ustaw" + to_string(dlugosc) + ".masztowiec";
-
-
-						komunikat(wiadomosc, 40, 120);
-						//wypisz(p1);
-
-
-
-						pozycja = wyborPola("gracz", true, p1);
-						komunikat("wybierz kolumne", 100, 190);
-
-						wiersz = numerPola(p1);
-						rysowanie_planszy();
-
-						rysowanieStatkow(p1, zero);
+						
 						//cin >> pozycja;
 						if (pozycja[0] <= 'J' && pozycja[0] >= 'A') {
 							kolumna = pozycja[0] - 'A';
@@ -257,10 +288,10 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 								else {
 									//cin.clear();
 									//cout << "wybierz kierunek 1lewo 2 góra 3 prawo 4 dol";
-									komunikat("wybierz kierunek 1lewo 2 góra 3 prawo 4 dol", 110, 50);
+								
 									//kierunek = stoi(wyborPola("gracz", false));
 									//int a= numerPola();
-									kierunek = numerPola(p1);
+									
 									kierunek -= 1;
 									//string a = pozycja.substr(0, 1);
 
@@ -268,7 +299,7 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 									switch (kierunek)
 									{
 									default:
-										komunikat("nie ma takiego kierunku", 250, 50);
+										
 										break;
 									case 0:
 										if (kolumna - dlugosc + 1 >= 0) {
@@ -292,13 +323,13 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 
 
 												dobre_pole = 1;
-												komunikat("zły kierunek", 400, 70);
+											
 											}
 										}
 										else
 										{
 											//cout << "z³e pole" << endl;
-											komunikat("złe pole", 350, 140);
+											
 
 											dobre_pole = 1;
 										}
@@ -321,14 +352,12 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 
 											dobre_pole = 1;
 											//cout << "zly kierunek" << endl;
-											komunikat("zły kierunek", 400, 70);
-
+											
 										}
 
 										else
 										{
 											//cout << "z³e pole" << endl;
-											komunikat("zły pole", 350, 140);
 
 											dobre_pole = 1;
 										}
@@ -351,14 +380,12 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 											else {
 												dobre_pole = 1;
 												//cout << "zly kierunek" << endl;
-												komunikat("zły kierunku", 400, 70);
 
 											}
 										}
 										else
 										{
 											//cout << "z³e pole" << endl;
-											komunikat("zły pole", 350, 140);
 
 											dobre_pole = 1;
 										}
@@ -381,14 +408,12 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 											else {
 												dobre_pole = 1;
 												//cout << "zly kierunek" << endl;
-												komunikat("zły kierunku", 400, 70);
 
 											}
 										}
 										else
 										{
 											//cout << "z³e pole" << endl;
-											komunikat("zły pole", 350, 140);
 
 											dobre_pole = 1;
 										}
@@ -399,7 +424,6 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 						}
 						else {
 							//cout << "zle pole" << endl;
-							komunikat("zły pole", 350, 140);
 
 						}
 
