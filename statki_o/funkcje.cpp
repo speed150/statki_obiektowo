@@ -111,6 +111,7 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 	bool dust = 0;//dobrze ustawiony statek
 	int wiersz, kolumna, kierunek;
 	int dobre_pole = 1;
+	czysc(p1);
 	if (rodzaj == 1) {// automatycznie
 		mt19937 generator(time(nullptr));
 		uniform_int_distribution<int> x(0, 9);//wiersz
@@ -254,8 +255,9 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 	else {//przez gracza
 
 		string pozycja{};
-		char poz{};
+		char poz[3]{};
 		int kierunek{};
+		char wier[1]{};
 		ilosc = 0;
 		bool dane{ 1 };
 		bool dkier = 0;
@@ -265,16 +267,29 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 				for (int pow = 5; pow > dlugosc; pow--) {//powtórzenie statku
 					dust = 0;
 					while (dust == 0) {
+						cout << "podaj pozycje" << endl;
+						wypisz(p1,p1);
+						cin >> poz;
 						
-						//cin >> pozycja;
-						if (pozycja[0] <= 'J' && pozycja[0] >= 'A') {
-							kolumna = pozycja[0] - 'A';
+						if (poz[0] <= 'J' && poz[0] >= 'A') {
+							kolumna = poz[0] - 'A';
 						}
 						else {
-							kolumna = pozycja[0] - 'a';
+							kolumna = poz[0] - 'a';
 						}
 						//stirng a = pozycja.substr(1, 1);
+						//cout << poz[1];
+						wier[0] = poz[1];
+						if (atoi(wier) <= 9 && atoi(wier) >= 0) {
+							wiersz = atoi(wier);
+						}
+						else
+						{
+							continue;
+						} 
 
+						
+						//cout << wiersz;
 
 						dkier = 0;
 						cin.clear();
@@ -286,9 +301,9 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 									dust = 1;
 								}
 								else {
-									//cin.clear();
-									//cout << "wybierz kierunek 1lewo 2 góra 3 prawo 4 dol";
-								
+									cin.clear();
+									cout << "wybierz kierunek 1lewo 2 góra 3 prawo 4 dol";
+									cin >> kierunek;
 									//kierunek = stoi(wyborPola("gracz", false));
 									//int a= numerPola();
 									
@@ -299,7 +314,7 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 									switch (kierunek)
 									{
 									default:
-										
+										cout << "zły kieruenek" << endl;
 										break;
 									case 0:
 										if (kolumna - dlugosc + 1 >= 0) {
@@ -320,6 +335,8 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 
 											else
 											{
+												cout << "zly kierunek" << endl;
+
 
 
 												dobre_pole = 1;
@@ -328,7 +345,7 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 										}
 										else
 										{
-											//cout << "z³e pole" << endl;
+											cout << "z³e pole" << endl;
 											
 
 											dobre_pole = 1;
@@ -351,13 +368,13 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 											}
 
 											dobre_pole = 1;
-											//cout << "zly kierunek" << endl;
+											cout << "zly kierunek" << endl;
 											
 										}
 
 										else
 										{
-											//cout << "z³e pole" << endl;
+											cout << "z³e pole" << endl;
 
 											dobre_pole = 1;
 										}
@@ -379,13 +396,13 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 											}
 											else {
 												dobre_pole = 1;
-												//cout << "zly kierunek" << endl;
+												cout << "zly kierunek" << endl;
 
 											}
 										}
 										else
 										{
-											//cout << "z³e pole" << endl;
+											cout << "z³e pole" << endl;
 
 											dobre_pole = 1;
 										}
@@ -407,23 +424,27 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 											}
 											else {
 												dobre_pole = 1;
-												//cout << "zly kierunek" << endl;
+												cout << "zly kierunek" << endl;
 
 											}
 										}
 										else
 										{
-											//cout << "z³e pole" << endl;
+											cout << "z³e pole" << endl;
 
 											dobre_pole = 1;
 										}
 										break;
 									}
+									wypisz(p1, p1);
 								}
 							}
+						else {
+						cout << "zajente pole" << endl;
+						}
 						}
 						else {
-							//cout << "zle pole" << endl;
+							cout << "zle pole" << endl;
 
 						}
 

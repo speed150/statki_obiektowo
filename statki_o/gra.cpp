@@ -54,6 +54,7 @@ void ai(plansza& gracz, plansza& g1, int poziom) {
 							g1.board[hitx][hity - 1] = -1;
 							k0 = true;
 							hit = false;
+							//return;
 
 						}
 						else {//trafienie
@@ -220,12 +221,14 @@ void player(plansza& plan, plansza& planw, gracz& grac) {//plansza niewidoczna(s
 	bool hit{ 1 }, pp{ 0 };
 	int px{ 0 }, py{ 0 };
 	while (hit == 1) {
+		
 		if (grac.punkty == 20) {
 			hit = 0;
 		}
 		else {
-			cin.clear();
-			cout << "wybierz pole";
+			wypisz(plan, planw);
+			std::cin.clear();
+			std::cout << "\nwybierz pole"<<endl;
 			cin >> poleLitera;
 
 			if (poleLitera[0] <= 'j' && poleLitera[0] >= 'a') {
@@ -235,13 +238,13 @@ void player(plansza& plan, plansza& planw, gracz& grac) {//plansza niewidoczna(s
 				py = poleLitera[0] - 'A';
 			}
 			else {
-				cout << "nie ma takiego pola";
+				cout << "nie ma takiego pola" << endl;;
 			}
 			if (atoi(poleLitera + 1) - 1 <= 9 && atoi(poleLitera + 1) - 1 >= 0) {
 				px = atoi(poleLitera + 1) - 1;
 			}
 			else {
-				cout << "nie ma takiego pola";
+				cout << "nie ma takiego pola"<<endl;
 			}
 			if (planw.board[px][py] == 0) {
 				if (plan.board[px][py] != 0) {
@@ -253,15 +256,15 @@ void player(plansza& plan, plansza& planw, gracz& grac) {//plansza niewidoczna(s
 				}
 				else {
 					planw.board[px][py] = -1;
-					cout << "pudło";
-				
+					cout << "pudło" << endl;
+					//return;
 
 					hit = 0;
 					
 				}
 			}
 			else {
-				cout << "już sprawdzałeś to pole";
+				cout << "już sprawdzałeś to pole"<<endl;
 			
 			}
 		}
@@ -273,6 +276,7 @@ void gra(plansza& p1, plansza& p2, plansza& p1w, plansza& p2w, gracz& g1, gracz&
 			player(p2, p2w, g1);
 			ai(p1, p1w, Ai);
 			g2.punkty = trafienia;
+			wypisz(p1, p1w);
 		}
 		if (g1.punkty == 20) {
 		}
@@ -283,7 +287,11 @@ void gra(plansza& p1, plansza& p2, plansza& p1w, plansza& p2w, gracz& g1, gracz&
 	if (Ai==0) {
 		while (g1.punkty != 20 || g2.punkty != 20) {
 			player(p2, p2w, g1);
+			wypisz(p1, p1w);
+
 			player(p1, p1w, g2);
+			wypisz(p1, p1w);
+
 		}
 		if (g1.punkty == 20) {
 			
@@ -322,7 +330,7 @@ void menu() {
 		cin >> a;
 		m1 = atoi(a);
 		if (m1 > 3 || m1 < 1) {
-			cout << "podales zla liczbe";
+			cout << "podales zla liczbe"<<endl;
 			Sleep(500);
 			
 		}
@@ -348,7 +356,7 @@ void menu() {
 					war2 = 0;
 				}
 				else {
-					cout << "podales zla liczbe";
+					cout << "podales zla liczbe"<<endl;
 					Sleep(500);
 				}
 				//prawidłowo wybrano poziom
@@ -380,7 +388,7 @@ void menu() {
 							war2 = 0;
 						}
 						else {
-							cout << "podales zla liczbe";
+							cout << "podales zla liczbe" << endl;
 							Sleep(500);
 						}
 					}
@@ -408,7 +416,7 @@ void menu() {
 					war1 = 0;
 				}
 				else {
-					cout << "podales zla liczbe";
+					cout << "podales zla liczbe"<<endl;
 				}
 				if (war1 == 1) {
 					system("cls");
@@ -433,7 +441,7 @@ void menu() {
 						war2 = 0;
 					}
 					else {
-						cout << "podales zla liczbe";
+						cout << "podales zla liczbe"<<endl;
 					}
 				}
 			} while (m2 != 3);
