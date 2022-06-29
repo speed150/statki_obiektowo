@@ -250,7 +250,7 @@ void player(plansza& g1,plansza& plan, plansza& planw, gracz& grac) {//plansza n
 					planw.board[px][py] = 5;
 					system("cls");
 					cout << "trafiono " << plan.board[px][py] << ".masztowiec" << endl;
-					wypisz(planw, plan);
+					wypisz(g1,planw);
 					
 					grac.punkty++;
 					hit = 1;
