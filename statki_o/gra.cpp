@@ -54,7 +54,6 @@ void ai(plansza& gracz, plansza& g1, int poziom) {
 							g1.board[hitx][hity - 1] = -1;
 							k0 = true;
 							hit = false;
-							//return;
 
 						}
 						else {//trafienie
@@ -216,19 +215,19 @@ void ai(plansza& gracz, plansza& g1, int poziom) {
 	}
 
 }
-void player(plansza& plan, plansza& planw, gracz& grac) {//plansza niewidoczna(sprawdzana),plansza widoczna,gracz
+void player(plansza& g1,plansza& plan, plansza& planw, gracz& grac) {//plansza niewidoczna(sprawdzana),plansza widoczna,gracz
 	char poleLitera[3]{};
 	bool hit{ 1 }, pp{ 0 };
 	int px{ 0 }, py{ 0 };
+
+	wypisz(g1, planw);
 	while (hit == 1) {
-		
 		if (grac.punkty == 20) {
 			hit = 0;
 		}
 		else {
-			wypisz(plan, planw);
-			std::cin.clear();
-			std::cout << "\nwybierz pole"<<endl;
+			cin.clear();
+			cout << "wybierz pole"<<endl;
 			cin >> poleLitera;
 
 			if (poleLitera[0] <= 'j' && poleLitera[0] >= 'a') {
@@ -238,26 +237,29 @@ void player(plansza& plan, plansza& planw, gracz& grac) {//plansza niewidoczna(s
 				py = poleLitera[0] - 'A';
 			}
 			else {
-				cout << "nie ma takiego pola" << endl;;
+				cout << "nie ma takiego pola";
 			}
 			if (atoi(poleLitera + 1) - 1 <= 9 && atoi(poleLitera + 1) - 1 >= 0) {
 				px = atoi(poleLitera + 1) - 1;
 			}
 			else {
-				cout << "nie ma takiego pola"<<endl;
+				cout << "nie ma takiego pola";
 			}
 			if (planw.board[px][py] == 0) {
 				if (plan.board[px][py] != 0) {
 					planw.board[px][py] = 5;
+					system("cls");
 					cout << "trafiono " << plan.board[px][py] << ".masztowiec" << endl;
+					wypisz(planw, plan);
 					
 					grac.punkty++;
+					hit = 1;
 				
 				}
 				else {
 					planw.board[px][py] = -1;
-					cout << "pudło" << endl;
-					//return;
+					cout << "pudło"<<endl;
+				
 
 					hit = 0;
 					
@@ -273,10 +275,9 @@ void player(plansza& plan, plansza& planw, gracz& grac) {//plansza niewidoczna(s
 void gra(plansza& p1, plansza& p2, plansza& p1w, plansza& p2w, gracz& g1, gracz& g2,int Ai) {
 	if (Ai !=0) {
 		while (g1.punkty != 20 || g2.punkty != 20) {
-			player(p2, p2w, g1);
+			player(p1,p2, p2w, g1);
 			ai(p1, p1w, Ai);
 			g2.punkty = trafienia;
-			wypisz(p1, p1w);
 		}
 		if (g1.punkty == 20) {
 		}
@@ -286,12 +287,8 @@ void gra(plansza& p1, plansza& p2, plansza& p1w, plansza& p2w, gracz& g1, gracz&
 	}
 	if (Ai==0) {
 		while (g1.punkty != 20 || g2.punkty != 20) {
-			player(p2, p2w, g1);
-			wypisz(p1, p1w);
-
-			player(p1, p1w, g2);
-			wypisz(p1, p1w);
-
+			player(p1,p2, p2w, g1);
+			player(p2,p1, p1w, g2);
 		}
 		if (g1.punkty == 20) {
 			
@@ -330,7 +327,7 @@ void menu() {
 		cin >> a;
 		m1 = atoi(a);
 		if (m1 > 3 || m1 < 1) {
-			cout << "podales zla liczbe"<<endl;
+			cout << "podales zla liczbe";
 			Sleep(500);
 			
 		}
@@ -356,7 +353,7 @@ void menu() {
 					war2 = 0;
 				}
 				else {
-					cout << "podales zla liczbe"<<endl;
+					cout << "podales zla liczbe";
 					Sleep(500);
 				}
 				//prawidłowo wybrano poziom
@@ -388,7 +385,7 @@ void menu() {
 							war2 = 0;
 						}
 						else {
-							cout << "podales zla liczbe" << endl;
+							cout << "podales zla liczbe";
 							Sleep(500);
 						}
 					}
@@ -416,7 +413,7 @@ void menu() {
 					war1 = 0;
 				}
 				else {
-					cout << "podales zla liczbe"<<endl;
+					cout << "podales zla liczbe";
 				}
 				if (war1 == 1) {
 					system("cls");
@@ -441,7 +438,7 @@ void menu() {
 						war2 = 0;
 					}
 					else {
-						cout << "podales zla liczbe"<<endl;
+						cout << "podales zla liczbe";
 					}
 				}
 			} while (m2 != 3);
@@ -451,7 +448,7 @@ void menu() {
 		if (war1 == 1 && war2 == 1) {
 			if (bot == 1) {
 				while (g1.punkty != 20 || g2.punkty != 20) {
-					player(gr2, gracz2widoczne, g1);
+					player(gr1,gr2, gracz2widoczne, g1);
 					ai(gr1, gracz1widoczne, poziom);
 					g2.punkty = trafienia;
 				}
@@ -470,8 +467,8 @@ void menu() {
 			}
 			else {
 				while (g1.punkty != 20 || g2.punkty != 20) {
-					player(gr2, gracz2widoczne, g1);
-					player(gr1, gracz2widoczne, g2);
+					player(gr1,gr2, gracz2widoczne, g1);
+					player(gr2,gr1, gracz2widoczne, g2);
 				}
 				if (g1.punkty == 20) {
 					cout << "wygral gracz 1" << endl;

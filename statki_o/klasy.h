@@ -14,7 +14,7 @@ public:
 	friend void czysc(plansza& p);
 	friend void gra(plansza& p1, plansza& p2, plansza& p1w, plansza& p2w, gracz& g1, gracz& g2,int Ai);
 	plansza();
-	friend void player(plansza& plan, plansza& planw, gracz& grac);
+	friend void player(plansza& g1, plansza& plan, plansza& planw, gracz& grac);
 	friend void menu();
 };
 
@@ -26,7 +26,7 @@ public:
 	string nazwa;
 	friend void gra(plansza& p1, plansza& p2, plansza& p1w, plansza& p2w, gracz& g1, gracz& g2,int Ai);
 	gracz();
-	friend void player(plansza& plan, plansza& planw, gracz& gra);
+	friend void player(plansza& g1, plansza& plan, plansza& planw, gracz& grac);
 	friend void menu();
 };
 
@@ -47,5 +47,5 @@ void menu();
 //bool ustawStakiMenu(string nazwaGracza, plansza& p1, int iloscGraczyDoUtworzenia);
 //std::string wyborPola(string nazwaGracza, bool czyUstawiane, plansza pl);
 //int numerPola(plansza pl);
-void player(plansza& plan, plansza& planw, gracz& grac);
+void player(plansza& g1, plansza& plan, plansza& planw, gracz& grac);
 void gra(plansza& p1, plansza& p2, plansza& p1w, plansza& p2w, gracz& g1, gracz& g2,int Ai);

@@ -254,7 +254,6 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 	}
 	else {//przez gracza
 
-		string pozycja{};
 		char poz[3]{};
 		int kierunek{};
 		char wier[1]{};
@@ -280,8 +279,8 @@ void ustaw_statki(plansza& p1, int rodzaj) {
 						//stirng a = pozycja.substr(1, 1);
 						//cout << poz[1];
 						wier[0] = poz[1];
-						if (atoi(wier) <= 9 && atoi(wier) >= 0) {
-							wiersz = atoi(wier);
+						if (atoi(poz+1)-1 <= 9 && atoi(poz+1)-1 >= 0) {
+							wiersz = atoi(poz+1)-1;
 						}
 						else
 						{
