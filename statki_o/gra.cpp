@@ -219,7 +219,8 @@ void player(plansza& g1,plansza& plan, plansza& planw, gracz& grac) {//plansza n
 	char poleLitera[3]{};
 	bool hit{ 1 }, pp{ 0 };
 	int px{ 0 }, py{ 0 };
-
+	system("cls");
+	cout << grac.nazwa<<endl;
 	wypisz(g1, planw);
 	while (hit == 1) {
 		if (grac.punkty == 20) {
@@ -241,40 +242,44 @@ void player(plansza& g1,plansza& plan, plansza& planw, gracz& grac) {//plansza n
 			}
 			if (atoi(poleLitera + 1) - 1 <= 9 && atoi(poleLitera + 1) - 1 >= 0) {
 				px = atoi(poleLitera + 1) - 1;
-			}
-			else {
-				cout << "nie ma takiego pola";
-			}
-			if (planw.board[px][py] == 0) {
-				if (plan.board[px][py] != 0) {
-					planw.board[px][py] = 5;
-					system("cls");
-					cout << "trafiono " << plan.board[px][py] << ".masztowiec" << endl;
-					wypisz(g1,planw);
-					
-					grac.punkty++;
-					hit = 1;
-				
+				if (planw.board[px][py] == 0) {
+					if (plan.board[px][py] != 0) {
+						planw.board[px][py] = 5;
+						system("cls");
+						cout << grac.nazwa << endl;
+						cout << "trafiono " << plan.board[px][py] << ".masztowiec" << endl;
+						wypisz(g1, planw);
+
+						grac.punkty++;
+						hit = 1;
+
+					}
+					else {
+						planw.board[px][py] = -1;
+						cout << "pudło" << endl;
+
+
+						hit = 0;
+
+					}
 				}
 				else {
-					planw.board[px][py] = -1;
-					cout << "pudło"<<endl;
-				
+					cout << "już sprawdzałeś to pole" << endl;
 
-					hit = 0;
-					
 				}
 			}
 			else {
-				cout << "już sprawdzałeś to pole"<<endl;
-			
+				cout << "nie ma takiego pola"<<endl;
 			}
+			
 		}
 	}
 }
 void gra(plansza& p1, plansza& p2, plansza& p1w, plansza& p2w, gracz& g1, gracz& g2,int Ai) {
+	
 	if (Ai !=0) {
 		while (g1.punkty != 20 || g2.punkty != 20) {
+			
 			player(p1,p2, p2w, g1);
 			ai(p1, p1w, Ai);
 			g2.punkty = trafienia;
@@ -311,6 +316,8 @@ void menu() {
 	char a[1]{};
 	plansza gr1, gr2, gracz1widoczne, gracz2widoczne;
 	gracz g1, g2;
+	g1.nazwa = "gracz 1";
+	g2.nazwa = "gracz 2";
 	do {
 		zeruj(gr1);
 		zeruj(gr2);
@@ -468,7 +475,7 @@ void menu() {
 			else {
 				while (g1.punkty != 20 || g2.punkty != 20) {
 					player(gr1,gr2, gracz2widoczne, g1);
-					player(gr2,gr1, gracz2widoczne, g2);
+					player(gr2,gr1, gracz1widoczne, g2);
 				}
 				if (g1.punkty == 20) {
 					cout << "wygral gracz 1" << endl;
