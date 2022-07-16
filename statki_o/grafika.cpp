@@ -1,4 +1,3 @@
-
 ﻿//#define NOMINMAX
 //#include "klasy.h"
 //#include "SFML/Graphics.hpp"
